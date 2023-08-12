@@ -28,11 +28,25 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.title_gilroy  {
+  font-family: 'Gilroy';
+  font-weight: 400;
 }
 
+.title_poppins  {
+  font-family: 'Poppins';
+  font-weight: 400;
+
+
+}
+
+
+.title_tajawal  {
+  font-family: 'Tajawal';
+  font-weight: 400;
+
+
+}
 .title a:hover,
 .title a:focus,
 .title a:active {
