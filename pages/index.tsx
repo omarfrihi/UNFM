@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>UNFM</title>
+        <title>UNFM APP</title>
         <meta name="description" content="unfm" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
