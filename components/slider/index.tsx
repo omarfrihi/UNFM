@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import Banner1 from "../../public/assets/banner1.gif";
+import Banner2 from "../../public/assets/banner2.png";
+
 import { Carousel } from "./styles";
 const Banner = () => {
   return (
@@ -11,15 +13,14 @@ const Banner = () => {
       showArrows={false}
       showStatus={false}
       infiniteLoop={true}
+      showIndicators={true}
+      dynamicHeight={true}
     >
       <div>
-        <Image src={Banner1} alt="banner1" />
+        <Image src={Banner2} alt="banner2" layout="responsive" />
       </div>
       <div>
-        <Image src={Banner1} alt="banner2" />
-      </div>
-      <div>
-        <Image src={Banner1} alt="banner3" />
+        <Image src={Banner1} alt="banner1" layout="responsive" />
       </div>
     </Carousel>
   );
