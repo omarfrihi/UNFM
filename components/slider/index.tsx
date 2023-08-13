@@ -17,10 +17,10 @@ const Banner = () => {
       dynamicHeight={true}
     >
       <div>
-        <Image src={Banner2} alt="banner2" layout="responsive" />
+        <Image src={Banner2} alt="banner2" layout="responsive" loading="lazy" />
       </div>
       <div>
-        <Image src={Banner1} alt="banner1" layout="responsive" />
+        <Image src={Banner1} alt="banner1" layout="responsive" loading="lazy" />
       </div>
     </Carousel>
   );
