@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { theme } from "../theme/axaEmotion";
+import { theme } from "../theme/emotion";
 import ThemeProvider from "./theme-provider";
 export const metadata: Metadata = {
   title: "Home",

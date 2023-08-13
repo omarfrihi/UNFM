@@ -1,3 +1,5 @@
+import { responsive } from "../styles/mixins";
+
 export const theme = {
   colors: {},
   fonts: {
@@ -5,4 +7,5 @@ export const theme = {
     GILROY: "Gilroy",
     POPPINS: "Poppins",
   },
+  responsive,
 };
