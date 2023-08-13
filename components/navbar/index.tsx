@@ -53,7 +53,7 @@ const Navbar = () => (
             {subMenu && (
               <SubMenu>
                 {subMenu.map((item) => (
-                  <SubItem>{item.title}</SubItem>
+                  <SubItem key={item.title}>{item.title}</SubItem>
                 ))}
               </SubMenu>
             )}
