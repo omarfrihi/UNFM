@@ -16,9 +16,11 @@ export const theme = {
   colors: {
     white: {
       100: "#FAFAFA",
+      200: "#FFFFFF",
+      300: "#cfcbca",
     },
     grey: { 100: "#666" },
-    green: { 100: "#409F6E" },
+    green: { 100: "#409F6E", 200: "#31DC84" },
   },
   fonts: {
     TAJAWAL: "Tajawal",

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  height: 3.125rem;
+  height: 2.725rem;
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white[100]};
