@@ -25,7 +25,7 @@ const Banner = () => {
       </div>
       <div>
         <Image
-          src={require("../../public/assets/banner2.png")}
+          src={require("../../public/assets/banner1.png")}
           alt="banner1"
           layout="responsive"
           loading="lazy"
