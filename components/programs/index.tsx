@@ -6,7 +6,6 @@ import {
   List,
   Slide,
   SlideWrapper,
-  Title,
   UnderLine,
   Wrapper,
 } from "./styles";
@@ -16,6 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useRef } from "react";
 import Image from "next/image";
+import Title from "../title";
 
 var settings = {
   infinite: true,

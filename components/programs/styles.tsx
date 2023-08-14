@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 
 export const Wrapper = styled.div`
-  padding: 4rem 6rem;
+  padding: 4rem 15%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,6 +63,7 @@ export const Slide = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 export const SlideWrapper = styled.div`
   padding: 1rem;

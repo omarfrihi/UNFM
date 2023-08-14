@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     linear-gradient(0deg, rgba(2, 48, 71, 0.1) 0%, rgba(2, 48, 71, 0.1) 100%),
     url("/assets/goals.png"), lightgray 50% / cover no-repeat;
   background-blend-mode: color, normal, normal;
-  padding: 4rem 8rem;
+  padding: 4rem 10%;
 `;
 
 export const Title = styled.h1`

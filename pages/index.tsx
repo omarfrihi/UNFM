@@ -6,6 +6,7 @@ import Goals from "../components/goals";
 import Numbers from "../components/numbers";
 import Programs from "../components/programs";
 import Slider from "../components/slider";
+import Tools from "../components/tools";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
       <Numbers />
       <Goals />
       <Programs />
+      <Tools />
     </>
   );
 };

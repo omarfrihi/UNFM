@@ -12,7 +12,7 @@ export const Box = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding: 8rem 10rem;
+  padding: 8rem 15%;
 `;
 
 export const ImgWrapper = styled.div`
