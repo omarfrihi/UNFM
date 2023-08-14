@@ -1,8 +1,12 @@
 import styled from "@emotion/styled";
-import { Carousel as ReactCarousel } from "react-responsive-carousel";
+import Slider from "react-slick";
 
-export const Carousel = styled(ReactCarousel)`
-  & .carousel-slider {
-    height: 35rem;
+export const Carousel = styled(Slider)`
+  & .slick-dots {
+    bottom: 1.5rem;
+  }
+  & .slick-list {
+    height: 50rem;
+    width: 100%;
   }
 `;

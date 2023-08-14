@@ -19,13 +19,16 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.white[200]};
   text-align: center;
   font-family: Gilroy;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  text-decoration: underline;
-  text-underline-offset: 12px;
-  text-decoration-thickness: 1px;
+  margin: 0.2rem;
+`;
+
+export const UnderLine = styled.div`
+  margin: 0rem 20%;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.white[200]};
 `;
 
 export const Card = styled.div`

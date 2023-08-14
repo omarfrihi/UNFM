@@ -4,6 +4,7 @@ import Image from "next/image";
 import Article from "../components/article";
 import Goals from "../components/goals";
 import Numbers from "../components/numbers";
+import Programs from "../components/programs";
 import Slider from "../components/slider";
 import styles from "../styles/Home.module.css";
 
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
       <Article />
       <Numbers />
       <Goals />
+      <Programs />
     </>
   );
 };

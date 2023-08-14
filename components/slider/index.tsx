@@ -1,18 +1,21 @@
 import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
 import { Carousel } from "./styles";
+var settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoPlay: true,
+  arrows: false,
+};
 const Banner = () => {
   return (
-    <Carousel
-      autoPlay
-      showArrows={false}
-      showStatus={false}
-      infiniteLoop={true}
-      showIndicators={true}
-      dynamicHeight={true}
-    >
+    <Carousel {...settings}>
       <div>
         <Image
           src={require("../../public/assets/banner2.png")}

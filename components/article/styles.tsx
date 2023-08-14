@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 5rem;
-  padding: 0rem 10rem 4rem 4rem;
+  padding: 4rem 10rem 4rem 4rem;
   border-radius: 0rem 0rem 0rem 16rem;
   background: linear-gradient(
     180deg,

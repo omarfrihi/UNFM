@@ -1,9 +1,19 @@
 import Image from "next/image";
-import { Card, CardsContainer, Content, Title, Wrapper } from "./styles";
+import {
+  Card,
+  CardsContainer,
+  Content,
+  Title,
+  UnderLine,
+  Wrapper,
+} from "./styles";
 
 const Goals = () => (
   <Wrapper>
-    <Title>Nos Objectifs</Title>
+    <div>
+      <Title>Nos Objectifs</Title>
+      <UnderLine />
+    </div>
     <CardsContainer>
       <Card>
         <Image
