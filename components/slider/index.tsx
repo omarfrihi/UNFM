@@ -29,7 +29,6 @@ const Banner = () => {
           alt="banner1"
           layout="responsive"
           loading="lazy"
-          placeholder="blur"
         />
       </div>
     </Carousel>

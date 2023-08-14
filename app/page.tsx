@@ -1,4 +1,5 @@
 import type { Metadata, NextPage } from "next";
+import Article from "../components/article";
 import Slider from "../components/slider";
 export const metadata: Metadata = {
   title: "Home",
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 const Home: NextPage = () => {
   return (
-    <Slider />
+    <>
+      <Slider />
+      <Article />
+    </>
+
     // <div className={styles.container}>
     //   <main className={styles.main}>
     //     <h1 className={styles.title_gilroy}>

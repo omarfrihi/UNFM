@@ -3,6 +3,6 @@ import { Carousel as ReactCarousel } from "react-responsive-carousel";
 
 export const Carousel = styled(ReactCarousel)`
   & .carousel-slider {
-    height: 40rem;
+    height: 35rem;
   }
 `;
