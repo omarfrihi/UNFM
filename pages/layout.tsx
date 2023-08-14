@@ -9,13 +9,11 @@ import Navbar from "../components/navbar";
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <ThemeProvider>
-        <body>
-          <Topbar />
-          <Navbar />
-          {children}
-        </body>
-      </ThemeProvider>
+      <body>
+        <Topbar />
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 };
