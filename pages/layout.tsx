@@ -1,4 +1,3 @@
-"use client";
 import { Metadata } from "next";
 import Topbar from "../components/Topbar";
 import { theme } from "../theme/emotion";

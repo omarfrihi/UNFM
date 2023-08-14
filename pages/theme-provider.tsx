@@ -1,4 +1,3 @@
-"use client";
 import { ThemeProvider as EmotionProvider } from "@emotion/react";
 import { theme } from "../theme/emotion";
 import { CssBaseline, ThemeProvider as MuiTheme } from "@mui/material";
