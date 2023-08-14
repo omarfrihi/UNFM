@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   z-index: 3;
   position: absolute;
-  width: -webkit-fill-available;
+  width: 100%;
 `;
 
 export const NavarbarItems = styled.div`
