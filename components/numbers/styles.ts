@@ -28,6 +28,7 @@ export const NumberWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
+  flex: 1;
 `;
 
 export const Number = styled.span`
