@@ -31,12 +31,13 @@ const Article = () => (
         concrètes et convergentes, à garantir les droits des femmes, à les
         protéger contre toutes formes de violences et à favoriser leur pleine
         participation à l’économie et au développement du Royaume.
-        <Text>
-          Pour ce faire, l’UNFM déploie une multitude de programmes destinés à
-          soutenir les personnes en difficulté et à promouvoir la capacitation
-          des femmes et des jeunes filles, un levier pour une croissance plus
-          inclusive et plus durable.
-        </Text>
+      </Text>
+
+      <Text>
+        Pour ce faire, l’UNFM déploie une multitude de programmes destinés à
+        soutenir les personnes en difficulté et à promouvoir la capacitation des
+        femmes et des jeunes filles, un levier pour une croissance plus
+        inclusive et plus durable.
       </Text>
       <ButtonWrapper>
         <ShowMore>

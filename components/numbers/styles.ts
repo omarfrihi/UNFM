@@ -7,7 +7,6 @@ export const Box = styled.div`
   padding: 3rem 3rem 2rem 3rem;
   position: relative;
   gap: 1.5rem;
-  align-items: center;
   justify-contenr: center;
   display: flex;
 `;
