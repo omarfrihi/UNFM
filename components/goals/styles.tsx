@@ -23,6 +23,9 @@ export const Title = styled.h1`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  text-decoration: underline;
+  text-underline-offset: 12px;
+  text-decoration-thickness: 1px;
 `;
 
 export const Card = styled.div`
