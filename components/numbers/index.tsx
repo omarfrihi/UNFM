@@ -37,7 +37,7 @@ const Numbers = () => (
   <Wrapper>
     <Box>
       {numbers.map(({ number, description }) => (
-        <NumberWrapper>
+        <NumberWrapper key={number}>
           <Image width={40} height={40} src={Cap} alt="cap"></Image>
           <Number>{number}</Number>
           <Text>{description}</Text>
