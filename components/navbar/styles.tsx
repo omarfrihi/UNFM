@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   display: flex;
-  padding: 0rem 19rem;
+  padding: 0rem 16%rem;
   padding-top: 0.5rem;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const NavarbarItems = styled.div`
   display: flex;
   align-items: center;
-  gap: 2.75rem;
+  gap: 2.5rem;
 `;
 
 export const SubMenu = styled.div`
