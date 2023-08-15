@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  padding: 3rem 2rem 4rem 0rem;
+  padding: 3rem 2rem 4rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -71,6 +71,5 @@ export const ActivityTag = styled.div`
 `;
 
 export const ActivitiesWrapper = styled.div`
-  transform: translateX(10rem);
-  width: 120em;
+  width: 60em;
 `;
