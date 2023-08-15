@@ -21,26 +21,9 @@ const Media = () => (
         <ReactPlayer
           url="https://www.youtube.com/watch?v=xmlykrsN7Ok"
           height={290}
-          width={500}
+          width={400}
         />
 
-        {/* <ImageContainer>
-          <Image
-            placeholder="blur"
-            src={require("../../public/assets/media1.png")}
-            alt="media1"
-            height={290}
-          ></Image>
-          <VideoIcon>
-            <Image
-              placeholder="blur"
-              src={require("../../public/assets/play.png")}
-              alt="play"
-              height={40}
-              width={40}
-            ></Image>
-          </VideoIcon>
-        </ImageContainer> */}
         <MedialTitleWrapper>
           <MediaTitle>
             Étapes phares dans le processus de promotion de la condition de la
@@ -54,7 +37,7 @@ const Media = () => (
         <ReactPlayer
           url="https://www.youtube.com/watch?v=xmlykrsN7Ok"
           height={290}
-          width={500}
+          width={400}
         />
         <MedialTitleWrapper>
           <MediaTitle>
