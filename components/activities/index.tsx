@@ -16,17 +16,17 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import Arrows from "../Arrows";
-
+import Image from "next/image";
 const activities = [
   {
-    image: "assets/activity1.png",
+    image: require("../../public/assets/activity1.png"),
     tag: "Activités de l’UNFM",
     title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
     description:
       "lancement de plusieurs programmes de développement au profit des femmes et des filles",
   },
   {
-    image: "assets/activity2.png",
+    image: require("../../public/assets/activity2.png"),
     tag: "Activités de l’UNFM",
     title:
       "L’Union Nationale des Femmes du Maroc récompense à Aghbala la lauréate de la première édition  du Prix Lalla Meryem de l’Innovation et de l’Excellence",
@@ -34,7 +34,7 @@ const activities = [
       "Aghbala (Province de Béni Mellal) – En application des Orientations Éclairées de Son Altesse Royale...",
   },
   {
-    image: "assets/activity3.png",
+    image: require("../../public/assets/activity2.png"),
     tag: "Activités de l’UNFM",
     title:
       "L’Union Nationale des Femmes du Maroc récompense à Aghbala la lauréate de la première édition  du Prix Lalla Meryem de l’Innovation et de l’Excellence",
@@ -42,7 +42,7 @@ const activities = [
       "Aghbala (Province de Béni Mellal) – En application des Orientations Éclairées de Son Altesse Royale...",
   },
   {
-    image: "assets/activity3.png",
+    image: require("../../public/assets/activity2.png"),
     tag: "Activités de l’UNFM",
     title:
       "L’Union Nationale des Femmes du Maroc récompense à Aghbala la lauréate de la première édition  du Prix Lalla Meryem de l’Innovation et de l’Excellence",
@@ -50,21 +50,21 @@ const activities = [
       "Aghbala (Province de Béni Mellal) – En application des Orientations Éclairées de Son Altesse Royale...",
   },
   {
-    image: "assets/activity1.png",
+    image: require("../../public/assets/activity1.png"),
     tag: "Activités de l’UNFM",
     title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
     description:
       "lancement de plusieurs programmes de développement au profit des femmes et des filles",
   },
   {
-    image: "assets/activity1.png",
+    image: require("../../public/assets/activity1.png"),
     tag: "Activités de l’UNFM",
     title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
     description:
       "lancement de plusieurs programmes de développement au profit des femmes et des filles",
   },
   {
-    image: "assets/activity1.png",
+    image: require("../../public/assets/activity1.png"),
     tag: "Activités de l’UNFM",
     title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
     description:
@@ -98,7 +98,13 @@ const Avtivities = () => {
           {activities.map(({ title, image, description, tag }) => (
             <div key={title}>
               <Activity>
-                <ActivityImage image={image} />
+                <Image
+                  src={image}
+                  alt="title"
+                  height={240}
+                  width={160}
+                  placeholder="blur"
+                />
                 <ActivityContent>
                   <ActivityTag>{tag}</ActivityTag>
 
