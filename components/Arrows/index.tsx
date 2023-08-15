@@ -4,13 +4,21 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { Button, Buttons } from "./styles";
 
-const Arrows = ({ next, prev }: { next: any; prev: any }) => {
+const Arrows = ({
+  next,
+  prev,
+  className,
+}: {
+  next: any;
+  prev: any;
+  className?: string;
+}) => {
   return (
     <Buttons>
-      <Button onClick={prev}>
+      <Button onClick={prev} className={className}>
         <ArrowBackIcon fontSize="inherit" />
       </Button>
-      <Button onClick={next}>
+      <Button onClick={next} className={className}>
         <ArrowForwardIcon fontSize="inherit" />
       </Button>
     </Buttons>

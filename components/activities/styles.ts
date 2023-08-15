@@ -73,3 +73,11 @@ export const ActivityTag = styled.div`
 export const ActivitiesWrapper = styled.div`
   width: 60em;
 `;
+
+export const ImageWrapper = styled.div`
+  height: 240px;
+  width: 160px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.5rem 0rem 0rem 0.5rem;
+`;

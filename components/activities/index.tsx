@@ -10,6 +10,7 @@ import {
   DescriptionContent,
   ActivityTag,
   ActivitiesWrapper,
+  ImageWrapper,
 } from "./styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -98,13 +99,15 @@ const Avtivities = () => {
           {activities.map(({ title, image, description, tag }) => (
             <div key={title}>
               <Activity>
-                <Image
-                  src={image}
-                  alt={title}
-                  height={240}
-                  width={160}
-                  placeholder="blur"
-                />
+                <ImageWrapper>
+                  <Image
+                    src={image}
+                    alt={title}
+                    layout="fill"
+                    objectFit="cover"
+                    placeholder="blur"
+                  />
+                </ImageWrapper>
                 <ActivityContent>
                   <ActivityTag>{tag}</ActivityTag>
 

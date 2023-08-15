@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Avtivities from "../components/activities";
 import Article from "../components/article";
+import Experiences from "../components/experiences";
 import Goals from "../components/goals";
 import Media from "../components/media";
 import Numbers from "../components/numbers";
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
       <Tools />
       <Avtivities />
       <Media />
+      <Experiences />
     </>
   );
 };
