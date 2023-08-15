@@ -11,6 +11,7 @@ import {
 } from "./styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
+import Button from "../Button";
 const Article = () => (
   <Wrapper>
     <ImageWrapper>
@@ -40,10 +41,7 @@ const Article = () => (
         inclusive et plus durable.
       </Text>
       <ButtonWrapper>
-        <ShowMore>
-          <ButtonText>En savoir plus</ButtonText>
-          <ArrowForwardIcon color="inherit" fontSize="inherit" />
-        </ShowMore>
+        <Button>En savoir plus</Button>
       </ButtonWrapper>
     </Content>
   </Wrapper>

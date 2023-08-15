@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Avtivities from "../components/activities";
 import Article from "../components/article";
 import Goals from "../components/goals";
 import Numbers from "../components/numbers";
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
       <Goals />
       <Programs />
       <Tools />
+      <Avtivities />
     </>
   );
 };

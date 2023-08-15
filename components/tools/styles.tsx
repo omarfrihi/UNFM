@@ -19,6 +19,7 @@ export const ToolsWrapper = styled.div`
 `;
 
 export const Tool = styled.div<{ image: any }>`
+  background-size: 100%;
   background-image: url("${({ image }) => image}");
   opacity: 0.8;
   width: 190.5px;

@@ -4,14 +4,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  background: linear-gradient(
-      0deg,
-      rgba(30, 0, 44, 0.4) 0%,
-      rgba(30, 0, 44, 0.4) 100%
-    ),
-    linear-gradient(0deg, rgba(2, 48, 71, 0.1) 0%, rgba(2, 48, 71, 0.1) 100%),
-    url("/assets/goals.png"), lightgray 50% / cover no-repeat;
-  background-blend-mode: color, normal, normal;
+  background-image: url("/assets/goals.png");
+  background-size: 100%;
   padding: 4rem 10%;
 `;
 

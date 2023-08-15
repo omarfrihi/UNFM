@@ -16,6 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useRef } from "react";
 import Image from "next/image";
 import Title from "../title";
+import Arrows from "../Arrows";
 
 var settings = {
   infinite: true,
@@ -44,14 +45,7 @@ const Programs = () => {
           <Title>Nos Programmes</Title>
           <UnderLine />
         </div>
-        <Buttons>
-          <Button onClick={handlePrevSlide}>
-            <ArrowBackIcon fontSize="inherit" />
-          </Button>
-          <Button onClick={handleNextSlide}>
-            <ArrowForwardIcon fontSize="inherit" />
-          </Button>
-        </Buttons>
+        <Arrows prev={handlePrevSlide} next={handleNextSlide} />
       </Actions>
       <List>
         <Carousel {...settings} ref={ref}>
