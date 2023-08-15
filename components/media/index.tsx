@@ -58,8 +58,8 @@ const Media = () => (
         />
         <MedialTitleWrapper>
           <MediaTitle>
-            L'exposition numérique d’art plastique sur le phénomène de la
-            violence faite aux femmes
+            {`L'exposition numérique d’art plastique sur le phénomène de la
+            violence faite aux femmes`}
           </MediaTitle>
           <ArrowOutwardIcon fontSize="inherit" />
         </MedialTitleWrapper>
