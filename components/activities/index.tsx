@@ -100,7 +100,7 @@ const Avtivities = () => {
               <Activity>
                 <Image
                   src={image}
-                  alt="title"
+                  alt={title}
                   height={240}
                   width={160}
                   placeholder="blur"
