@@ -10,7 +10,7 @@ const Download = () => (
           height={160}
         ></Image>
         <Buttons>
-          <Text>Télécharger l'Application</Text>
+          <Text>{`Télécharger l'Application}`}</Text>
           <Image
             src={require("../../public/assets/appstore.png")}
             alt="app-store"
