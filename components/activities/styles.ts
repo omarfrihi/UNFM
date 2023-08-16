@@ -71,7 +71,7 @@ export const ActivityTag = styled.div`
 `;
 
 export const ActivitiesWrapper = styled.div`
-  width: 80em;
+  width: 60rem;
 `;
 
 export const ImageWrapper = styled.div`

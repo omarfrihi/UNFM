@@ -16,7 +16,7 @@ export const PartnerList = styled.div`
   flex-wrap: wrap;
 `;
 export const Wrapper = styled.div`
-  padding: 3rem 10%;
+  padding: 3rem 0rem 3rem 10%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
