@@ -7,6 +7,7 @@ import Experiences from "../components/experiences";
 import Goals from "../components/goals";
 import Media from "../components/media";
 import Numbers from "../components/numbers";
+import Partners from "../components/partners";
 import Programs from "../components/programs";
 import Slider from "../components/slider";
 import Tools from "../components/tools";
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
       <Avtivities />
       <Media />
       <Experiences />
+      <Partners />
     </>
   );
 };

@@ -17,7 +17,8 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Title from "../title";
 import Arrows from "../Arrows";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 var settings = {
   infinite: true,
   speed: 500,
