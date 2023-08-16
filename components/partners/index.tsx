@@ -67,7 +67,7 @@ const Partners = () => (
           <PartnerTitle>{title}</PartnerTitle>
           <PartnerList>
             {partners.map((src) => (
-              <PartnerContainer>
+              <PartnerContainer key={src}>
                 <Partner>
                   <Image
                     src={src}
