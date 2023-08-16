@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-export const StyledSlider = styled(Slider)`
-  & .slick-slide {
-    margin: 0rem 0.5rem;
-    width: fit-content !important;
+export const StyledSlider = styled(Carousel)`
+  & .react-multi-carousel-item {
+    div {
+    }
   }
 `;
 
@@ -16,7 +15,7 @@ export const PartnerList = styled.div`
   flex-wrap: wrap;
 `;
 export const Wrapper = styled.div`
-  padding: 3rem 0rem 3rem 10%;
+  padding: 3rem 0% 3rem 10%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

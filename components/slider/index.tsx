@@ -10,12 +10,11 @@ var settings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  autoPlay: true,
   arrows: false,
 };
 const Banner = () => {
   return (
-    <Carousel {...settings}>
+    <Carousel {...settings} autoplay>
       <div>
         <Image
           src={require("../../public/assets/banner2.png")}

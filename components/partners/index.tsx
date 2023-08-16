@@ -1,18 +1,17 @@
 import Image from "next/image";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
 import Title from "../title";
 import {
   Line,
   List,
   Partner,
   PartnerContainer,
-  PartnerList,
   PartnerTitle,
-  PartnerWrapper,
-  StyledSlider,
   Wrapper,
 } from "./styles";
 
-import React, { useEffect, useRef } from "react";
 const settings = {
   infinite: false,
   speed: 500,
@@ -58,7 +57,31 @@ const partners = [
     ],
   },
 ];
+
 const Partners = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 1400 },
+      items: 6,
+    },
+    desktop: {
+      breakpoint: { max: 1400, min: 1200 },
+      items: 5,
+    },
+    desktop2: {
+      breakpoint: { max: 1200, min: 900 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 900, min: 700 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 700, min: 0 },
+      items: 2,
+    },
+  };
   return (
     <Wrapper>
       <Title>Nos Partenaires</Title>
@@ -66,7 +89,23 @@ const Partners = () => {
         {partners.map(({ title, partners }) => (
           <Line key={title}>
             <PartnerTitle>{title}</PartnerTitle>
-            <StyledSlider {...settings}>
+
+            <Carousel
+              infinite={true}
+              autoPlay={true}
+              responsive={responsive}
+              removeArrowOnDeviceType={[
+                "desktop",
+                "mobile",
+                "tablet",
+                "desktop2",
+                "superLargeDesktop",
+              ]}
+              swipeable={true}
+              draggable={true}
+              //   {...settings}
+              //   slidesToShow={Math.min(partners.length, 7)}
+            >
               {partners.map((src, index) => (
                 <PartnerContainer key={index}>
                   <Partner>
@@ -79,7 +118,7 @@ const Partners = () => {
                   </Partner>
                 </PartnerContainer>
               ))}
-            </StyledSlider>
+            </Carousel>
           </Line>
         ))}
       </List>
