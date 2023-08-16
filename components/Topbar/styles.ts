@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white[100]};
-  padding: 0rem 8.94rem;
+  padding: 0rem 10%;
   justify-content: space-between;
 `;
 

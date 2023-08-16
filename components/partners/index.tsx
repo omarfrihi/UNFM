@@ -11,15 +11,15 @@ import {
   StyledSlider,
   Wrapper,
 } from "./styles";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import React, { useRef } from "react";
+
+import React, { useEffect, useRef } from "react";
 const settings = {
-  infinite: true,
+  infinite: false,
   speed: 500,
-  slidesToShow: 7,
   slidesToScroll: 1,
+  autoPlay: true,
   arrows: false,
+  swipe: true,
 };
 const partners = [
   {
@@ -58,31 +58,33 @@ const partners = [
     ],
   },
 ];
-const Partners = () => (
-  <Wrapper>
-    <Title>Nos Partenaires</Title>
-    <List>
-      {partners.map(({ title, partners }) => (
-        <Line key={title}>
-          <PartnerTitle>{title}</PartnerTitle>
-          <PartnerList>
-            {partners.map((src) => (
-              <PartnerContainer key={src}>
-                <Partner>
-                  <Image
-                    src={src}
-                    layout="fill"
-                    objectFit="contain"
-                    alt="partner"
-                  ></Image>
-                </Partner>
-              </PartnerContainer>
-            ))}
-          </PartnerList>
-        </Line>
-      ))}
-    </List>
-  </Wrapper>
-);
+const Partners = () => {
+  return (
+    <Wrapper>
+      <Title>Nos Partenaires</Title>
+      <List>
+        {partners.map(({ title, partners }) => (
+          <Line key={title}>
+            <PartnerTitle>{title}</PartnerTitle>
+            <StyledSlider {...settings}>
+              {partners.map((src, index) => (
+                <PartnerContainer key={index}>
+                  <Partner>
+                    <Image
+                      src={src}
+                      layout="fill"
+                      objectFit="contain"
+                      alt="partner"
+                    ></Image>
+                  </Partner>
+                </PartnerContainer>
+              ))}
+            </StyledSlider>
+          </Line>
+        ))}
+      </List>
+    </Wrapper>
+  );
+};
 
 export default Partners;

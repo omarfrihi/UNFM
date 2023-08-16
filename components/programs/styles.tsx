@@ -65,8 +65,6 @@ export const Slide = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
-export const SlideWrapper = styled.div`
-  padding: 1rem;
-`;
+export const SlideWrapper = styled.div``;
 
 export const Carousel = styled(Slider)``;

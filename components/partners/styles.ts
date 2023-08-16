@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const StyledSlider = styled(Slider)`
-  & .slick-track {
-    margin: 0;
+  & .slick-slide {
+    margin: 0rem 0.5rem;
+    width: fit-content !important;
   }
 `;
 
