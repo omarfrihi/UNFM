@@ -26,6 +26,8 @@ export const Title = styled.h1`
 export const Medias = styled.div`
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const MediaContainer = styled.div`
@@ -33,6 +35,7 @@ export const MediaContainer = styled.div`
   gap: 1rem;
   flex-direction: column;
   flex: 1;
+  max-width: 400px;
 `;
 export const MedialTitleWrapper = styled.div`
   display: flex;

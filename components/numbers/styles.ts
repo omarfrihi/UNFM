@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 
 export const Box = styled.div`
   border-radius: 3rem;
@@ -13,6 +14,11 @@ export const Box = styled.div`
 
 export const Wrapper = styled.div`
   padding: 8rem 15%;
+  ${responsive.lg`
+  padding: 8rem 10%;
+
+  
+  `}
 `;
 
 export const ImgWrapper = styled.div`

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 import Slider from "react-slick";
+import { responsive } from "../../styles/mixins";
 
 export const Wrapper = styled.div`
   padding: 4rem 15%;
@@ -8,6 +9,12 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 4rem;
+  ${responsive.lg`
+  padding: 4rem 10%;
+  gap: 1rem;
+
+  
+  `}
 `;
 
 export const Actions = styled.div`
@@ -51,8 +58,13 @@ export const Button = styled.button`
 `;
 
 export const List = styled.div`
-  width: 50rem;
+  width: 49rem;
   padding: 0 1rem;
+  ${responsive.lg`
+  width: 33rem;
+
+  
+  `}
 `;
 
 export const Slide = styled.div`
@@ -64,6 +76,12 @@ export const Slide = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  ${responsive.lg`
+  height: 10rem;
+  width: 10rem;
+
+  
+  `}
 `;
 export const SlideWrapper = styled.div``;
 

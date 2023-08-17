@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { responsive } from "../../styles/mixins";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -13,6 +14,11 @@ export const Wrapper = styled.div`
     rgba(0, 45, 131, 0) 0%,
     rgba(0, 45, 131, 0.06) 100%
   );
+  ${responsive.lg`
+  padding: 4rem 10%;
+
+  
+  `}
 `;
 
 export const ImageWrapper = styled.div`

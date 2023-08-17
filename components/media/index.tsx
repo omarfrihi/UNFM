@@ -53,6 +53,7 @@ const Media = () => (
           placeholder="blur"
           src={require("../../public/assets/media3.png")}
           alt="media3"
+          width={400}
           height={290}
         ></Image>
 
