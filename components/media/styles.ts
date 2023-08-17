@@ -51,4 +51,5 @@ export const Poster = styled.div<{ image: any }>``;
 export const ImageContainer = styled.div`
   height: 290px;
   position: relative;
+  width: 400px;
 `;

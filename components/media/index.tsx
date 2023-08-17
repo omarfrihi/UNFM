@@ -49,13 +49,15 @@ const Media = () => (
       </MediaContainer>
 
       <MediaContainer>
-        <Image
-          placeholder="blur"
-          src={require("../../public/assets/media3.png")}
-          alt="media3"
-          width={400}
-          height={290}
-        ></Image>
+        <ImageContainer>
+          <Image
+            placeholder="blur"
+            src={require("../../public/assets/media3.png")}
+            alt="media3"
+            objectFit="cover"
+            layout="fill"
+          ></Image>
+        </ImageContainer>
 
         <MedialTitleWrapper>
           <MediaTitle>
