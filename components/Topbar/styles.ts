@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 
 export const Container = styled.div`
   height: 2.725rem;
@@ -7,6 +8,11 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.white[100]};
   padding: 0rem 10%;
   justify-content: space-between;
+  ${responsive.lg`
+  padding: 0rem 5%;
+
+  
+  `}
 `;
 
 export const Text = styled.span`
