@@ -6,7 +6,7 @@ export const Carousel = styled(Slider)`
     bottom: 1.5rem;
   }
   & .slick-list {
-    height: 50rem;
+    max-height: 50rem;
     width: 100%;
   }
 `;

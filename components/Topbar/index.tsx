@@ -7,8 +7,9 @@ import {
   Container,
   DownloadText,
   Actions,
-  WithYouWrapper,
+  LangWrapper,
   WithYouText,
+  Lang,
 } from "./styles";
 
 const Topbar = () => (
@@ -25,10 +26,11 @@ const Topbar = () => (
         <DownloadText>KOLONAMA</DownloadText>
       </Wrapper>
     </Actions>
-    <WithYouWrapper>
-      <PhoneCall />
-      <WithYouText>كلنا معك</WithYouText>
-    </WithYouWrapper>
+    <LangWrapper>
+      <Lang active>Fr</Lang>
+      <Lang>Ar</Lang>
+      <Lang>En</Lang>
+    </LangWrapper>
   </Container>
 );
 

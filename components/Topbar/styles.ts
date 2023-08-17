@@ -42,8 +42,19 @@ export const WithYouText = styled.span`
   font-weight: 400;
   line-height: normal;
 `;
-export const WithYouWrapper = styled.div`
+export const LangWrapper = styled.div`
   display: flex;
-  gap: 0.3rem;
+  gap: 0.5rem;
   align-items: flex-end;
+`;
+
+export const Lang = styled.span<{ active?: boolean }>`
+  color: ${({ theme, active }) =>
+    active ? theme.colors.green[200] : theme.colors.grey[100]};
+  font-family: Gilroy;
+  font-size: 0.9em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
 `;
