@@ -26,7 +26,7 @@ export const UnderLine = styled.div`
 `;
 
 export const Card = styled.div`
-  height: 12rem;
+  align-items: stretch;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
