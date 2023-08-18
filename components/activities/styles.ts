@@ -104,6 +104,12 @@ export const ActivitiesWrapper = styled.div`
 
   
   `}
+
+  ${responsive.xxs`
+  width:300px;
+
+  
+  `}
 `;
 
 export const ImageWrapper = styled.div`

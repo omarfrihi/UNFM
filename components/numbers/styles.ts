@@ -16,7 +16,7 @@ export const Box = styled.div`
 export const Wrapper = styled.div`
   padding: 8rem 15%;
   ${responsive.lg`
-  padding: 8rem 10%;
+  padding: 4rem 10%;
 
   
   `}

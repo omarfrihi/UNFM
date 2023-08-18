@@ -83,7 +83,7 @@ const Partners = () => {
     },
     mobile2: {
       breakpoint: { max: 500, min: 0 },
-      items: 1.5,
+      items: 1.4,
     },
   };
   return (

@@ -23,12 +23,22 @@ export const Wrapper = styled.div`
   ${responsive.md`
   flex-direction:column;
   gap: 2em;
+  border-radius: 0rem 0rem 0rem 8rem;
+
 
   `}
 `;
 
 export const ImageWrapper = styled.div`
+  width: 350px;
+  height: 350px;
   position: relative;
+  ${responsive.xxs`
+  width: 280px;
+  height: 280px;
+
+  `}
+
   border-radius: 0.5rem 0.5rem 0.5rem 9rem;
   border: 0.3px solid ${({ theme }) => theme.colors.blue[100]};
   img {

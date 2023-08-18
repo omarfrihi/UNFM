@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 15%;
+  padding: 3rem 5%;
   gap: 2rem;
   background: linear-gradient(
     180deg,
@@ -34,9 +34,8 @@ export const MediaContainer = styled.div`
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  flex: 1;
   position: relative;
-  max-width: 350px;
+  width: 300px;
 `;
 export const MedialTitleWrapper = styled.div`
   display: flex;
@@ -45,6 +44,7 @@ export const MedialTitleWrapper = styled.div`
   font-size: 1rem;
   align-items: flex-start;
   cursor: pointer;
+  width: inherit;
 `;
 
 export const Poster = styled.div<{ image: any }>``;
@@ -52,5 +52,5 @@ export const Poster = styled.div<{ image: any }>``;
 export const ImageContainer = styled.div`
   height: 290px;
   position: relative;
-  width: 350px;
+  width: 300px;
 `;
