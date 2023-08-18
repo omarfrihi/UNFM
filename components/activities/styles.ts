@@ -6,27 +6,11 @@ import "react-multi-carousel/lib/styles.css";
 export const CustomCarousel = styled(Carousel)``;
 
 export const Wrapper = styled.div`
-  padding: 3rem 0rem 3rem 25%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
-  ${responsive.xl`
-  padding-left:  15%;
-
-  
-  `}
-
-  ${responsive.md`
-  padding-left:  7%;
-
-  
-  `}
-  ${responsive.sm`
-  padding: 3rem 5%;
-
-  
-  `}
+  padding: 2rem 0rem;
 `;
 
 export const ActivityImage = styled.div<{ image: any }>`
@@ -107,6 +91,25 @@ export const ActivitiesWrapper = styled.div`
 
   ${responsive.xxs`
   width:300px;
+
+  
+  `}
+
+  padding: 3rem 0rem 3rem 25%;
+
+  ${responsive.xl`
+  padding-left:  15%;
+
+  
+  `}
+
+  ${responsive.md`
+  padding-left:  7%;
+
+  
+  `}
+  ${responsive.sm`
+  padding: 3rem 5%;
 
   
   `}
