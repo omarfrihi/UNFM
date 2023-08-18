@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 
 export const Wrapper = styled.div`
   background: linear-gradient(
@@ -11,11 +12,30 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 6rem;
   align-items: center;
+  ${responsive.lg`
+  gap:2rem;
+  padding: 3rem 10%;
+
+  `}
+
+  ${responsive.md`
+  
+  flex-direction: column-reverse;
+  padding: 3rem 5%;
+
+
+  `}
 `;
 
 export const ToolsWrapper = styled.div`
   display: flex;
   gap: 1rem;
+  ${responsive.sm`
+  
+  flex-wrap :wrap;
+justify-content:center;
+
+  `}
 `;
 
 export const Tool = styled.div`

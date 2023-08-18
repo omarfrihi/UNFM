@@ -13,6 +13,16 @@ export const Container = styled.div`
 
   
   `}
+
+  ${responsive.md`
+flex-direction:column;
+height:unset;
+gap: 0.5rem;
+padding: 0.5rem 0%;
+
+
+  
+  `}
 `;
 
 export const ContactUs = styled.span`
@@ -38,4 +48,10 @@ export const Actions = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  ${responsive.md`
+  flex-direction:column;
+  gap: 0.5rem;
+
+    
+    `}
 `;

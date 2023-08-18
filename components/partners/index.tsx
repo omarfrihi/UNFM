@@ -62,24 +62,28 @@ const Partners = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 1400 },
-      items: 6,
+      breakpoint: { max: 4000, min: 1500 },
+      items: 6.5,
     },
     desktop: {
-      breakpoint: { max: 1400, min: 1200 },
-      items: 5,
+      breakpoint: { max: 1500, min: 1300 },
+      items: 5.5,
     },
     desktop2: {
-      breakpoint: { max: 1200, min: 900 },
-      items: 4,
+      breakpoint: { max: 1300, min: 1050 },
+      items: 4.5,
     },
     tablet: {
-      breakpoint: { max: 900, min: 700 },
-      items: 3,
+      breakpoint: { max: 1050, min: 800 },
+      items: 3.5,
     },
     mobile: {
-      breakpoint: { max: 700, min: 0 },
-      items: 2,
+      breakpoint: { max: 800, min: 500 },
+      items: 2.5,
+    },
+    mobile2: {
+      breakpoint: { max: 500, min: 0 },
+      items: 1.5,
     },
   };
   return (
@@ -89,7 +93,6 @@ const Partners = () => {
         {partners.map(({ title, partners }) => (
           <Line key={title}>
             <PartnerTitle>{title}</PartnerTitle>
-
             <Carousel
               infinite={true}
               autoPlay={true}
@@ -100,6 +103,7 @@ const Partners = () => {
                 "tablet",
                 "desktop2",
                 "superLargeDesktop",
+                "mobile2",
               ]}
               swipeable={true}
               draggable={true}

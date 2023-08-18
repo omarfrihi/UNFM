@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 import Arrows from "../Arrows";
 
 export const Wrapper = styled.div`
@@ -7,12 +8,17 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 2.5rem;
   background-image: url("/assets/experience-cover.png");
-  background-size: 100%;
-  padding: 2rem 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem 25%;
   opacity: 0.9;
+  ${responsive.md`
+  padding: 2rem 15%;
+
+  `}
 `;
 export const ExperiencesWrapper = styled.div`
-  width: 60%;
+  width: 100%;
 `;
 export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.white[100]};

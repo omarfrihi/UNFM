@@ -7,9 +7,10 @@ export const Box = styled.div`
   backdrop-filter: blur(6px);
   padding: 3rem 3rem 2rem 3rem;
   position: relative;
-  gap: 1.5rem;
+  gap: 2.5rem;
   justify-contenr: center;
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Wrapper = styled.div`
@@ -34,6 +35,12 @@ export const NumberWrapper = styled.div`
   align-items: center;
   gap: 0.3rem;
   flex: 1;
+  ${responsive.md`
+  flex: 27%;
+  `}
+  ${responsive.xs`
+  flex: 20%;
+  `}
 `;
 
 export const Number = styled.span`

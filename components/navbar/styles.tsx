@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 export const Wrapper = styled.div`
   display: flex;
   padding: 0rem 16%;
@@ -8,6 +9,9 @@ export const Wrapper = styled.div`
   z-index: 3;
   position: absolute;
   width: 100%;
+  ${responsive.md`
+  display:none;
+  `}
 `;
 
 export const NavarbarItems = styled.div`

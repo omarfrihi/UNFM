@@ -35,7 +35,8 @@ export const MediaContainer = styled.div`
   gap: 1rem;
   flex-direction: column;
   flex: 1;
-  max-width: 400px;
+  position: relative;
+  max-width: 350px;
 `;
 export const MedialTitleWrapper = styled.div`
   display: flex;
@@ -51,5 +52,5 @@ export const Poster = styled.div<{ image: any }>``;
 export const ImageContainer = styled.div`
   height: 290px;
   position: relative;
-  width: 400px;
+  width: 350px;
 `;

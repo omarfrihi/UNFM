@@ -7,7 +7,7 @@ const Download = () => (
         <Image
           src={require("../../public/assets/unfm-app-logo.png")}
           alt="unfm-logo"
-          height={160}
+          height={100}
         ></Image>
         <Buttons>
           <Text>{`Télécharger l'Application`}</Text>
@@ -26,7 +26,7 @@ const Download = () => (
       <Image
         src={require("../../public/assets/unfm-app.png")}
         alt="unfm"
-        height={360}
+        height={300}
       ></Image>
     </Application>
 
@@ -34,13 +34,13 @@ const Download = () => (
       <Image
         src={require("../../public/assets/with-you-app.png")}
         alt="unfm"
-        height={360}
+        height={300}
       ></Image>
       <Actions>
         <Image
           src={require("../../public/assets/withyou-app-logo.png")}
           alt="unfm-logo"
-          height={160}
+          height={100}
         ></Image>
         <Buttons>
           <Text>{`Télécharger l'Application`}</Text>

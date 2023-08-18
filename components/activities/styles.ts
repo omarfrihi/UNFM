@@ -1,11 +1,32 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+export const CustomCarousel = styled(Carousel)``;
 
 export const Wrapper = styled.div`
-  padding: 3rem 2rem 4rem 2rem;
+  padding: 3rem 0rem 3rem 25%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
+  ${responsive.xl`
+  padding-left:  15%;
+
+  
+  `}
+
+  ${responsive.md`
+  padding-left:  7%;
+
+  
+  `}
+  ${responsive.sm`
+  padding: 3rem 5%;
+
+  
+  `}
 `;
 
 export const ActivityImage = styled.div<{ image: any }>`
@@ -18,7 +39,7 @@ export const ActivityImage = styled.div<{ image: any }>`
 
 export const Activity = styled.div`
   border-radius: 0.5rem;
-  height: 15rem;
+  height: 20rem;
   display: flex;
 `;
 
@@ -71,11 +92,22 @@ export const ActivityTag = styled.div`
 `;
 
 export const ActivitiesWrapper = styled.div`
-  width: 60rem;
+  width: 100%;
+  ${responsive.sm`
+  width:28rem;
+
+  
+  `}
+
+  ${responsive.xs`
+  width:22rem;
+
+  
+  `}
 `;
 
 export const ImageWrapper = styled.div`
-  height: 240px;
+  height: 20rem;
   width: 160px;
   overflow: hidden;
   position: relative;

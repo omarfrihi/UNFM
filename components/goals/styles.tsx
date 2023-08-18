@@ -1,12 +1,14 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
   background-image: url("/assets/goals.png");
-  background-size: 100%;
+  background-size: cover;
   padding: 4rem 10%;
+  background-repeat: no-repeat;
 `;
 
 export const Title = styled.h1`
@@ -43,6 +45,9 @@ export const Card = styled.div`
 export const CardsContainer = styled.div`
   display: flex;
   gap: 1.5rem;
+  ${responsive.sm`
+  flex-direction:column;
+  `}
 `;
 
 export const Content = styled.p`

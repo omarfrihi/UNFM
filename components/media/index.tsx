@@ -21,7 +21,7 @@ const Media = () => (
         <ReactPlayer
           url="https://www.youtube.com/watch?v=xmlykrsN7Ok"
           height={290}
-          width={400}
+          width={350}
         />
 
         <MedialTitleWrapper>
@@ -37,7 +37,7 @@ const Media = () => (
         <ReactPlayer
           url="https://www.youtube.com/watch?v=xmlykrsN7Ok"
           height={290}
-          width={400}
+          width={350}
         />
         <MedialTitleWrapper>
           <MediaTitle>

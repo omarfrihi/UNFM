@@ -11,6 +11,7 @@ import {
   ActivityTag,
   ActivitiesWrapper,
   ImageWrapper,
+  CustomCarousel,
 } from "./styles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,6 +19,8 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import Arrows from "../Arrows";
 import Image from "next/image";
+import "react-multi-carousel/lib/styles.css";
+
 const activities = [
   {
     image: require("../../public/assets/activity1.png"),
@@ -72,6 +75,29 @@ const activities = [
       "lancement de plusieurs programmes de développement au profit des femmes et des filles",
   },
 ];
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 4000, min: 1380 },
+    items: 2.5,
+  },
+  desktop2: {
+    breakpoint: { max: 1380, min: 1200 },
+    items: 2.2,
+  },
+  desktop3: {
+    breakpoint: { max: 1200, min: 920 },
+    items: 1.7,
+  },
+  desktop5: {
+    breakpoint: { max: 920, min: 767 },
+    items: 1.5,
+  },
+  desktop4: {
+    breakpoint: { max: 767, min: 0 },
+    items: 1,
+  },
+};
 var settings = {
   infinite: true,
   speed: 500,
@@ -83,19 +109,32 @@ const Avtivities = () => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore
-    ref?.current?.slickNext();
+    ref?.current?.next();
   };
 
   const handlePrevSlide = () => {
     //@ts-ignore
 
-    ref?.current?.slickPrev();
+    ref?.current?.previous();
   };
   return (
     <Wrapper>
       <Title>Nos Activités</Title>
       <ActivitiesWrapper>
-        <Slider {...settings} ref={ref}>
+        <CustomCarousel
+          infinite={true}
+          responsive={responsive}
+          removeArrowOnDeviceType={[
+            "desktop",
+            "desktop2",
+            "desktop3",
+            "desktop4",
+            "desktop5",
+          ]}
+          swipeable={true}
+          draggable={true}
+          ref={ref}
+        >
           {activities.map(({ title, image, description, tag }) => (
             <div key={title}>
               <Activity>
@@ -120,7 +159,7 @@ const Avtivities = () => {
               </Activity>
             </div>
           ))}
-        </Slider>
+        </CustomCarousel>
       </ActivitiesWrapper>
       <Arrows prev={handlePrevSlide} next={handleNextSlide} />
     </Wrapper>

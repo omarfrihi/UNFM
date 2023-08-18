@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,6 +12,13 @@ export const Wrapper = styled.div`
     rgba(0, 45, 131, 0.06) 0%,
     rgba(0, 45, 131, 0.06) 100%
   );
+
+  ${responsive.md`
+  padding: 3rem 0%;
+
+  flex-direction:column;
+
+  `}
 `;
 
 export const Application = styled.div`

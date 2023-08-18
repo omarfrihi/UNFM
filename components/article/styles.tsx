@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 5rem;
   padding: 4rem 15%;
+  align-items: center;
   border-radius: 0rem 0rem 0rem 16rem;
   background: linear-gradient(
     180deg,
@@ -15,18 +16,21 @@ export const Wrapper = styled.div`
     rgba(0, 45, 131, 0.06) 100%
   );
   ${responsive.lg`
-  padding: 4rem 10%;
+  padding: 4rem 7%;
 
-  
+  `}
+
+  ${responsive.md`
+  flex-direction:column;
+  gap: 2em;
+
   `}
 `;
 
 export const ImageWrapper = styled.div`
-  height: 400px;
-  width: 400px;
+  position: relative;
   border-radius: 0.5rem 0.5rem 0.5rem 9rem;
   border: 0.3px solid ${({ theme }) => theme.colors.blue[100]};
-  width: fit-content;
   img {
     transform: translate(9px, -7px);
     border-radius: 0 0 0 9rem;
@@ -47,6 +51,7 @@ export const Content = styled.div`
 display:flex:
 flex-direction:column;
 gap:2rem;
+margin-bottom:1rem;
 `;
 
 export const Text = styled.p`
@@ -55,7 +60,7 @@ export const Text = styled.p`
   font-family: Gilroy;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 350;
   line-height: 1.5rem;
   b {
     font-weight: 600;

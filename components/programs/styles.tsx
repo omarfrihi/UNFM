@@ -4,15 +4,38 @@ import Slider from "react-slick";
 import { responsive } from "../../styles/mixins";
 
 export const Wrapper = styled.div`
-  padding: 4rem 15%;
+  padding: 4rem 10%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4rem;
   ${responsive.lg`
-  padding: 4rem 10%;
+  padding: 4rem 0%;
   gap: 1rem;
 
+  
+  `}
+
+  ${responsive.lg`
+flex-direction:column;
+gap: 2em;
+
+  
+  `}
+`;
+
+export const BottomArrows = styled.div`
+  display: none;
+  ${responsive.lg`
+display:block;
+  
+  `}
+`;
+
+export const LeftArrows = styled.div`
+  display: block;
+  ${responsive.lg`
+  display:none;
   
   `}
 `;
@@ -58,11 +81,10 @@ export const Button = styled.button`
 `;
 
 export const List = styled.div`
-  width: 49rem;
-  padding: 0 1rem;
-  ${responsive.lg`
-  width: 33rem;
-
+  width: 90%;
+  padding: 0rem;
+  ${responsive.xs`
+  width: 15rem;
   
   `}
 `;
@@ -76,12 +98,6 @@ export const Slide = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  ${responsive.lg`
-  height: 10rem;
-  width: 10rem;
-
-  
-  `}
 `;
 export const SlideWrapper = styled.div``;
 

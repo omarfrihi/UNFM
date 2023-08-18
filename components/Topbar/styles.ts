@@ -13,6 +13,12 @@ export const Container = styled.div`
 
   
   `}
+
+  ${responsive.md`
+  display:none;
+
+  
+  `}
 `;
 
 export const Text = styled.span`
