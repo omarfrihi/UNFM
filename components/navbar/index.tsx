@@ -9,55 +9,65 @@ import {
 } from "./styles";
 import Logo from "../../public/assets/logo.png";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Link from "next/link";
 export const Menu = [
-  { title: "Accueil" },
+  { title: "Accueil", link: "" },
   {
     title: "UNFM",
+
     subMenu: [
-      { title: "Qui sommes nous?" },
-      { title: "Discours fondateur" },
-      { title: "Les allocutions princières" },
+      { title: "Qui sommes nous?", link: "Who-us" },
+      { title: "Discours fondateur", link: "discours" },
+      { title: "Les allocutions princières", link: "allocutions" },
     ],
   },
-  { title: "8 Mars" },
+  { title: "8 Mars", link: "8mars" },
   {
     title: "Activités",
     subMenu: [
-      { title: "Activité 1" },
-      { title: "Activité 2" },
-      { title: "Activité 3" },
-      { title: "Activité 4" },
-      { title: "Activité 5" },
+      { title: "Activité 1", link: "activity1" },
+      { title: "Activité 2", link: "activity2" },
+      { title: "Activité 3", link: "activity3" },
+      { title: "Activité 4", link: "activity4" },
+      { title: "Activité 5", link: "activity5" },
     ],
   },
   {
     title: "Programmes",
     subMenu: [
-      { title: "Programme 1" },
-      { title: "Programme 2" },
-      { title: "Programme 3" },
-      { title: "Programme 4" },
-      { title: "Programme 5" },
+      { title: "Programme 1", link: "program1" },
+      { title: "Programme 2", link: "program2" },
+      { title: "Programme 3", link: "program3" },
+      { title: "Programme 4", link: "program4" },
+      { title: "Programme 5", link: "program5" },
     ],
   },
-  { title: "Espace Média" },
+  { title: "Espace Média", link: "media" },
 ];
 
 const Navbar = () => (
   <Wrapper>
     <Image width={90} height={80} src={Logo} alt="logo"></Image>
     <NavarbarItems>
-      {Menu.map(({ title, subMenu }, index) => (
+      {Menu.map(({ title, subMenu, link }, index) => (
         <>
           <Item active={index === 0} key={title}>
-            <Title>
-              {title}
-              {subMenu && <ArrowDropDownIcon />}
-            </Title>
+            {subMenu ? (
+              <Title>
+                {title}
+                {subMenu && <ArrowDropDownIcon />}
+              </Title>
+            ) : (
+              <Link href={link || ""}>
+                <Title>{title}</Title>
+              </Link>
+            )}
             {subMenu && (
               <SubMenu>
                 {subMenu.map((item) => (
-                  <SubItem key={item.title}>{item.title}</SubItem>
+                  <Link href={item.link}>
+                    <SubItem key={item.title}>{item.title}</SubItem>
+                  </Link>
                 ))}
               </SubMenu>
             )}

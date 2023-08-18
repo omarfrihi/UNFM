@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Call from "../SVG/call";
 import Phone from "../SVG/phone";
 import PhoneCall from "../SVG/phoneCall";
@@ -20,16 +21,24 @@ const Topbar = () => (
         <Text>Appelez-nous: 8350</Text>
       </Wrapper>
 
-      <Wrapper>
-        <Phone />
-        <Text>Télécharger l’application:</Text>
-        <DownloadText>KOLONAMA</DownloadText>
-      </Wrapper>
+      <Link href="download">
+        <Wrapper>
+          <Phone />
+          <Text>Télécharger l’application:</Text>
+          <DownloadText>KOLONAMA</DownloadText>
+        </Wrapper>
+      </Link>
     </Actions>
     <LangWrapper>
-      <Lang active>Fr</Lang>
-      <Lang>Ar</Lang>
-      <Lang>En</Lang>
+      <Link href="">
+        <Lang active>Fr</Lang>
+      </Link>
+      <Link href="ar">
+        <Lang>Ar</Lang>
+      </Link>
+      <Link href="en">
+        <Lang>En</Lang>
+      </Link>
     </LangWrapper>
   </Container>
 );

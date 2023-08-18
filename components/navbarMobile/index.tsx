@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
@@ -10,10 +11,16 @@ const NavbarMobile = ({ open, setOpen }: any) => {
     <>
       <Drawer open={open} onClose={() => setOpen(false)} direction="right">
         <Wrapper>
-          {Menu.map(({ title, subMenu }, index) => (
+          {Menu.map(({ title, subMenu, link }, index) => (
             <>
               <Item active={index === 0} key={title}>
-                <Title>{title}</Title>
+                {subMenu ? (
+                  <Title>{title}</Title>
+                ) : (
+                  <Link href={link || ""}>
+                    <Title>{title}</Title>
+                  </Link>
+                )}
               </Item>
             </>
           ))}
