@@ -2,7 +2,6 @@ import Button from "../Button";
 import Title from "../title";
 import {
   Activity,
-  ActivityImage,
   ActivityContent,
   Wrapper,
   Title as ActivityTitle,
