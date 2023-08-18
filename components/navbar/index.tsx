@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import Logo from "../../public/assets/logo.png";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-const Menu = [
+export const Menu = [
   { title: "Accueil" },
   {
     title: "UNFM",
