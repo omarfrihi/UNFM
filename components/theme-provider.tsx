@@ -11,7 +11,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <MuiTheme theme={muitheme}>
       <CssBaseline />
-      <EmotionProvider theme={theme}>{children}</EmotionProvider>;
+      <EmotionProvider theme={theme}>{children}</EmotionProvider>
     </MuiTheme>
   );
 };
