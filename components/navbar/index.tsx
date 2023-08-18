@@ -11,7 +11,7 @@ import Logo from "../../public/assets/logo.png";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Link from "next/link";
 export const Menu = [
-  { title: "Accueil", link: "" },
+  { title: "Accueil", link: "/" },
   {
     title: "UNFM",
 

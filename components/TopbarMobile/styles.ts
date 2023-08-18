@@ -17,7 +17,7 @@ export const Container = styled.div`
 `;
 
 export const Menu = styled(MenuIcon)`
-  color: ${({ theme }) => theme.colors.grey[800]};
+  color: ${({ theme }) => theme.colors.grey[200]};
 
   width: 2.5rem;
   height: 2.5rem;

@@ -648,6 +648,11 @@
     "@typescript-eslint/types" "6.3.0"
     "eslint-visitor-keys" "^3.4.1"
 
+"@uidotdev/usehooks@^2.1.0":
+  "integrity" "sha512-D7SJiNQC1BOHgtE2dy2KvOtnRNaLWTFFHvcBLg7lZ8Jz7YcimxdUY3spqpvf/mVkGCuUHee8i/79p5vVkBgsYQ=="
+  "resolved" "https://registry.npmjs.org/@uidotdev/usehooks/-/usehooks-2.1.0.tgz"
+  "version" "2.1.0"
+
 "abbrev@^1.0.0":
   "version" "1.1.1"
 
@@ -2991,7 +2996,7 @@
     "@babel/runtime" "^7.18.3"
     "react-is" "^16.12.0"
 
-"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>=16.6.0", "react-dom@>=16.9.0", "react-dom@18.2.0":
+"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^18.2.0", "react-dom@>=16.6.0", "react-dom@>=16.9.0", "react-dom@>=18.0.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -3082,7 +3087,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.9.0", "react@>16.0.0", "react@18.2.0":
+"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.6.0", "react@>=16.8.0", "react@>=16.9.0", "react@>=18.0.0", "react@>16.0.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
