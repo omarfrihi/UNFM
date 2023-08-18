@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  ${responsive.lg`
-  padding: 4rem 0%;
+  ${responsive.xl`
+  padding: 4rem 5%;
   gap: 1rem;
 
   
@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 
   ${responsive.lg`
 flex-direction:column;
-gap: 2em;
+gap: 2rem;
 
   
   `}
@@ -81,8 +81,9 @@ export const Button = styled.button`
 `;
 
 export const List = styled.div`
-  width: 90%;
+  width: 100%;
   padding: 0rem;
+  overflow-x: hidden;
 `;
 
 export const Slide = styled.div`

@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 
 export const Activity = styled.div`
   border-radius: 0.5rem;
-  height: 25rem;
+  height: 22rem;
   display: flex;
   padding: 0rem 1rem;
 `;
@@ -101,7 +101,7 @@ export const ActivitiesWrapper = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  height: 25rem;
+  height: 22rem;
   flex: 1;
   overflow: hidden;
   position: relative;
