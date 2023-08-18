@@ -21,6 +21,7 @@ export const NavarbarItems = styled.div`
 `;
 
 export const SubMenu = styled.div`
+  border-radius: 0.5rem;
   display: none;
   position: absolute;
   background-color: ${({ theme }) => theme.colors.white[200]};
@@ -50,7 +51,8 @@ export const Title = styled.div`
 `;
 
 export const SubItem = styled(Item)`
-  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
   color: ${({ theme }) => theme.colors.grey[100]};
   :hover {
     background-color: ${({ theme }) => theme.colors.white[300]};

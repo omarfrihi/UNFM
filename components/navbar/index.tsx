@@ -13,7 +13,11 @@ const Menu = [
   { title: "Accueil" },
   {
     title: "UNFM",
-    subMenu: [{ title: "Histoire" }, { title: "Qui sommes nous?" }],
+    subMenu: [
+      { title: "Qui sommes nous?" },
+      { title: "Discours fondateur" },
+      { title: "Les allocutions princières" },
+    ],
   },
   { title: "8 Mars" },
   {
