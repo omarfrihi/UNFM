@@ -83,10 +83,6 @@ export const Button = styled.button`
 export const List = styled.div`
   width: 90%;
   padding: 0rem;
-  ${responsive.xs`
-  width: 15rem;
-  
-  `}
 `;
 
 export const Slide = styled.div`
@@ -99,6 +95,8 @@ export const Slide = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
-export const SlideWrapper = styled.div``;
+export const SlideWrapper = styled.div`
+  padding: 1rem;
+`;
 
 export const Carousel = styled(Slider)``;

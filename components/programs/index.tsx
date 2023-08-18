@@ -27,6 +27,9 @@ import styled from "@emotion/styled";
 
 const CustomCarousel = styled(Carousel)`
   & .react-multi-carousel-item {
+    div {
+      width: 100%;
+    }
   }
 `;
 
@@ -85,42 +88,50 @@ const Programs = () => {
           draggable={true}
           ref={ref}
         >
-          <Slide>
-            <Image
-              src={require("../../public/assets/program1.png")}
-              alt="program1"
-              width={100}
-              height={125}
-              placeholder="blur"
-            />
-          </Slide>
-          <Slide>
-            <Image
-              src={require("../../public/assets/program2.png")}
-              alt="program2"
-              width={100}
-              height={125}
-              placeholder="blur"
-            />
-          </Slide>
-          <Slide>
-            <Image
-              src={require("../../public/assets/program3.png")}
-              alt="program3"
-              width={100}
-              height={125}
-              placeholder="blur"
-            />
-          </Slide>
-          <Slide>
-            <Image
-              src={require("../../public/assets/program4.png")}
-              alt="program4"
-              width={100}
-              height={125}
-              placeholder="blur"
-            />
-          </Slide>
+          <SlideWrapper>
+            <Slide>
+              <Image
+                src={require("../../public/assets/program1.png")}
+                alt="program1"
+                width={100}
+                height={125}
+                placeholder="blur"
+              />
+            </Slide>
+          </SlideWrapper>
+          <SlideWrapper>
+            <Slide>
+              <Image
+                src={require("../../public/assets/program2.png")}
+                alt="program2"
+                width={100}
+                height={125}
+                placeholder="blur"
+              />
+            </Slide>
+          </SlideWrapper>
+          <SlideWrapper>
+            <Slide>
+              <Image
+                src={require("../../public/assets/program3.png")}
+                alt="program3"
+                width={100}
+                height={125}
+                placeholder="blur"
+              />
+            </Slide>
+          </SlideWrapper>
+          <SlideWrapper>
+            <Slide>
+              <Image
+                src={require("../../public/assets/program4.png")}
+                alt="program4"
+                width={100}
+                height={125}
+                placeholder="blur"
+              />
+            </Slide>
+          </SlideWrapper>
         </CustomCarousel>
       </List>
       <BottomArrows>
