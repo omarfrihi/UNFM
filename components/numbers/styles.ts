@@ -6,14 +6,16 @@ export const Box = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.grey[200]};
   backdrop-filter: blur(6px);
   padding: 3rem 3rem 2rem 3rem;
-  position: relative;
   gap: 2.5rem;
   justify-contenr: center;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  z-index: -1;
 `;
 
 export const Wrapper = styled.div`
+  position: relative;
   padding: 8rem 15%;
   ${responsive.lg`
   padding: 4rem 10%;
@@ -23,10 +25,10 @@ export const Wrapper = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-  position: absolute;
-  top: -40px;
-  left: 46%;
-  background-color: ${({ theme }) => theme.colors.white[200]};
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  transform: translateY(36px);
 `;
 
 export const NumberWrapper = styled.div`
