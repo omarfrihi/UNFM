@@ -65,8 +65,8 @@ const Navbar = () => (
             {subMenu && (
               <SubMenu>
                 {subMenu.map((item) => (
-                  <Link href={item.link}>
-                    <SubItem key={item.title}>{item.title}</SubItem>
+                  <Link href={item.link} key={item.title}>
+                    <SubItem>{item.title}</SubItem>
                   </Link>
                 ))}
               </SubMenu>
