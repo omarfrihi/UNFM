@@ -62,6 +62,8 @@ display:flex:
 flex-direction:column;
 gap:2rem;
 margin-bottom:1rem;
+flex: 1;
+
 `;
 
 export const Text = styled.p`
