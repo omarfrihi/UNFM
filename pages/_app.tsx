@@ -13,7 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>UNFM</title>
         <meta name="description" content="unfm" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <ThemeProvider>
         <RootLayout>
