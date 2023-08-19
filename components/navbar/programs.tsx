@@ -16,7 +16,7 @@ const Programs = ({
   <ProgramsWrapper>
     <ProgramsContent>
       {subMenu.map(({ link = "", image = "" }) => (
-        <SlideWrapper>
+        <SlideWrapper key={link}>
           <Slide>
             <Link href={link}>
               <Image
