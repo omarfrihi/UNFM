@@ -72,7 +72,6 @@ const Navbar = (props: any) => {
       <Link href="/">
         <Image
           width={90}
-          height={80}
           src={asPath === "/" ? Logo : Logo2}
           alt="logo"
         ></Image>

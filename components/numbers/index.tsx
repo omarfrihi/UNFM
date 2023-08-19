@@ -34,7 +34,7 @@ import Image from "next/image";
 const Numbers = () => (
   <Wrapper>
     <ImgWrapper>
-      <Image width={90} height={80} src={Logo} alt="logo"></Image>
+      <Image width={90} src={Logo} alt="logo"></Image>
     </ImgWrapper>
     <Box>
       {numbers.map(({ number, description }) => (

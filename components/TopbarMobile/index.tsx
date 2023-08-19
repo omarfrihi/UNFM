@@ -12,7 +12,7 @@ const TopbarMobile = () => {
     <>
       <Container>
         <Link href="/">
-          <Image width={60} height={60} src={Logo} alt="logo"></Image>
+          <Image width={60} src={Logo} alt="logo"></Image>
         </Link>
         <Menu onClick={() => setOpen(true)} />
       </Container>
