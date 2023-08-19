@@ -13,6 +13,8 @@ import {
   Wrapper,
 } from "./styles";
 import Logo from "../../public/assets/logo.png";
+import Logo2 from "../../public/assets/logo2.png";
+
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Link from "next/link";
 import Button from "../Button";
@@ -68,7 +70,12 @@ const Navbar = (props: any) => {
   return (
     <Wrapper path={asPath}>
       <Link href="/">
-        <Image width={90} height={80} src={Logo} alt="logo"></Image>
+        <Image
+          width={90}
+          height={80}
+          src={asPath === "/" ? Logo : Logo2}
+          alt="logo"
+        ></Image>
       </Link>
 
       <NavarbarItems>
