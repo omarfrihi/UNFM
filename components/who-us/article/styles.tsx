@@ -2,49 +2,40 @@ import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { responsive } from "../../styles/mixins";
+import { responsive } from "../../../styles/mixins";
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  padding: 4rem 15%;
-  align-items: center;
-  border-radius: 0rem 0rem 0rem 16rem;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 45, 131, 0) 0%,
-    rgba(0, 45, 131, 0.06) 100%
-  );
-  ${responsive.lg`
-  padding: 4rem 7%;
+  div:nth-of-type(odd) {
+    flex-direction: row-reverse;
+  }
+  ${responsive.md`
+  div:nth-of-type(odd)  {
+    flex-direction: column;
+  }
 
   `}
-
-  ${responsive.md`
-  flex-direction:column;
-  gap: 2em;
-  border-radius: 0rem 0rem 0rem 8rem;
-
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-direction: column;
+  padding: 4rem 15%;
+  align-items: center;
+  ${responsive.lg`
+  padding: 4rem 7%;
 
   `}
 `;
 
 export const ImageWrapper = styled.div`
-  position: relative;
-
+  overflow: hidden;
   flex: 1;
   height: 500px;
   ${responsive.md`
   width:100%;
   flex:unset;
   `}
+  position: relative;
 
-  border-radius: 0.5rem 0.5rem 0.5rem 9rem;
-  border: 0.3px solid ${({ theme }) => theme.colors.blue[100]};
-  img {
-    transform: translate(9px, -7px);
-    border-radius: 0 0 0 9rem;
-  }
+  border-radius: 0.5rem;
 `;
 
 export const Title = styled.h1`
@@ -105,4 +96,16 @@ export const ButtonText = styled.span`
   font-style: normal;
   font-weight: 500;
   text-transform: capitalize;
+`;
+
+export const Article = styled("div")`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  ${responsive.md`
+  flex-direction:column;
+  gap: 2em;
+
+  `}
 `;
