@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { responsive } from "../../styles/mixins";
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ path?: string }>`
   display: flex;
   padding: 0rem 16%;
   padding-top: 0.5rem;
   align-items: center;
   justify-content: space-between;
   z-index: 3;
-  position: absolute;
+  position: ${({ path }) => (path === "/" ? "absolute" : "relative")};
   width: 100%;
   ${responsive.md`
   display:none;
@@ -21,6 +21,7 @@ export const NavarbarItems = styled.div`
 `;
 
 export const SubMenu = styled.div`
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   display: none;
   position: absolute;
@@ -29,11 +30,15 @@ export const SubMenu = styled.div`
   right: 0;
   flex-direction: column;
 `;
-export const Item = styled.div<{ active?: boolean }>`
+export const Item = styled.div<{ active?: boolean; path?: string }>`
   white-space: nowrap;
   position: relative;
-  color: ${({ theme, active }) =>
-    active ? theme.colors.green[200] : theme.colors.white[200]};
+  color: ${({ theme, active, path }) =>
+    active
+      ? theme.colors.green[200]
+      : path === "/"
+      ? theme.colors.white[200]
+      : theme.colors.grey[400]};
   text-decoration: ${({ active }) => (active ? "underline" : "none")};
   text-underline-offset: 4px;
   font-family: Gilroy;
@@ -53,7 +58,7 @@ export const Title = styled.div`
 export const SubItem = styled(Item)`
   border-radius: 0.5rem;
   padding: 0.5rem 0.7rem;
-  color: ${({ theme }) => theme.colors.grey[100]};
+  color: ${({ theme }) => theme.colors.grey[400]};
   :hover {
     background-color: ${({ theme }) => theme.colors.white[300]};
   }

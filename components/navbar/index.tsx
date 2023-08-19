@@ -17,13 +17,14 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Link from "next/link";
 import Button from "../Button";
 import Programs from "./programs";
+import { useRouter } from "next/router";
 export const Menu = [
   { title: "Accueil", link: "/" },
   {
     title: "UNFM",
 
     subMenu: [
-      { title: "Qui sommes nous?", link: "Who-us" },
+      { title: "Qui sommes nous?", link: "who-us" },
       { title: "Discours fondateur", link: "discours" },
       { title: "Les allocutions princières", link: "allocutions" },
     ],
@@ -62,45 +63,47 @@ export const Menu = [
   },
   { title: "Espace Média", link: "media" },
 ];
+const Navbar = (props: any) => {
+  const { asPath } = useRouter();
+  return (
+    <Wrapper path={asPath}>
+      <Link href="/">
+        <Image width={90} height={80} src={Logo} alt="logo"></Image>
+      </Link>
 
-const Navbar = () => (
-  <Wrapper>
-    <Link href="/">
-      <Image width={90} height={80} src={Logo} alt="logo"></Image>
-    </Link>
-
-    <NavarbarItems>
-      {Menu.map(({ title, subMenu, link, Card }, index) => (
-        <>
-          <Item active={index === 0} key={title}>
-            {subMenu ? (
-              <Title>
-                {title}
-                {subMenu && <ArrowDropDownIcon />}
-              </Title>
-            ) : (
-              <Link href={link || ""}>
-                <Title>{title}</Title>
-              </Link>
-            )}
-            {subMenu && (
-              <SubMenu>
-                {Card ? (
-                  <Card subMenu={subMenu} />
-                ) : (
-                  subMenu.map((item) => (
-                    <Link href={item.link} key={item.title}>
-                      <SubItem>{item.title}</SubItem>
-                    </Link>
-                  ))
-                )}
-              </SubMenu>
-            )}
-          </Item>
-        </>
-      ))}
-    </NavarbarItems>
-  </Wrapper>
-);
+      <NavarbarItems>
+        {Menu.map(({ title, subMenu, link, Card }, index) => (
+          <>
+            <Item active={index === 0} key={title} path={asPath}>
+              {subMenu ? (
+                <Title>
+                  {title}
+                  {subMenu && <ArrowDropDownIcon />}
+                </Title>
+              ) : (
+                <Link href={link || ""}>
+                  <Title>{title}</Title>
+                </Link>
+              )}
+              {subMenu && (
+                <SubMenu>
+                  {Card ? (
+                    <Card subMenu={subMenu} />
+                  ) : (
+                    subMenu.map((item) => (
+                      <Link href={item.link} key={item.title}>
+                        <SubItem>{item.title}</SubItem>
+                      </Link>
+                    ))
+                  )}
+                </SubMenu>
+              )}
+            </Item>
+          </>
+        ))}
+      </NavarbarItems>
+    </Wrapper>
+  );
+};
 
 export default Navbar;
