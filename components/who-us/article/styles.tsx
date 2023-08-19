@@ -15,12 +15,12 @@ export const Wrapper = styled.div`
   `}
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
-  padding: 4rem 15%;
+  padding: 2rem 0%;
   align-items: center;
   ${responsive.lg`
-  padding: 4rem 7%;
+  padding: 2rem 0;
 
   `}
 `;
@@ -96,14 +96,23 @@ export const ButtonText = styled.span`
   text-transform: capitalize;
 `;
 
-export const Article = styled("div")`
+export const Article = styled("div")<{ backgroundColor?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5rem;
+  background-color: ${({ backgroundColor, theme }) =>
+    backgroundColor || theme.colors.white[200]};
   ${responsive.md`
   flex-direction:column;
   gap: 2em;
+
+  `};
+
+  padding: 2rem 15%;
+  align-items: center;
+  ${responsive.lg`
+  padding: 2rem 7%;
 
   `}
 `;

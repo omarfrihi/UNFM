@@ -1,6 +1,6 @@
 import { LoogWrapper, Wrapper, ImageWrapper } from "./styles";
 import Image from "next/image";
-const Cover = () => (
+const Cover = ({ image }: { image: string }) => (
   <Wrapper>
     <LoogWrapper>
       <ImageWrapper>
@@ -15,7 +15,7 @@ const Cover = () => (
     </LoogWrapper>
 
     <Image
-      src={require("../../../public/assets/banner2.png")}
+      src={image}
       alt="banner"
       placeholder="blur"
       layout="fill"

@@ -77,13 +77,7 @@ export const ActivityTag = styled.div`
 export const ActivitiesWrapper = styled.div`
   width: 100%;
 
-  padding: 3rem 0rem 3rem 25%;
-
-  ${responsive.xl`
-  padding-left:  15%;
-
-  
-  `}
+  padding: 3rem 0rem 3rem 16.5%;
 
   ${responsive.md`
   padding-left:  7%;
