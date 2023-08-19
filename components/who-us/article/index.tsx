@@ -87,7 +87,7 @@ const articles = [
 const Article = () => (
   <Wrapper>
     {articles.map(({ title, image, content }) => (
-      <ArticleContainer>
+      <ArticleContainer key={title}>
         <ImageWrapper>
           <Image
             layout="responsive"
