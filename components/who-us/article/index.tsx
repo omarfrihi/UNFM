@@ -90,8 +90,7 @@ const Article = () => (
       <ArticleContainer>
         <ImageWrapper>
           <Image
-            layout="fill"
-            objectFit="cover"
+            layout="responsive"
             placeholder="blur"
             alt="article1"
             src={image}

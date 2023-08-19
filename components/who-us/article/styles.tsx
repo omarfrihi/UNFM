@@ -28,12 +28,10 @@ export const Wrapper = styled.div`
 export const ImageWrapper = styled.div`
   overflow: hidden;
   flex: 1;
-  height: 500px;
   ${responsive.md`
   width:100%;
   flex:unset;
   `}
-  position: relative;
 
   border-radius: 0.5rem;
 `;

@@ -16,8 +16,7 @@ const Article = () => (
   <Wrapper>
     <ImageWrapper>
       <Image
-        layout="fill"
-        objectFit="cover"
+        layout="responsive"
         placeholder="blur"
         alt="article1"
         src={require("../../public/assets/article1.png")}

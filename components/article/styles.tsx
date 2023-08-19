@@ -30,10 +30,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  position: relative;
-
   flex: 1;
-  height: 500px;
   ${responsive.md`
   width:100%;
   flex:unset;
