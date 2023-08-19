@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const ShowMore = styled("button")`
+export const ShowMore = styled("div")`
   background-color: ${({ theme }) => theme.colors.blue[100]};
   border-radius: 6.5rem;
   padding: 0.7rem 1rem;
@@ -10,7 +10,7 @@ export const ShowMore = styled("button")`
   gap: 0.2rem;
   color: ${({ theme }) => theme.colors.white[200]};
   cursor: pointer;
-  width: fit-content;
+  width: fit-content !important;
 `;
 
 export const ButtonText = styled.span`

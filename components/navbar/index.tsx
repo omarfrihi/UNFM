@@ -1,7 +1,12 @@
 import Image from "next/image";
 import {
+  Buttons,
   Item,
   NavarbarItems,
+  ProgramsContent,
+  ProgramsWrapper,
+  Slide,
+  SlideWrapper,
   SubItem,
   SubMenu,
   Title,
@@ -10,6 +15,8 @@ import {
 import Logo from "../../public/assets/logo.png";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Link from "next/link";
+import Button from "../Button";
+import Programs from "./programs";
 export const Menu = [
   { title: "Accueil", link: "/" },
   {
@@ -34,12 +41,23 @@ export const Menu = [
   },
   {
     title: "Programmes",
+    Card: Programs,
     subMenu: [
-      { title: "Programme 1", link: "program1" },
-      { title: "Programme 2", link: "program2" },
-      { title: "Programme 3", link: "program3" },
-      { title: "Programme 4", link: "program4" },
-      { title: "Programme 5", link: "program5" },
+      {
+        title: "Programme 1",
+        link: "program1",
+        image: require("../../public/assets/program1.png"),
+      },
+      {
+        title: "Programme 2",
+        link: "program2",
+        image: require("../../public/assets/program2.png"),
+      },
+      {
+        title: "Programme 3",
+        link: "program3",
+        image: require("../../public/assets/program3.png"),
+      },
     ],
   },
   { title: "Espace Média", link: "media" },
@@ -47,9 +65,12 @@ export const Menu = [
 
 const Navbar = () => (
   <Wrapper>
-    <Image width={90} height={80} src={Logo} alt="logo"></Image>
+    <Link href="/">
+      <Image width={90} height={80} src={Logo} alt="logo"></Image>
+    </Link>
+
     <NavarbarItems>
-      {Menu.map(({ title, subMenu, link }, index) => (
+      {Menu.map(({ title, subMenu, link, Card }, index) => (
         <>
           <Item active={index === 0} key={title}>
             {subMenu ? (
@@ -64,11 +85,15 @@ const Navbar = () => (
             )}
             {subMenu && (
               <SubMenu>
-                {subMenu.map((item) => (
-                  <Link href={item.link} key={item.title}>
-                    <SubItem>{item.title}</SubItem>
-                  </Link>
-                ))}
+                {Card ? (
+                  <Card subMenu={subMenu} />
+                ) : (
+                  subMenu.map((item) => (
+                    <Link href={item.link} key={item.title}>
+                      <SubItem>{item.title}</SubItem>
+                    </Link>
+                  ))
+                )}
               </SubMenu>
             )}
           </Item>

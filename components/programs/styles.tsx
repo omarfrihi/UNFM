@@ -90,11 +90,11 @@ export const Slide = styled.div`
   border-radius: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.blue[100]};
   height: 15rem;
-  width: 15rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
 `;
 export const SlideWrapper = styled.div`
   padding: 1rem;

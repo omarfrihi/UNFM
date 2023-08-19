@@ -93,9 +93,9 @@ const Programs = () => {
               <Image
                 src={require("../../public/assets/program1.png")}
                 alt="program1"
-                width={100}
-                height={125}
                 placeholder="blur"
+                layout="fill"
+                objectFit="contain"
               />
             </Slide>
           </SlideWrapper>

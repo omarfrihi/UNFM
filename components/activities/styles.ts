@@ -4,14 +4,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 export const CustomCarousel = styled(Carousel)`
-  ${responsive.sm`
-& .react-multi-carousel-item {
-
-  div {
-    width: 100%;
+  & .react-multi-carousel-item {
+    div {
+      width: 100%;
+    }
   }
-}
-`}
 `;
 
 export const Wrapper = styled.div`
@@ -73,7 +70,7 @@ export const ActivityTag = styled.div`
   font-style: normal;
   font-weight: 700;
   border-radius: 0.5rem;
-  width: fit-content;
+  width: fit-content !important;
   padding: 0.1rem 0.3rem;
 `;
 

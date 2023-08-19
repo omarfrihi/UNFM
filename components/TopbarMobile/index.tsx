@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import Logo from "../../public/assets/logo2.png";
 import NavbarMobile from "../navbarMobile";
@@ -10,7 +11,9 @@ const TopbarMobile = () => {
   return (
     <>
       <Container>
-        <Image width={60} height={60} src={Logo} alt="logo"></Image>
+        <Link href="/">
+          <Image width={60} height={60} src={Logo} alt="logo"></Image>
+        </Link>
         <Menu onClick={() => setOpen(true)} />
       </Container>
       <NavbarMobile open={open} setOpen={setOpen} />

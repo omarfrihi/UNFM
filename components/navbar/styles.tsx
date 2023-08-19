@@ -26,6 +26,7 @@ export const SubMenu = styled.div`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.white[200]};
   width: fit-content;
+  right: 0;
   flex-direction: column;
 `;
 export const Item = styled.div<{ active?: boolean }>`
@@ -40,7 +41,6 @@ export const Item = styled.div<{ active?: boolean }>`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  cursor: pointer;
   :hover div {
     display: flex;
   }
@@ -57,4 +57,41 @@ export const SubItem = styled(Item)`
   :hover {
     background-color: ${({ theme }) => theme.colors.white[300]};
   }
+`;
+
+export const ProgramsWrapper = styled("div")`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+`;
+
+export const ProgramsContent = styled("div")`
+  display: flex;
+  gap: 1.5rem;
+`;
+
+export const Buttons = styled("div")`
+  display: flex;
+  gap: 1.5rem;
+`;
+
+export const Slide = styled.div`
+  border-radius: 0.5rem;
+  height: 10rem;
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+`;
+
+export const SlideWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.03);
 `;
