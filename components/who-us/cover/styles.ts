@@ -28,14 +28,21 @@ export const LoogWrapper = styled("div")`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
-export const ImageWrapper = styled("div")`
-  width: 30%;
+export const Title = styled("span")`
+  color: #2e2e2e;
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
   ${responsive.md`
-  width: 50%;
+  font-size: 1.2rem;
 
   `}
-  height: 100%;
-  position: relative;
 `;

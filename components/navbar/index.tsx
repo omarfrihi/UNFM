@@ -34,13 +34,7 @@ export const Menu = [
   { title: "8 Mars", link: "8mars" },
   {
     title: "Activités",
-    subMenu: [
-      { title: "Activité 1", link: "activity1" },
-      { title: "Activité 2", link: "activity2" },
-      { title: "Activité 3", link: "activity3" },
-      { title: "Activité 4", link: "activity4" },
-      { title: "Activité 5", link: "activity5" },
-    ],
+    link: "activities",
   },
   {
     title: "Programmes",

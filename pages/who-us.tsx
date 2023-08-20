@@ -77,7 +77,10 @@ const articles = [
 ];
 const WhoUs = () => (
   <>
-    <Cover image={require("../public/assets/banner2.png")} />
+    <Cover
+      image={require("../public/assets/banner2.png")}
+      title={"Qui sommes nous?"}
+    />
     <Article articles={articles} />
     <History />
   </>

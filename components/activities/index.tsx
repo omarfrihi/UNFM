@@ -104,6 +104,39 @@ var settings = {
   slidesToScroll: 1,
   arrows: false,
 };
+
+export const ActivityComponent = ({
+  title,
+  image,
+  tag,
+  description,
+}: {
+  title: string;
+  image: string;
+  tag: string;
+  description: string;
+}) => (
+  <Activity>
+    <ImageWrapper>
+      <Image
+        src={image}
+        alt={title}
+        layout="fill"
+        objectFit="cover"
+        placeholder="blur"
+      />
+    </ImageWrapper>
+    <ActivityContent>
+      <ActivityTag>{tag}</ActivityTag>
+
+      <ActivityTitle>{title}</ActivityTitle>
+      <DescriptionContent>
+        <Description>{description}</Description>
+        <Button>En savoir plus</Button>
+      </DescriptionContent>
+    </ActivityContent>
+  </Activity>
+);
 const Avtivities = () => {
   const ref = useRef(null);
   const handleNextSlide = () => {
@@ -134,28 +167,9 @@ const Avtivities = () => {
           draggable={true}
           ref={ref}
         >
-          {activities.map(({ title, image, description, tag }) => (
-            <div key={title}>
-              <Activity>
-                <ImageWrapper>
-                  <Image
-                    src={image}
-                    alt={title}
-                    layout="fill"
-                    objectFit="cover"
-                    placeholder="blur"
-                  />
-                </ImageWrapper>
-                <ActivityContent>
-                  <ActivityTag>{tag}</ActivityTag>
-
-                  <ActivityTitle>{title}</ActivityTitle>
-                  <DescriptionContent>
-                    <Description>{description}</Description>
-                    <Button>En savoir plus</Button>
-                  </DescriptionContent>
-                </ActivityContent>
-              </Activity>
+          {activities.map((activity) => (
+            <div key={activity.title}>
+              <ActivityComponent {...activity} />
             </div>
           ))}
         </CustomCarousel>

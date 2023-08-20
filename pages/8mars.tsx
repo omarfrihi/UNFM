@@ -43,7 +43,10 @@ const articles = [
 
 const WomenDay = () => (
   <>
-    <Cover image={require("../public/assets/8mars.jpeg")} />
+    <Cover
+      image={require("../public/assets/8mars.jpeg")}
+      title="Journée de la femme"
+    />
     <Article articles={articles} />
     <Activities></Activities>
   </>
