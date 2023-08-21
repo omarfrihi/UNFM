@@ -65,7 +65,7 @@ export const getLayoytStaticProps = async () => {
           { title: "Les allocutions princières", link: "/allocutions" },
         ],
       },
-      { title: "history", link: "/history" },
+      { title: "Notre Histoire", link: "/history" },
       { title: "Journée de la femme", link: "/8mars" },
 
       {
