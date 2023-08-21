@@ -11,18 +11,21 @@ export const Item = styled.div<{ active?: boolean }>`
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[200]};
   font-family: Gilroy;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   cursor: pointer;
 `;
-
+export const Title = styled.div<{ active?: boolean }>`
+  color: ${({ theme, active }) =>
+    active ? theme.colors.green[200] : theme.colors.grey[200]};
+`;
 export const SubItem = styled.div<{ active?: boolean }>`
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[200]};
   font-family: Gilroy;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

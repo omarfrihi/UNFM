@@ -7,14 +7,28 @@ import {
 import Link from "next/link";
 import React, { useEffect } from "react";
 import "react-modern-drawer/dist/index.css";
-import { Menu } from "../navbar";
-import { Title } from "../navbar/styles";
-import { Close, EndIcon, Item, SubItem, SubItems, Wrapper } from "./styes";
+import {
+  Close,
+  EndIcon,
+  Item,
+  SubItem,
+  SubItems,
+  Wrapper,
+  Title,
+} from "./styes";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useRouter } from "next/router";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { NavbarProps } from "../navbar";
 
-const NavbarMobile = ({ open, setOpen }: any) => {
+const NavbarMobile = ({
+  open,
+  setOpen,
+  data,
+}: {
+  open: boolean;
+  setOpen: (value: boolean) => void;
+} & NavbarProps) => {
   const { asPath } = useRouter();
   const { width } = useWindowSize();
 
@@ -25,9 +39,15 @@ const NavbarMobile = ({ open, setOpen }: any) => {
     <>
       <Drawer open={open} onClose={() => setOpen(false)} anchor="right">
         <Wrapper>
-          {Menu.map(({ title, subMenu, link }, index) => (
+          {data.map(({ title, subMenu, link }) => (
             <>
-              <Item active={index === 0} key={title}>
+              <Item
+                active={
+                  asPath === link ||
+                  subMenu?.map(({ link }) => link).includes(asPath)
+                }
+                key={title}
+              >
                 {subMenu ? (
                   <Accordion
                     sx={{
@@ -49,14 +69,21 @@ const NavbarMobile = ({ open, setOpen }: any) => {
                         },
                       }}
                     >
-                      <Title>{title}</Title>
+                      <Title
+                        active={
+                          asPath === link ||
+                          subMenu?.map(({ link }) => link).includes(asPath)
+                        }
+                      >
+                        {title}
+                      </Title>
                     </AccordionSummary>
 
                     <AccordionDetails>
                       <SubItems>
                         {subMenu.map(({ link, title }) => (
-                          <Link href={link || ""} key={title}>
-                            <SubItem>{title}</SubItem>
+                          <Link href={link || "/"} key={title}>
+                            <SubItem active={asPath === link}>{title}</SubItem>
                           </Link>
                         ))}
                       </SubItems>

@@ -8,9 +8,11 @@ import {
   Slide,
   SlideWrapper,
 } from "./styles";
-const Programs = ({
+const Card = ({
   subMenu,
+  actions,
 }: {
+  actions: { text: string; link: string }[];
   subMenu: { title: string; link: string; image?: string }[];
 }) => (
   <ProgramsWrapper>
@@ -21,7 +23,7 @@ const Programs = ({
             <Link href={link}>
               <Image
                 src={image}
-                alt="program1"
+                alt="item"
                 placeholder="blur"
                 layout="fill"
                 objectFit="contain"
@@ -32,10 +34,13 @@ const Programs = ({
       ))}
     </ProgramsContent>
     <Buttons>
-      <Button>Tous les Programmes</Button>
-      <Button>Toutes Nos Catégories</Button>
+      {actions.map(({ text, link }) => (
+        <Button href={link} key={text}>
+          {text}
+        </Button>
+      ))}
     </Buttons>
   </ProgramsWrapper>
 );
 
-export default Programs;
+export default Card;

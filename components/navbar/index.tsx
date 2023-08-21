@@ -18,49 +18,22 @@ import Logo2 from "../../public/assets/logo2.png";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Link from "next/link";
 import Button from "../Button";
-import Programs from "./programs";
+import Card from "./card";
 import { useRouter } from "next/router";
-export const Menu = [
-  { title: "Accueil", link: "/" },
-  {
-    title: "UNFM",
 
-    subMenu: [
-      { title: "Qui sommes nous?", link: "who-us" },
-      { title: "Discours fondateur", link: "discours" },
-      { title: "Les allocutions princières", link: "allocutions" },
-    ],
-  },
-  { title: "8 Mars", link: "8mars" },
-  {
-    title: "Activités",
-    link: "activities",
-  },
-  {
-    title: "Programmes",
-    Card: Programs,
-    subMenu: [
-      {
-        title: "Programme 1",
-        link: "program1",
-        image: require("../../public/assets/program1.png"),
-      },
-      {
-        title: "Programme 2",
-        link: "program2",
-        image: require("../../public/assets/program2.png"),
-      },
-      {
-        title: "Programme 3",
-        link: "program3",
-        image: require("../../public/assets/program3.png"),
-      },
-    ],
-  },
-  { title: "Espace Média", link: "media" },
-];
-const Navbar = (props: any) => {
+export type NavbarProps = {
+  data: {
+    title: string;
+    link?: string;
+    isCard?: boolean;
+    subMenu?: { title: string; link: string; image?: string }[];
+    actions: { text: string; link: string }[];
+  }[];
+};
+const Navbar = ({ data }: NavbarProps) => {
   const { asPath } = useRouter();
+  const test = useRouter();
+  console.log("paths", test);
   return (
     <Wrapper path={asPath}>
       <Link href="/">
@@ -72,35 +45,46 @@ const Navbar = (props: any) => {
       </Link>
 
       <NavarbarItems>
-        {Menu.map(({ title, subMenu, link, Card }, index) => (
-          <>
-            <Item active={index === 0} key={title} path={asPath}>
-              {subMenu ? (
-                <Title>
-                  {title}
-                  {subMenu && <ArrowDropDownIcon />}
-                </Title>
-              ) : (
-                <Link href={link || ""}>
-                  <Title>{title}</Title>
-                </Link>
-              )}
-              {subMenu && (
-                <SubMenu>
-                  {Card ? (
-                    <Card subMenu={subMenu} />
-                  ) : (
-                    subMenu.map((item) => (
-                      <Link href={item.link} key={item.title}>
-                        <SubItem>{item.title}</SubItem>
-                      </Link>
-                    ))
-                  )}
-                </SubMenu>
-              )}
-            </Item>
-          </>
-        ))}
+        {data.map(({ title, subMenu, link, isCard, actions }) => {
+          return (
+            <>
+              <Item
+                active={
+                  asPath === link ||
+                  subMenu?.map(({ link }) => link).includes(asPath)
+                }
+                key={title}
+                path={asPath}
+              >
+                {subMenu ? (
+                  <Title>
+                    {title}
+                    {subMenu && <ArrowDropDownIcon />}
+                  </Title>
+                ) : (
+                  <Link href={link || "/"}>
+                    <Title>{title}</Title>
+                  </Link>
+                )}
+                {subMenu && (
+                  <SubMenu>
+                    {isCard ? (
+                      <Card subMenu={subMenu} actions={actions} />
+                    ) : (
+                      subMenu.map((item) => (
+                        <Link href={item.link} key={item.title}>
+                          <SubItem active={asPath === item.link}>
+                            {item.title}
+                          </SubItem>
+                        </Link>
+                      ))
+                    )}
+                  </SubMenu>
+                )}
+              </Item>
+            </>
+          );
+        })}
       </NavarbarItems>
     </Wrapper>
   );

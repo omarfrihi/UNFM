@@ -12,12 +12,22 @@ export const Wrapper = styled.div<{ path?: string }>`
   ${responsive.md`
   display:none;
   `}
+
+  ${responsive.xl`
+  padding: 0rem 10%;
+  `}
+  ${responsive.lg`
+  padding: 0rem 5%;
+  `}
 `;
 
 export const NavarbarItems = styled.div`
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2.3rem;
+  ${responsive.lg`
+  gap: 1.8rem;
+  `}
 `;
 
 export const SubMenu = styled.div`
@@ -42,13 +52,17 @@ export const Item = styled.div<{ active?: boolean; path?: string }>`
   text-decoration: ${({ active }) => (active ? "underline" : "none")};
   text-underline-offset: 4px;
   font-family: Gilroy;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   :hover div {
     display: flex;
   }
+
+  ${responsive.lg`
+  font-size: 0.8rem;
+  `}
 `;
 export const Title = styled.div`
   display: flex;
@@ -56,9 +70,12 @@ export const Title = styled.div`
 `;
 
 export const SubItem = styled(Item)`
+  text-decoration: none;
   border-radius: 0.5rem;
   padding: 0.5rem 0.7rem;
-  color: ${({ theme }) => theme.colors.grey[400]};
+  color: ${({ theme, active }) =>
+    active ? theme.colors.green[200] : theme.colors.grey[400]};
+
   :hover {
     background-color: ${({ theme }) => theme.colors.white[300]};
   }

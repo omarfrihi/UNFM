@@ -3,23 +3,25 @@ import Topbar, { TopbarProps } from "../Topbar";
 import { theme } from "../../theme/emotion";
 import ThemeProvider from "../theme-provider";
 
-import Navbar from "../navbar";
+import Navbar, { NavbarProps } from "../navbar";
 import Footer, { FooterProps } from "../footer";
 import TopbarMobile from "../TopbarMobile";
 const RootLayout = ({
   children,
   topbar,
   footer,
+  navbar,
 }: {
   children: React.ReactNode;
   topbar: TopbarProps;
   footer: FooterProps;
+  navbar: NavbarProps;
 }) => {
   return (
     <>
-      <TopbarMobile />
+      <TopbarMobile {...navbar} />
       <Topbar {...topbar} />
-      <Navbar />
+      <Navbar {...navbar} />
       {children}
       <Footer {...footer} />
     </>
@@ -51,10 +53,57 @@ export const getLayoytStaticProps = async () => {
       copytight: "Copyright © UNFM 2023 Tous droits réservés",
     },
   };
+  const navbar = {
+    data: [
+      { title: "Accueil", link: "/" },
+      {
+        title: "UNFM",
+
+        subMenu: [
+          { title: "Qui sommes nous?", link: "/who-us" },
+          { title: "Discours fondateur", link: "/discours" },
+          { title: "Les allocutions princières", link: "/allocutions" },
+        ],
+      },
+      { title: "history", link: "/history" },
+      { title: "Journée de la femme", link: "/8mars" },
+
+      {
+        title: "Activités",
+        link: "activities",
+      },
+      {
+        title: "Programmes",
+        isCard: true,
+        actions: [
+          { text: "Tous les Programmes", link: "/programs" },
+          { text: "Toutes Nos Catégories", link: "/categories" },
+        ],
+        subMenu: [
+          {
+            title: "Programme 1",
+            link: "/programs/1",
+            image: require("../../public/assets/program1.png"),
+          },
+          {
+            title: "Programme 2",
+            link: "/programs/2",
+            image: require("../../public/assets/program2.png"),
+          },
+          {
+            title: "Programme 3",
+            link: "/programs/3",
+            image: require("../../public/assets/program3.png"),
+          },
+        ],
+      },
+      { title: "Associations accréditées", link: "/associations-accredité" },
+    ],
+  };
   const props = {
     topbar,
-    navbar: {},
     footer,
+    navbar,
   };
 
   return props;
