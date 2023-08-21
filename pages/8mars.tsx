@@ -42,7 +42,6 @@ export async function getStaticProps() {
       },
 
       {
-        backgroundColor: "rgba(216, 150, 32, 0.06)",
         image: require("../public/assets/8mars-1.png"),
         content: [
           ` À travers l’ensemble du Royaume, ces deux journées sont célébrées par

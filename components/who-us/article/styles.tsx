@@ -6,10 +6,13 @@ import { responsive } from "../../../styles/mixins";
 export const Wrapper = styled.div`
   div:nth-of-type(odd) {
     flex-direction: row-reverse;
+    background-color: transparent;
   }
   ${responsive.md`
   div:nth-of-type(odd)  {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    background-color: transparent;
+
   }
 
   `}
@@ -96,18 +99,18 @@ export const ButtonText = styled.span`
   text-transform: capitalize;
 `;
 
-export const Article = styled("div")<{ backgroundColor?: string }>`
+export const Article = styled("div")`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5rem;
-  background-color: ${({ backgroundColor, theme }) =>
-    backgroundColor || theme.colors.white[200]};
+
   ${responsive.md`
-  flex-direction:column;
+  flex-direction:column-reverse;
   gap: 2em;
 
   `};
+  background-color: rgba(216, 150, 32, 0.06);
 
   padding: 2rem 15%;
   align-items: center;

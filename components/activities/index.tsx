@@ -49,26 +49,28 @@ var settings = {
   slidesToScroll: 1,
   arrows: false,
 };
-
-export const ActivityComponent = ({
-  title,
-  image,
-  tag,
-  description,
-  action,
-  link,
-}: {
+export type ActivityType = {
   title: string;
-  image: string;
   tag: string;
-  description: string;
+  articles: {
+    image: string;
+    description: string[];
+  }[];
+
   action: string;
   link: string;
-}) => (
+};
+export const ActivityComponent = ({
+  title,
+  tag,
+  articles,
+  action,
+  link,
+}: ActivityType) => (
   <Activity>
     <ImageWrapper>
       <Image
-        src={image}
+        src={articles[0].image}
         alt={title}
         layout="fill"
         objectFit="cover"
@@ -80,8 +82,10 @@ export const ActivityComponent = ({
 
       <ActivityTitle>{title}</ActivityTitle>
       <DescriptionContent>
-        <Description>{description}</Description>
-        <Button href={link}>{action}</Button>
+        <Description>
+          {articles[0].description[0].substring(0, 120)}...
+        </Description>
+        <Button href={`activities/${link}`}>{action}</Button>
       </DescriptionContent>
     </ActivityContent>
   </Activity>
@@ -93,13 +97,7 @@ const Avtivities = ({
 }: {
   title: string;
   action: string;
-  data: {
-    title: string;
-    image: string;
-    tag: string;
-    description: string;
-    link: string;
-  }[];
+  data: ActivityType[];
 }) => {
   const ref = useRef(null);
   const handleNextSlide = () => {

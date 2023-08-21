@@ -16,12 +16,17 @@ const Article = ({
     title?: string;
     image: string;
     content: string[];
-    backgroundColor?: string;
   }[];
 }) => (
   <Wrapper>
-    {data.map(({ title, image, content, backgroundColor }) => (
-      <ArticleContainer key={title} backgroundColor={backgroundColor}>
+    {data.map(({ title, image, content }) => (
+      <ArticleContainer key={title}>
+        <Content>
+          {title && <Title>{title}</Title>}
+          {content.map((x) => (
+            <Text dangerouslySetInnerHTML={{ __html: x }} key={x}></Text>
+          ))}
+        </Content>
         <ImageWrapper>
           <Image
             layout="responsive"
@@ -30,12 +35,6 @@ const Article = ({
             src={image}
           ></Image>
         </ImageWrapper>
-        <Content>
-          {title && <Title>{title}</Title>}
-          {content.map((x) => (
-            <Text dangerouslySetInnerHTML={{ __html: x }} key={x}></Text>
-          ))}
-        </Content>
       </ArticleContainer>
     ))}
   </Wrapper>

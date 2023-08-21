@@ -1,7 +1,7 @@
-import Activity from "../components/activity-page";
-import Cover from "../components/who-us/cover";
-import { mockActivities } from "../utils/constants";
-import RootLayout, { getLayoytStaticProps } from "../components/layout";
+import Activity from "../../components/activity-page";
+import Cover from "../../components/who-us/cover";
+import { mockActivities } from "../../utils/constants";
+import RootLayout, { getLayoytStaticProps } from "../../components/layout";
 
 const Activities = ({ data }: any) => {
   const { activities, cover, layout } = JSON.parse(data);
@@ -13,11 +13,12 @@ const Activities = ({ data }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }: { params: { id: string } }) {
+  console.log("params", params);
   const cover = {
     data: {
       title: "Activités",
-      image: require("../public/assets/activities.png"),
+      image: require("../../public/assets/activities.png"),
     },
   };
   const activities = {
