@@ -1,14 +1,15 @@
 import Activity from "../components/activity-page";
 import Cover from "../components/who-us/cover";
 import { mockActivities } from "../utils/constants";
+import RootLayout, { getLayoytStaticProps } from "../components/layout";
 
 const Activities = ({ data }: any) => {
-  const { activities, cover } = JSON.parse(data);
+  const { activities, cover, layout } = JSON.parse(data);
   return (
-    <>
+    <RootLayout {...layout}>
       <Cover {...cover} />
       <Activity {...activities}></Activity>
-    </>
+    </RootLayout>
   );
 };
 
@@ -34,9 +35,11 @@ export async function getStaticProps() {
       ],
     },
   };
+  const layout = await getLayoytStaticProps();
+
   return {
     props: {
-      data: JSON.stringify({ activities, cover }),
+      data: JSON.stringify({ activities, cover, layout }),
     },
     revalidate: true,
   };

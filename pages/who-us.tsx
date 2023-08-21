@@ -1,16 +1,17 @@
 import Article from "../components/who-us/article";
 import Cover from "../components/who-us/cover";
 import { Text } from "../components/who-us/article/styles";
+import RootLayout, { getLayoytStaticProps } from "../components/layout";
 
 import History from "../components/who-us/history";
 const WhoUs = ({ data }: any) => {
-  const { article, cover, history } = JSON.parse(data);
+  const { article, cover, history, layout } = JSON.parse(data);
   return (
-    <>
+    <RootLayout {...layout}>
       <Cover {...cover} />
       <Article {...article} />
       <History {...history} />
-    </>
+    </RootLayout>
   );
 };
 
@@ -98,9 +99,12 @@ export async function getStaticProps() {
       ],
     },
   };
+  const layout = await getLayoytStaticProps();
+
   return {
     props: {
       data: JSON.stringify({
+        layout,
         article,
         cover,
         history,

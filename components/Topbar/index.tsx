@@ -12,33 +12,46 @@ import {
   WithYouText,
   Lang,
 } from "./styles";
-
-const Topbar = () => (
+export type TopbarProps = {
+  data: {
+    callUs: string;
+    phoneNumber: string;
+    download: { text: string; appName: string; link: string };
+    languages: {
+      label: string;
+      value: string;
+    }[];
+  };
+};
+const Topbar = ({
+  data: {
+    callUs,
+    phoneNumber,
+    download: { text, appName, link },
+    languages,
+  },
+}: TopbarProps) => (
   <Container>
     <Actions>
       <Wrapper>
         <Call />
-        <Text>Appelez-nous: 8350</Text>
+        <Text>{`${callUs} ${phoneNumber}`}</Text>
       </Wrapper>
 
-      <Link href="download">
+      <Link href={link}>
         <Wrapper>
           <Phone />
-          <Text>Télécharger l’application:</Text>
-          <DownloadText>KOLONAMA</DownloadText>
+          <Text>{`${text}`}</Text>
+          <DownloadText>{appName}</DownloadText>
         </Wrapper>
       </Link>
     </Actions>
     <LangWrapper>
-      <Link href="">
-        <Lang active>Fr</Lang>
-      </Link>
-      <Link href="ar">
-        <Lang>Ar</Lang>
-      </Link>
-      <Link href="en">
-        <Lang>En</Lang>
-      </Link>
+      {languages.map(({ label, value }) => (
+        <Link href="" key={"fr"}>
+          <Lang active={value === "fr"}>{label}</Lang>
+        </Link>
+      ))}
     </LangWrapper>
   </Container>
 );

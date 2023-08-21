@@ -17,9 +17,6 @@ import { useWindowSize } from "@uidotdev/usehooks";
 const NavbarMobile = ({ open, setOpen }: any) => {
   const { asPath } = useRouter();
   const { width } = useWindowSize();
-  useEffect(() => {
-    setOpen(false);
-  }, [asPath]);
 
   useEffect(() => {
     if (width && width > 992) setOpen(false);

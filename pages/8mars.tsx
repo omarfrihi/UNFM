@@ -3,15 +3,16 @@ import Cover from "../components/who-us/cover";
 import { Text } from "../components/who-us/article/styles";
 import Activities from "../components/activities";
 import { mockActivities } from "../utils/constants";
+import RootLayout, { getLayoytStaticProps } from "../components/layout";
 
 const WomenDay = ({ data }: any) => {
-  const { activities, cover, article } = JSON.parse(data);
+  const { activities, cover, article, layout } = JSON.parse(data);
   return (
-    <>
+    <RootLayout {...layout}>
       <Cover {...cover} />
       <Article {...article} />
       <Activities {...activities}></Activities>
-    </>
+    </RootLayout>
   );
 };
 
@@ -52,10 +53,11 @@ export async function getStaticProps() {
       },
     ],
   };
+  const layout = await getLayoytStaticProps();
 
   return {
     props: {
-      data: JSON.stringify({ activities, cover, article }),
+      data: JSON.stringify({ activities, cover, article, layout }),
     },
     revalidate: true,
   };

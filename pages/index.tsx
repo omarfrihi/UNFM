@@ -6,6 +6,7 @@ import Article from "../components/article";
 import Download from "../components/download";
 import Experiences from "../components/experiences";
 import Goals from "../components/goals";
+import RootLayout, { getLayoytStaticProps } from "../components/layout";
 import Media, { EMediaType } from "../components/media";
 import Numbers from "../components/numbers";
 import Partners from "../components/partners";
@@ -27,10 +28,11 @@ const Home: NextPage = ({ data }: any) => {
     experiences,
     partners,
     download,
+    layout,
   } = JSON.parse(data);
 
   return (
-    <>
+    <RootLayout {...layout}>
       <Slider {...slider} />
       <Article {...article} />
       <Numbers {...numbers} />
@@ -42,7 +44,7 @@ const Home: NextPage = ({ data }: any) => {
       <Experiences {...experiences} />
       <Partners {...partners} />
       <Download {...download} />
-    </>
+    </RootLayout>
   );
 };
 
@@ -285,6 +287,8 @@ export async function getStaticProps() {
       },
     ],
   };
+
+  const layout = await getLayoytStaticProps();
   return {
     props: {
       data: JSON.stringify({
@@ -299,6 +303,7 @@ export async function getStaticProps() {
         experiences,
         partners,
         download,
+        layout,
       }),
     },
     revalidate: true,
