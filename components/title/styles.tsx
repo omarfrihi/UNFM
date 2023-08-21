@@ -14,3 +14,14 @@ export const UnderLine = styled.div`
   margin: 0rem 20%;
   border-bottom: 1px solid ${({ theme }) => theme.colors.green[200]};
 `;
+
+export const Wrapper = styled.div`
+  max-width: 60rem;
+`;
+
+export const TitleWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0rem;
+`;

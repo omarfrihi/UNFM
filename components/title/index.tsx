@@ -1,10 +1,10 @@
-import { UnderLine, Title as StyleTitle } from "./styles";
+import { UnderLine, Title as StyleTitle, Wrapper } from "./styles";
 
 const Title = ({ children }: { children: string }) => (
-  <div>
+  <Wrapper>
     <StyleTitle>{children}</StyleTitle>
     <UnderLine />
-  </div>
+  </Wrapper>
 );
 
 export default Title;

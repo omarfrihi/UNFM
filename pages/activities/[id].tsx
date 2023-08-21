@@ -3,6 +3,8 @@ import Cover from "../../components/who-us/cover";
 import { mockActivities } from "../../utils/constants";
 import RootLayout, { getLayoytStaticProps } from "../../components/layout";
 import Article from "../../components/who-us/article";
+import Title from "../../components/title";
+import { TitleWrapper } from "../../components/title/styles";
 
 const Activities = ({ data }: any) => {
   const { layout, activity } = JSON.parse(data);
@@ -16,6 +18,9 @@ const Activities = ({ data }: any) => {
               image: activity.articles[0].image,
             }}
           ></Cover>
+          <TitleWrapper>
+            <Title>{activity.title}</Title>
+          </TitleWrapper>
           <Article
             data={activity.articles.map(
               ({
