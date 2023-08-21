@@ -70,7 +70,7 @@ export const getLayoytStaticProps = async () => {
 
       {
         title: "Activités",
-        link: "activities",
+        link: "/activities",
       },
       {
         title: "Programmes",
@@ -97,7 +97,7 @@ export const getLayoytStaticProps = async () => {
           },
         ],
       },
-      { title: "Associations accréditées", link: "/associations-accredité" },
+      { title: "Associations accréditées", link: "/associations-accredite" },
     ],
   };
   const props = {

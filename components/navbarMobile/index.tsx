@@ -41,13 +41,7 @@ const NavbarMobile = ({
         <Wrapper>
           {data.map(({ title, subMenu, link }) => (
             <>
-              <Item
-                active={
-                  asPath === link ||
-                  subMenu?.map(({ link }) => link).includes(asPath)
-                }
-                key={title}
-              >
+              <Item active={asPath === link} key={title}>
                 {subMenu ? (
                   <Accordion
                     sx={{
@@ -70,10 +64,9 @@ const NavbarMobile = ({
                       }}
                     >
                       <Title
-                        active={
-                          asPath === link ||
-                          subMenu?.map(({ link }) => link).includes(asPath)
-                        }
+                        active={subMenu
+                          ?.map(({ link }) => link)
+                          .includes(asPath)}
                       >
                         {title}
                       </Title>
@@ -90,9 +83,7 @@ const NavbarMobile = ({
                     </AccordionDetails>
                   </Accordion>
                 ) : (
-                  <Link href={link || ""}>
-                    <Title>{title}</Title>
-                  </Link>
+                  <Link href={link || "/"}>{title}</Link>
                 )}
               </Item>
             </>
