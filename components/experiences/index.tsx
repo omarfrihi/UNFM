@@ -24,7 +24,19 @@ var settings = {
   slidesToScroll: 1,
   arrows: false,
 };
-const Experiences = () => {
+
+const Experiences = ({
+  title,
+  data,
+}: {
+  title: string;
+  data: {
+    personImage: string;
+    name: string;
+    fonction: string;
+    text: string;
+  }[];
+}) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore
@@ -38,24 +50,17 @@ const Experiences = () => {
   };
   return (
     <Wrapper>
-      <Title>Elles nous parlent de leur expérience</Title>
+      <Title>{title}</Title>
       <ExperiencesWrapper>
         <Slider {...settings} ref={ref}>
-          {["1", "2"].map((key) => (
-            <Experience key={key}>
+          {data.map(({ personImage, name, fonction, text }) => (
+            <Experience key={name}>
               <Header>
                 <ImageWrapper>
-                  <Image
-                    src={require("../../public/assets/person-experience.png")}
-                    alt="person"
-                    layout="fill"
-                  ></Image>
+                  <Image src={personImage} alt="person" layout="fill"></Image>
                 </ImageWrapper>
-                <Name>Mme. Shamsal Houda ABAKAR KADADé</Name>
-                <Fonction>
-                  Présidente de la section «Solidatité et Développement Humain»
-                  République du Tchad
-                </Fonction>
+                <Name>{name}</Name>
+                <Fonction>{fonction}</Fonction>
               </Header>
               <Content>
                 <StartContent>
@@ -66,13 +71,7 @@ const Experiences = () => {
                     height={30}
                   ></Image>
                 </StartContent>
-                <ContentText>
-                  {`Les formations organisées par l’UNFM auxquelles j’ai eu la chance de
-            participer m’ont permis d’assimiler de nouvelles techniques et
-            connaissances que j’ai transmises aux femmes tchadiennes afin qu’elles
-            gagnent en indépendance. J’espère de tout cœur poursuivre ce
-            partenariat avec « l’institution au grand cœur » qu’est l’UNFM.`}
-                </ContentText>
+                <ContentText>{text}</ContentText>
                 <EndContent>
                   <Image
                     src={require("../../public/assets/end.png")}

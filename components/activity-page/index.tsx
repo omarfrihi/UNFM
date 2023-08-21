@@ -96,11 +96,26 @@ const activities = [
       "lancement de plusieurs programmes de développement au profit des femmes et des filles",
   },
 ];
-const Activity = () => (
+
+const Activity = ({
+  data,
+  action,
+  filters: { selects, search },
+}: {
+  action: string;
+  filters: { selects: { name: string; options: string[] }[]; search: string };
+  data: {
+    title: string;
+    image: string;
+    tag: string;
+    description: string;
+    link: string;
+  }[];
+}) => (
   <Wrapper>
     <Filter>
       <Search
-        placeholder="Rechercher"
+        placeholder={search}
         startAdornment={<SearchLogo fontSize="small" />}
         sx={{
           "& .MuiOutlinedInput-notchedOutline": {
@@ -111,32 +126,14 @@ const Activity = () => (
           },
         }}
       />
-      <Select
-        title="type d'activité"
-        options={["activité 1", "activité 2", "activité 3", "activité 4"]}
-      />
-      <Select
-        title="type de programme"
-        options={["programme 1", "programme 2", "programme 3", "programme 4"]}
-      />
-      <Select
-        title="Associations accréditées"
-        options={[
-          "Associations 1",
-          "Associations 2",
-          "Associations 3",
-          "Associations 4",
-        ]}
-      />
-      <Select
-        title="Journées de le Femme"
-        options={["Journées 1", "Journées 2", "Journées 3", "Journées 4"]}
-      />
+      {selects.map(({ name, options }) => (
+        <Select key={name} title={name} options={options} />
+      ))}
     </Filter>
     <ActivityWrapper>
-      {activities.map((activity) => (
+      {data.map((activity) => (
         <SingleActivity key={activity.title}>
-          <ActivityComponent {...activity} />
+          <ActivityComponent {...activity} action={action} />
         </SingleActivity>
       ))}
     </ActivityWrapper>

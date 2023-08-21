@@ -2,6 +2,9 @@ import styled from "@emotion/styled";
 import { responsive } from "../../styles/mixins";
 
 export const Wrapper = styled.div`
+  > div:nth-of-type(even) {
+    flex-direction: row-reverse;
+  }
   display: flex;
   align-items: center;
   justify-content: center;

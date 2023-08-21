@@ -12,63 +12,55 @@ import { ImageError } from "next/dist/server/image-optimizer";
 import Image from "next/image";
 import ReactPlayer from "react-player";
 import Button from "../Button";
+import Link from "next/link";
+export enum EMediaType {
+  video = "video",
+  image = "image",
+}
 
-const Media = () => (
+const Media = ({
+  data,
+  title,
+  action: { text, link },
+}: {
+  data: {
+    title: string;
+    type: EMediaType;
+    src: string;
+    link: string;
+  }[];
+  title: string;
+  action: { text: string; link: string };
+}) => (
   <Wrapper>
-    <Title>Espace Media</Title>
+    <Title>{title}</Title>
     <Medias>
-      <MediaContainer>
-        <ReactPlayer
-          url="https://www.youtube.com/watch?v=xmlykrsN7Ok"
-          height={290}
-          width={300}
-        />
+      {data.map(({ title, type, src, link }) => (
+        <MediaContainer key={title}>
+          {type === EMediaType.video ? (
+            <ReactPlayer url={src} height={290} width={300} />
+          ) : (
+            <ImageContainer>
+              <Image
+                placeholder="blur"
+                src={src}
+                alt="media"
+                objectFit="cover"
+                layout="fill"
+              ></Image>
+            </ImageContainer>
+          )}
+          <Link href={link}>
+            <MedialTitleWrapper>
+              <MediaTitle>{title}</MediaTitle>
 
-        <MedialTitleWrapper>
-          <MediaTitle>
-            Étapes phares dans le processus de promotion de la condition de la
-            femme et de la fille - 2022
-          </MediaTitle>
-
-          <ArrowOutwardIcon fontSize="inherit" />
-        </MedialTitleWrapper>
-      </MediaContainer>
-      <MediaContainer>
-        <ReactPlayer
-          url="https://www.youtube.com/watch?v=xmlykrsN7Ok"
-          height={290}
-          width={300}
-        />
-        <MedialTitleWrapper>
-          <MediaTitle>
-            {`L'exposition numérique d’art plastique sur le phénomène de la
-            violence faite aux femmes`}
-          </MediaTitle>
-          <ArrowOutwardIcon fontSize="inherit" />
-        </MedialTitleWrapper>
-      </MediaContainer>
-
-      <MediaContainer>
-        <ImageContainer>
-          <Image
-            placeholder="blur"
-            src={require("../../public/assets/media3.png")}
-            alt="media3"
-            objectFit="cover"
-            layout="fill"
-          ></Image>
-        </ImageContainer>
-
-        <MedialTitleWrapper>
-          <MediaTitle>
-            Cérémonie de célébration de la Journée Internationale de la Femme 8
-            Mars 2020 - Vidéo
-          </MediaTitle>
-          <ArrowOutwardIcon fontSize="inherit" />
-        </MedialTitleWrapper>
-      </MediaContainer>
+              <ArrowOutwardIcon fontSize="inherit" />
+            </MedialTitleWrapper>
+          </Link>
+        </MediaContainer>
+      ))}
     </Medias>
-    <Button>En savoir plus</Button>
+    <Button href={link}>{text}</Button>
   </Wrapper>
 );
 

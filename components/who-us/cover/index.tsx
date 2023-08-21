@@ -1,6 +1,10 @@
 import { LoogWrapper, Wrapper, Title } from "./styles";
 import Image from "next/image";
-const Cover = ({ image, title }: { image: string; title: string }) => (
+const Cover = ({
+  data: { image, title },
+}: {
+  data: { image: string; title: string };
+}) => (
   <Wrapper>
     <LoogWrapper>
       <Image

@@ -12,26 +12,20 @@ var settings = {
   slidesToScroll: 1,
   arrows: false,
 };
-const Banner = () => {
+const Banner = ({ data }: { data: string[] }) => {
   return (
     <Carousel {...settings} autoplay>
-      <div>
-        <Image
-          src={require("../../public/assets/banner2.png")}
-          alt="banner2"
-          layout="responsive"
-          loading="lazy"
-          placeholder="blur"
-        />
-      </div>
-      <div>
-        <Image
-          src={require("../../public/assets/banner2.png")}
-          alt="banner1"
-          layout="responsive"
-          loading="lazy"
-        />
-      </div>
+      {data.map((banner) => (
+        <div key={banner}>
+          <Image
+            src={banner}
+            alt="banner"
+            layout="responsive"
+            loading="lazy"
+            placeholder="blur"
+          />
+        </div>
+      ))}
     </Carousel>
   );
 };

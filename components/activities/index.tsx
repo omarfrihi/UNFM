@@ -20,61 +20,6 @@ import Arrows from "../Arrows";
 import Image from "next/image";
 import "react-multi-carousel/lib/styles.css";
 
-const activities = [
-  {
-    image: require("../../public/assets/activity1.png"),
-    tag: "Activités de l’UNFM",
-    title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
-    description:
-      "lancement de plusieurs programmes de développement au profit des femmes et des filles",
-  },
-  {
-    image: require("../../public/assets/activity2.png"),
-    tag: "Activités de l’UNFM",
-    title:
-      "L’Union Nationale des Femmes du Maroc récompense à Aghbala la lauréate de la première édition  du Prix Lalla Meryem de l’Innovation et de l’Excellence",
-    description:
-      "Aghbala (Province de Béni Mellal) – En application des Orientations Éclairées de Son Altesse Royale...",
-  },
-  {
-    image: require("../../public/assets/activity2.png"),
-    tag: "Activités de l’UNFM",
-    title:
-      "L’Union Nationale des Femmes du Maroc récompense à Aghbala la lauréate de la première édition  du Prix Lalla Meryem de l’Innovation et de l’Excellence",
-    description:
-      "Aghbala (Province de Béni Mellal) – En application des Orientations Éclairées de Son Altesse Royale...",
-  },
-  {
-    image: require("../../public/assets/activity2.png"),
-    tag: "Activités de l’UNFM",
-    title:
-      "L’Union Nationale des Femmes du Maroc récompense à Aghbala la lauréate de la première édition  du Prix Lalla Meryem de l’Innovation et de l’Excellence",
-    description:
-      "Aghbala (Province de Béni Mellal) – En application des Orientations Éclairées de Son Altesse Royale...",
-  },
-  {
-    image: require("../../public/assets/activity1.png"),
-    tag: "Activités de l’UNFM",
-    title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
-    description:
-      "lancement de plusieurs programmes de développement au profit des femmes et des filles",
-  },
-  {
-    image: require("../../public/assets/activity1.png"),
-    tag: "Activités de l’UNFM",
-    title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
-    description:
-      "lancement de plusieurs programmes de développement au profit des femmes et des filles",
-  },
-  {
-    image: require("../../public/assets/activity1.png"),
-    tag: "Activités de l’UNFM",
-    title: "Célébration de la Journée Internationale de la Femme 8 Mars 2021",
-    description:
-      "lancement de plusieurs programmes de développement au profit des femmes et des filles",
-  },
-];
-
 const responsive = {
   desktop: {
     breakpoint: { max: 4000, min: 1380 },
@@ -110,11 +55,15 @@ export const ActivityComponent = ({
   image,
   tag,
   description,
+  action,
+  link,
 }: {
   title: string;
   image: string;
   tag: string;
   description: string;
+  action: string;
+  link: string;
 }) => (
   <Activity>
     <ImageWrapper>
@@ -132,12 +81,26 @@ export const ActivityComponent = ({
       <ActivityTitle>{title}</ActivityTitle>
       <DescriptionContent>
         <Description>{description}</Description>
-        <Button>En savoir plus</Button>
+        <Button href={link}>{action}</Button>
       </DescriptionContent>
     </ActivityContent>
   </Activity>
 );
-const Avtivities = () => {
+const Avtivities = ({
+  title,
+  data,
+  action,
+}: {
+  title: string;
+  action: string;
+  data: {
+    title: string;
+    image: string;
+    tag: string;
+    description: string;
+    link: string;
+  }[];
+}) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore
@@ -151,7 +114,7 @@ const Avtivities = () => {
   };
   return (
     <Wrapper>
-      <Title>Nos Activités</Title>
+      <Title>{title}</Title>
       <ActivitiesWrapper>
         <CustomCarousel
           infinite={true}
@@ -167,9 +130,9 @@ const Avtivities = () => {
           draggable={true}
           ref={ref}
         >
-          {activities.map((activity) => (
+          {data.map((activity) => (
             <div key={activity.title}>
-              <ActivityComponent {...activity} />
+              <ActivityComponent {...activity} action={action} />
             </div>
           ))}
         </CustomCarousel>

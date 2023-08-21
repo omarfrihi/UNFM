@@ -1,62 +1,45 @@
 import { Actions, Application, Wrapper, Text, Buttons } from "./styles";
 import Image from "next/image";
-const Download = () => (
-  <Wrapper>
-    <Application>
-      <Actions>
-        <Image
-          src={require("../../public/assets/unfm-app-logo.png")}
-          alt="unfm-logo"
-          height={80}
-        ></Image>
-        <Buttons>
-          <Text>{`Télécharger l'Application`}</Text>
-          <Image
-            src={require("../../public/assets/appstore.png")}
-            alt="app-store"
-            height={30}
-          ></Image>
-          <Image
-            src={require("../../public/assets/googleplay.png")}
-            alt="google-play"
-            height={30}
-          ></Image>
-        </Buttons>
-      </Actions>
-      <Image
-        src={require("../../public/assets/unfm-app.png")}
-        alt="unfm"
-        height={250}
-      ></Image>
-    </Application>
+import Link from "next/link";
 
-    <Application>
-      <Image
-        src={require("../../public/assets/with-you-app.png")}
-        alt="unfm"
-        height={250}
-      ></Image>
-      <Actions>
-        <Image
-          src={require("../../public/assets/withyou-app-logo.png")}
-          alt="unfm-logo"
-          height={80}
-        ></Image>
-        <Buttons>
-          <Text>{`Télécharger l'Application`}</Text>
-          <Image
-            src={require("../../public/assets/appstore.png")}
-            alt="app-store"
-            height={30}
-          ></Image>
-          <Image
-            src={require("../../public/assets/googleplay.png")}
-            alt="google-play"
-            height={30}
-          ></Image>
-        </Buttons>
-      </Actions>
-    </Application>
+const Download = ({
+  downloadText,
+  data,
+}: {
+  downloadText: string;
+  data: {
+    androidLink: string;
+    iOsLink: string;
+    icon: string;
+    poster: string;
+  }[];
+}) => (
+  <Wrapper>
+    {data.map(({ androidLink, iOsLink, icon, poster }) => (
+      <Application key={poster}>
+        <Actions>
+          <Image src={icon} alt="logo" height={80}></Image>
+          <Buttons>
+            <Text>{downloadText}</Text>
+            <Link href={iOsLink}>
+              <Image
+                src={require("../../public/assets/appstore.png")}
+                alt="app-store"
+                height={30}
+              ></Image>
+            </Link>
+            <Link href={androidLink}>
+              <Image
+                src={require("../../public/assets/googleplay.png")}
+                alt="google-play"
+                height={30}
+              ></Image>
+            </Link>
+          </Buttons>
+        </Actions>
+        <Image src={poster} alt="poster" height={250}></Image>
+      </Application>
+    ))}
   </Wrapper>
 );
 

@@ -10,17 +10,17 @@ import {
 } from "./styles";
 
 const Article = ({
-  articles,
+  data,
 }: {
-  articles: {
+  data: {
     title?: string;
     image: string;
-    content: ReactNode;
+    content: string[];
     backgroundColor?: string;
   }[];
 }) => (
   <Wrapper>
-    {articles.map(({ title, image, content, backgroundColor }) => (
+    {data.map(({ title, image, content, backgroundColor }) => (
       <ArticleContainer key={title} backgroundColor={backgroundColor}>
         <ImageWrapper>
           <Image
@@ -32,7 +32,9 @@ const Article = ({
         </ImageWrapper>
         <Content>
           {title && <Title>{title}</Title>}
-          {content}
+          {content.map((x) => (
+            <Text dangerouslySetInnerHTML={{ __html: x }} key={x}></Text>
+          ))}
         </Content>
       </ArticleContainer>
     ))}

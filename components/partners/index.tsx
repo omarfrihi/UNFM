@@ -20,45 +20,14 @@ const settings = {
   arrows: false,
   swipe: true,
 };
-const partners = [
-  {
-    title: "Partenaires internationaux",
-    partners: [
-      require("../../public/assets/partner1.png"),
-      require("../../public/assets/partner2.png"),
-      require("../../public/assets/partner3.png"),
-      require("../../public/assets/partner4.png"),
-    ],
-  },
-  {
-    title: "Partenaires nationaux institutionnels",
-    partners: [
-      require("../../public/assets/partner5.png"),
-      require("../../public/assets/partner6.png"),
-      require("../../public/assets/partner7.png"),
-      require("../../public/assets/partner8.png"),
-      require("../../public/assets/partner9.png"),
-      require("../../public/assets/partner1.png"),
-    ],
-  },
-  {
-    title: "Partenaires nationaux privés",
 
-    partners: [
-      require("../../public/assets/partner1.png"),
-      require("../../public/assets/partner6.png"),
-      require("../../public/assets/partner5.png"),
-      require("../../public/assets/partner8.png"),
-      require("../../public/assets/partner9.png"),
-      require("../../public/assets/partner2.png"),
-      require("../../public/assets/partner3.png"),
-      require("../../public/assets/partner4.png"),
-      require("../../public/assets/partner7.png"),
-    ],
-  },
-];
-
-const Partners = () => {
+const Partners = ({
+  title,
+  data,
+}: {
+  title: string;
+  data: { title: string; partners: string[] }[];
+}) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -88,9 +57,9 @@ const Partners = () => {
   };
   return (
     <Wrapper>
-      <Title>Nos Partenaires</Title>
+      <Title>{title}</Title>
       <List>
-        {partners.map(({ title, partners }) => (
+        {data.map(({ title, partners }) => (
           <Line key={title}>
             <PartnerTitle>{title}</PartnerTitle>
             <Carousel

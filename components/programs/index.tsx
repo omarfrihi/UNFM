@@ -24,6 +24,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 const CustomCarousel = styled(Carousel)`
   & .react-multi-carousel-item {
@@ -56,7 +57,13 @@ const responsive = {
   },
 };
 
-const Programs = () => {
+const Programs = ({
+  data,
+  title,
+}: {
+  data: { link: string; image: string }[];
+  title: string;
+}) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore
@@ -72,7 +79,7 @@ const Programs = () => {
     <Wrapper>
       <Actions>
         <div>
-          <Title>Nos Programmes</Title>
+          <Title>{title}</Title>
           <UnderLine />
         </div>
         <LeftArrows>
@@ -88,50 +95,20 @@ const Programs = () => {
           draggable={true}
           ref={ref}
         >
-          <SlideWrapper>
-            <Slide>
-              <Image
-                src={require("../../public/assets/program1.png")}
-                alt="program1"
-                placeholder="blur"
-                layout="fill"
-                objectFit="contain"
-              />
-            </Slide>
-          </SlideWrapper>
-          <SlideWrapper>
-            <Slide>
-              <Image
-                src={require("../../public/assets/program2.png")}
-                alt="program2"
-                width={100}
-                height={125}
-                placeholder="blur"
-              />
-            </Slide>
-          </SlideWrapper>
-          <SlideWrapper>
-            <Slide>
-              <Image
-                src={require("../../public/assets/program3.png")}
-                alt="program3"
-                width={100}
-                height={125}
-                placeholder="blur"
-              />
-            </Slide>
-          </SlideWrapper>
-          <SlideWrapper>
-            <Slide>
-              <Image
-                src={require("../../public/assets/program4.png")}
-                alt="program4"
-                width={100}
-                height={125}
-                placeholder="blur"
-              />
-            </Slide>
-          </SlideWrapper>
+          {data.map(({ link, image }) => (
+            <SlideWrapper key={link}>
+              <Link href={link}>
+                <Slide>
+                  <Image
+                    src={image}
+                    alt="program"
+                    placeholder="blur"
+                    height={130}
+                  />
+                </Slide>
+              </Link>
+            </SlideWrapper>
+          ))}
         </CustomCarousel>
       </List>
       <BottomArrows>

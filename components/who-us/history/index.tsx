@@ -3,9 +3,13 @@ import Title from "../../title";
 import Image from "next/image";
 import { Content, EndIcon, StartIcon, Wrapper, Text } from "./styles";
 
-const History = () => (
+const History = ({
+  data: { title, content, action },
+}: {
+  data: { title: string; content: string[]; action: string };
+}) => (
   <Wrapper>
-    <Title>Notre histoire</Title>
+    <Title>{title}</Title>
 
     <Content>
       <StartIcon>
@@ -15,18 +19,9 @@ const History = () => (
         ></Image>
       </StartIcon>
       <div>
-        <Text>
-          Grâce à notre timeline, découvrez, en images, la riche histoire de
-          l’UNFM, ainsi que ses multiples actions qui ont accompagné l’évolution
-          de la situation des femmes au Maroc tout au long de ces cinquante
-          dernières années.
-        </Text>
-        <Text>
-          Présente sur la scène internationale et au Maroc, l’Union est, depuis
-          1969, un acteur majeur de la défense des droits des femmes, de leur
-          autonomisation et de la lutte pour l’éradication de toute forme de
-          violence faites aux femmes et aux filles.
-        </Text>
+        {content.map((x) => (
+          <Text key={x}>{x}</Text>
+        ))}
       </div>
       <EndIcon>
         <Image
@@ -41,7 +36,7 @@ const History = () => (
       alt="logo"
       width={120}
     ></Image>
-    <Button>Découvrir Notre Histoire</Button>
+    <Button href="hsitory">{action}</Button>
   </Wrapper>
 );
 

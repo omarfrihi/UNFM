@@ -94,7 +94,6 @@ export const Slide = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  position: relative;
 `;
 export const SlideWrapper = styled.div`
   padding: 1rem;

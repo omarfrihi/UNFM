@@ -28,12 +28,12 @@ export const UnderLine = styled.div`
 `;
 
 export const Card = styled.div`
+  height: 100%;
   align-items: stretch;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
   border-radius: 0.5rem;
   background: linear-gradient(
     0deg,
@@ -41,13 +41,18 @@ export const Card = styled.div`
     rgba(255, 255, 255, 0.85) 100%
   );
 `;
+export const CardWrapper = styled.div`
+  padding: 1rem;
+  flex-basis: 50%;
+  ${responsive.sm`
+  flex-basis: 100%;
+  `};
+`;
 
 export const CardsContainer = styled.div`
   display: flex;
-  gap: 1.5rem;
-  ${responsive.sm`
-  flex-direction:column;
-  `}
+  flex-wrap: wrap;
+  align-items: stretch;
 `;
 
 export const Content = styled.p`
