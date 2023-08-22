@@ -14,7 +14,7 @@ import Programs from "../components/programs";
 import Slider from "../components/slider";
 import Tools from "../components/tools";
 import styles from "../styles/Home.module.css";
-import { mockActivities } from "../utils/constants";
+import { mockActivities, programs as programsList } from "../utils/constants";
 const Home: NextPage = ({ data }: any) => {
   const {
     article,
@@ -132,24 +132,10 @@ export async function getStaticProps() {
   };
   const programs = {
     title: "Nos Programmes",
-    data: [
-      {
-        image: require("../public/assets/program1.png"),
-        link: "programs/1",
-      },
-      {
-        image: require("../public/assets/program2.png"),
-        link: "programs/2",
-      },
-      {
-        image: require("../public/assets/program3.png"),
-        link: "programs/3",
-      },
-      {
-        image: require("../public/assets/program4.png"),
-        link: "programs/4",
-      },
-    ],
+    data: programsList.map(({ image, id }) => ({
+      image,
+      link: `programs/${id}`,
+    })),
   };
   const tools = {
     data: [

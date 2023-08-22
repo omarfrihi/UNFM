@@ -18,12 +18,11 @@ export const Wrapper = styled.div`
   `}
   display: flex;
   justify-content: center;
-  gap: 1rem;
   flex-direction: column;
-  padding: 2rem 0%;
+  padding: 0rem 0%;
   align-items: center;
   ${responsive.lg`
-  padding: 2rem 0;
+  padding: 0rem 0;
 
   `}
 `;

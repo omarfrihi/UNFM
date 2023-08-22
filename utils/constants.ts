@@ -150,3 +150,62 @@ export const mockActivities = {
     },
   ],
 };
+
+export const programs = [
+  {
+    image: require("../public/assets/program1.png"),
+    id: "1",
+    category: "category1",
+  },
+  {
+    image: require("../public/assets/program2.png"),
+    id: "2",
+    category: "category1",
+  },
+  {
+    image: require("../public/assets/program3.png"),
+    id: "3",
+    category: "category2",
+  },
+  {
+    image: require("../public/assets/program4.png"),
+    id: "4",
+    category: "category2",
+  },
+  {
+    image: require("../public/assets/program5.png"),
+    id: "5",
+    category: "category2",
+  },
+  {
+    image: require("../public/assets/program6.png"),
+    id: "6",
+    category: "category3",
+  },
+  {
+    image: require("../public/assets/program7.png"),
+    id: "7",
+    category: "category3",
+  },
+  {
+    image: require("../public/assets/program8.png"),
+    id: "9",
+    category: "category3",
+  },
+  {
+    image: require("../public/assets/program9.png"),
+    id: "9",
+    category: "category3",
+  },
+  {
+    image: require("../public/assets/program10.png"),
+    id: "10",
+    category: "category3",
+  },
+];
+
+export const categories = {
+  category1: "Lutte contre la déperdition scolaire",
+  category2: "Protection des droits des femmes et lutte contre la violence",
+  category3: "Protection, assistance, orientation",
+};

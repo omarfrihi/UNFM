@@ -77,7 +77,7 @@ export const getLayoytStaticProps = async () => {
         isCard: true,
         actions: [
           { text: "Tous les Programmes", link: "/programs" },
-          { text: "Toutes Nos Catégories", link: "/categories" },
+          { text: "Toutes Nos Catégories", link: "/programs" },
         ],
         subMenu: [
           {
