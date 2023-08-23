@@ -21,7 +21,7 @@ const Navbar = ({
 
           return (
             <>
-              <Link href={`#${link}`}>
+              <Link href={`#${link}`} key={title}>
                 <Title active={isActive}>{title}</Title>
                 <UnderLine active={isActive} />
               </Link>
