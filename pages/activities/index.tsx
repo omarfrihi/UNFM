@@ -22,7 +22,8 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
     },
   };
   const activities = {
-    ...mockActivities,
+    data: mockActivities,
+    action: "En Savoir Plus",
     filters: {
       search: "Recherche",
       selects: [

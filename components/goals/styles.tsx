@@ -53,6 +53,7 @@ export const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  justify-content: center;
 `;
 
 export const Content = styled.p`

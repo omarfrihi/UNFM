@@ -27,7 +27,7 @@ const Media = ({
     title: string;
     type: EMediaType;
     src: string;
-    link: string;
+    id: string;
   }[];
   title: string;
   action: { text: string; link: string };
@@ -35,7 +35,7 @@ const Media = ({
   <Wrapper>
     <Title>{title}</Title>
     <Medias>
-      {data.map(({ title, type, src, link }) => (
+      {data.map(({ title, type, src, id }) => (
         <MediaContainer key={title}>
           {type === EMediaType.video ? (
             <ReactPlayer url={src} height={290} width={300} />
@@ -50,7 +50,7 @@ const Media = ({
               ></Image>
             </ImageContainer>
           )}
-          <Link href={link}>
+          <Link href={id}>
             <MedialTitleWrapper>
               <MediaTitle>{title}</MediaTitle>
 

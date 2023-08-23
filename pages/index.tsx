@@ -14,7 +14,14 @@ import Programs from "../components/programs";
 import Slider from "../components/slider";
 import Tools from "../components/tools";
 import styles from "../styles/Home.module.css";
-import { mockActivities, programs as programsList } from "../utils/constants";
+import {
+  medias,
+  mockActivities,
+  mockExperiences,
+  mockPartners,
+  programs as programsList,
+} from "../utils/constants";
+import { groupBy } from "lodash";
 const Home: NextPage = ({ data }: any) => {
   const {
     article,
@@ -160,101 +167,30 @@ export async function getStaticProps() {
     ],
     title: "Nos Moyens",
   };
-  const activities = mockActivities;
+  const activities = {
+    title: "Nos Activités",
+    action: "En Savoir Plus",
+    data: mockActivities,
+  };
   const media = {
     title: "Espace Media",
     action: { text: "En savoir plus", link: "media" },
-    data: [
-      {
-        title:
-          "Étapes phares dans le processus de promotion de la condition de la femme et de la fille - 2022",
-        type: EMediaType.video,
-        src: "https://www.youtube.com/watch?v=xmlykrsN7Ok",
-        link: "media1",
-      },
-      {
-        title: `L'exposition numérique d’art plastique sur le phénomène de la violence faite aux femmes`,
-        type: EMediaType.video,
-        src: "https://www.youtube.com/watch?v=xmlykrsN7Ok",
-        link: "media2",
-      },
-      {
-        title:
-          "Cérémonie de célébration de la Journée Internationale de la Femme 8 Mars 2020",
-        type: EMediaType.image,
-        src: require("../public/assets/media3.png"),
-        link: "media3",
-      },
-    ],
+    data: medias,
   };
 
   const experiences = {
     title: "Elles nous parlent de leur expérience",
-    data: [
-      {
-        personImage: require("../public/assets/person-experience.png"),
-        name: "Mme. Shamsal Houda ABAKAR KADADé",
-        fonction:
-          "Présidente de la section «Solidatité et Développement Humain» République du Tchad",
-        text: `Les formations organisées par l’UNFM auxquelles j’ai eu la chance de
-      participer m’ont permis d’assimiler de nouvelles techniques et
-      connaissances que j’ai transmises aux femmes tchadiennes afin qu’elles
-      gagnent en indépendance. J’espère de tout cœur poursuivre ce
-      partenariat avec « l’institution au grand cœur » qu’est l’UNFM.`,
-      },
-      {
-        personImage: require("../public/assets/person-experience.png"),
-        name: "Mme. Shamsal Houda ABAKAR KADADé",
-        fonction:
-          "Présidente de la section «Solidatité et Développement Humain» République du Tchad",
-        text: `Les formations organisées par l’UNFM auxquelles j’ai eu la chance de
-      participer m’ont permis d’assimiler de nouvelles techniques et
-      connaissances que j’ai transmises aux femmes tchadiennes afin qu’elles
-      gagnent en indépendance. J’espère de tout cœur poursuivre ce
-      partenariat avec « l’institution au grand cœur » qu’est l’UNFM.`,
-      },
-    ],
+    data: mockExperiences,
   };
 
   const partners = {
     title: "Nos Partenaires",
-    data: [
-      {
-        title: "Partenaires internationaux",
-        partners: [
-          require("../public/assets/partner1.png"),
-          require("../public/assets/partner2.png"),
-          require("../public/assets/partner3.png"),
-          require("../public/assets/partner4.png"),
-        ],
-      },
-      {
-        title: "Partenaires nationaux institutionnels",
-        partners: [
-          require("../public/assets/partner5.png"),
-          require("../public/assets/partner6.png"),
-          require("../public/assets/partner7.png"),
-          require("../public/assets/partner8.png"),
-          require("../public/assets/partner9.png"),
-          require("../public/assets/partner1.png"),
-        ],
-      },
-      {
-        title: "Partenaires nationaux privés",
-
-        partners: [
-          require("../public/assets/partner1.png"),
-          require("../public/assets/partner6.png"),
-          require("../public/assets/partner5.png"),
-          require("../public/assets/partner8.png"),
-          require("../public/assets/partner9.png"),
-          require("../public/assets/partner2.png"),
-          require("../public/assets/partner3.png"),
-          require("../public/assets/partner4.png"),
-          require("../public/assets/partner7.png"),
-        ],
-      },
-    ],
+    data: Object.entries(groupBy(mockPartners, "type")).map(
+      ([key, values]) => ({
+        title: key,
+        partners: values.map(({ image }) => image),
+      })
+    ),
   };
   const download = {
     downloadText: "Télécharger l'Application",

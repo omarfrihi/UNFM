@@ -17,7 +17,11 @@ const WomenDay = ({ data }: any) => {
 };
 
 export async function getStaticProps() {
-  const activities = mockActivities;
+  const activities = {
+    title: "Nos Activités",
+    action: "En Savoir Plus",
+    data: mockActivities,
+  };
   const cover = {
     data: {
       title: "Journée de la femme",

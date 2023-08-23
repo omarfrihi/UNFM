@@ -42,14 +42,9 @@ const responsive = {
     items: 1,
   },
 };
-var settings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  arrows: false,
-};
+
 export type ActivityType = {
+  cover: string;
   title: string;
   tag: string;
   articles: {
@@ -58,14 +53,14 @@ export type ActivityType = {
   }[];
 
   action: string;
-  link: string;
+  id: string;
 };
 export const ActivityComponent = ({
   title,
   tag,
   articles,
   action,
-  link,
+  id,
 }: ActivityType) => (
   <Activity>
     <ImageWrapper>
@@ -85,7 +80,7 @@ export const ActivityComponent = ({
         <Description>
           {articles[0].description[0].substring(0, 120)}...
         </Description>
-        <Button href={`activities/${link}`}>{action}</Button>
+        <Button href={`activities/${id}`}>{action}</Button>
       </DescriptionContent>
     </ActivityContent>
   </Activity>

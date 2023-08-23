@@ -15,7 +15,7 @@ const Activities = ({ data }: any) => {
           <Cover
             data={{
               fullMode: true,
-              image: activity.articles[0].image,
+              image: activity.cover,
             }}
           ></Cover>
           <TitleWrapper>
@@ -45,7 +45,7 @@ const Activities = ({ data }: any) => {
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
   const layout = await getLayoytStaticProps();
-  const activity = mockActivities.data.find(({ link }) => link === params.id);
+  const activity = mockActivities.find(({ id }) => id === params.id);
 
   return {
     props: {
@@ -56,8 +56,8 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 }
 
 export async function getStaticPaths() {
-  const activites = mockActivities.data.map(({ link }) => ({
-    params: { id: link },
+  const activites = mockActivities.map(({ id }) => ({
+    params: { id },
   }));
 
   return {

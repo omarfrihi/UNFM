@@ -6,6 +6,7 @@ import ThemeProvider from "../theme-provider";
 import Navbar, { NavbarProps } from "../navbar";
 import Footer, { FooterProps } from "../footer";
 import TopbarMobile from "../TopbarMobile";
+import { programs } from "../../utils/constants";
 const RootLayout = ({
   children,
   topbar,
@@ -79,23 +80,11 @@ export const getLayoytStaticProps = async () => {
           { text: "Tous les Programmes", link: "/programs" },
           { text: "Toutes Nos Catégories", link: "/programs" },
         ],
-        subMenu: [
-          {
-            title: "Programme 1",
-            link: "/programs/1",
-            image: require("../../public/assets/program1.png"),
-          },
-          {
-            title: "Programme 2",
-            link: "/programs/2",
-            image: require("../../public/assets/program2.png"),
-          },
-          {
-            title: "Programme 3",
-            link: "/programs/3",
-            image: require("../../public/assets/program3.png"),
-          },
-        ],
+        subMenu: programs.map(({ id, image }) => ({
+          image,
+          link: `programs/${id}`,
+          title: id,
+        })),
       },
       { title: "Associations accréditées", link: "/associations-accredite" },
     ],

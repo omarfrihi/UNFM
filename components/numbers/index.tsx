@@ -12,12 +12,14 @@ import Cap from "../../public/assets/cap.png";
 import Image from "next/image";
 const Numbers = ({
   data,
+  logo,
 }: {
+  logo?: string;
   data: { number: string; description: string }[];
 }) => (
   <Wrapper>
     <ImgWrapper>
-      <Image width={90} src={Logo} alt="logo"></Image>
+      <Image width={90} src={logo || Logo} alt="logo"></Image>
     </ImgWrapper>
     <Box>
       {data.map(({ number, description }) => (

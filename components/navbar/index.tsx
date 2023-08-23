@@ -69,7 +69,7 @@ const Navbar = ({ data }: NavbarProps) => {
                 {subMenu && (
                   <SubMenu>
                     {isCard ? (
-                      <Card subMenu={subMenu} actions={actions} />
+                      <Card subMenu={subMenu.slice(0, 3)} actions={actions} />
                     ) : (
                       subMenu.map((item) => (
                         <Link href={item.link} key={item.title}>

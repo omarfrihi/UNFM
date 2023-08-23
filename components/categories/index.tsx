@@ -20,7 +20,7 @@ const Categories = ({
             <Title>{categories[key]}</Title>
             <CategoriesList>
               {values.map(({ image, id }) => (
-                <Link href={`pograms/${id}`} key={id}>
+                <Link href={`programs/${id}`} key={id}>
                   <CategoryWrapper>
                     <Image
                       src={image}
