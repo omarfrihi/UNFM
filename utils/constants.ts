@@ -164,57 +164,657 @@ export const programs = [
     image: require("../public/assets/program1.png"),
     id: "1",
     category: "category1",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program2.png"),
     id: "2",
     category: "category1",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program3.png"),
     id: "3",
     category: "category2",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program4.png"),
     id: "4",
     category: "category2",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program5.png"),
     id: "5",
     category: "category2",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program6.png"),
     id: "6",
     category: "category3",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program7.png"),
     id: "7",
     category: "category3",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program8.png"),
-    id: "9",
+    id: "8",
     category: "category3",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program9.png"),
     id: "9",
     category: "category3",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program10.png"),
     id: "10",
     category: "category3",
+    cover: require("../public/assets/program11-cover.png"),
+    articles: [
+      {
+        image: require("../public/assets/program11-article1.png"),
+        title: "UNFM Market",
+        content: [
+          `Les UNFM Market de Khouribga et de Martil sont des espaces dédiés à la promotion de coopératives féminines sélectionnées pour leur savoir-faire et la qualité de leur travail, qu’il s’agisse de créations artisanales comme de produits naturels du terroir local et régional.
+        `,
+          `Ces lieux permanents d’exposition et de vente leur permettent d’accéder à une clientèle diversifiée. Ils sont ainsi un moyen concret pour améliorer les conditions économiques des femmes membres de ces coopératives, pour la plupart issues de régions rurales et périurbaines, et dont les revenus sont limités.
+          `,
+        ],
+      },
+
+      {
+        image: require("../public/assets/program11-article2.png"),
+        content: [
+          `Les UNFM Market sont conçus pour contribuer directement à l’autonomisation des femmes, au développement durable de leur communauté, à la valorisation des richesses locales et à la préservation des traditions culturelles.`,
+        ],
+      },
+    ],
+    goals: {
+      title: "Objectifs",
+      data: [
+        {
+          image: require("../public/assets/goal1.svg"),
+          content: `Assurer la prise en charge d’urgence, l’assistance médicale et
+        l’aide juridique et sociale des femmes et des jeunes filles en
+        situation de vulnérabilité (violence, abus ou précarité
+        socio-économique). Favoriser la santé maternelle et infantile.`,
+        },
+        {
+          image: require("../public/assets/goal2.svg"),
+          content: `Renforcer la capacitation des femmes et des jeunes filles à travers
+        divers programmes d’autonomisation, de formation, d’encouragement à
+        l’entrepreneuriat, de soutien aux activités génératrices de revenus
+        et aux startups.`,
+        },
+        {
+          image: require("../public/assets/goal3.svg"),
+          content: `Promouvoir le préscolaire, lutter par tous les moyens contre la
+                  déperdition scolaire et encourager les jeunes filles issues de
+                  milieux défavorisés à poursuivre des études supérieures via l’octroi
+                  de bourses.`,
+        },
+      ],
+    },
+    numbers: [
+      {
+        number: "51",
+        description: "Associations régionales",
+      },
+      {
+        number: "86",
+        description: "Centres de formation et d'innovation",
+      },
+      {
+        number: "24h/7",
+        description: "Plateforme kolonamaak, appli et numéro vert ",
+      },
+    ],
   },
   {
     image: require("../public/assets/program11.png"),
-    cover: require("../public/assets/program11-cover.png"),
     id: "11",
     category: "category3",
+    cover: require("../public/assets/program11-cover.png"),
     articles: [
       {
         image: require("../public/assets/program11-article1.png"),
