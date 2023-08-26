@@ -61,7 +61,7 @@ const Programs = ({
   data,
   title,
 }: {
-  data: { link: string; image: string }[];
+  data: { id: string; image: string }[];
   title: string;
 }) => {
   const ref = useRef(null);
@@ -95,9 +95,9 @@ const Programs = ({
           draggable={true}
           ref={ref}
         >
-          {data.map(({ link, image }) => (
-            <SlideWrapper key={link}>
-              <Link href={link}>
+          {data.map(({ id, image }) => (
+            <SlideWrapper key={id}>
+              <Link href={`/programs/${id}`}>
                 <Slide>
                   <Image
                     src={image}

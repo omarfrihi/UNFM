@@ -5,6 +5,7 @@ import RootLayout, { getLayoytStaticProps } from "../../components/layout";
 import Article from "../../components/who-us/article";
 import Title from "../../components/title";
 import { TitleWrapper } from "../../components/title/styles";
+import { flatten } from "lodash";
 
 const Activities = ({ data }: any) => {
   const { layout, activity } = JSON.parse(data);
@@ -55,13 +56,18 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
   };
 }
 
-export async function getStaticPaths() {
-  const activites = mockActivities.map(({ id }) => ({
-    params: { id },
-  }));
+export async function getStaticPaths({ locales }: { locales: string[] }) {
+  const paths = flatten(
+    locales.map((locale) =>
+      mockActivities.map(({ id }) => ({
+        params: { id },
+        locale,
+      }))
+    )
+  );
 
   return {
-    paths: activites,
+    paths,
     fallback: "blocking",
   };
 }

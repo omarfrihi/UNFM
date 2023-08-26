@@ -80,7 +80,7 @@ export const ActivityComponent = ({
         <Description>
           {articles[0].description[0].substring(0, 120)}...
         </Description>
-        <Button href={`activities/${id}`}>{action}</Button>
+        <Button href={`/activities/${id}`}>{action}</Button>
       </DescriptionContent>
     </ActivityContent>
   </Activity>

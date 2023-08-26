@@ -82,7 +82,7 @@ export const getLayoytStaticProps = async () => {
         ],
         subMenu: programs.map(({ id, image }) => ({
           image,
-          link: `programs/${id}`,
+          link: `/programs/${id}`,
           title: id,
         })),
       },

@@ -36,4 +36,14 @@ export async function getStaticProps() {
   };
 }
 
+// export async function getStaticPaths({ locales }: { locales: string[] }) {
+//   const paths = locales.map((locale) => ({
+//     locale,
+//   }));
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// }
+
 export default Programs;

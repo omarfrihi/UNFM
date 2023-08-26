@@ -50,7 +50,7 @@ const Media = ({
               ></Image>
             </ImageContainer>
           )}
-          <Link href={id}>
+          <Link href={`/medias/${id}`}>
             <MedialTitleWrapper>
               <MediaTitle>{title}</MediaTitle>
 

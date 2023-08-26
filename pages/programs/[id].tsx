@@ -16,6 +16,7 @@ import Media from "../../components/media";
 import Partners from "../../components/partners";
 import Experiences from "../../components/experiences";
 import Navbar from "../../components/programNavbar";
+import { flatten } from "lodash";
 
 const Program = ({ data, id }: any) => {
   const {
@@ -120,11 +121,15 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
   };
 }
 
-export async function getStaticPaths() {
-  const paths = programs.map(({ id }) => ({
-    params: { id },
-  }));
-
+export async function getStaticPaths({ locales }: { locales: string[] }) {
+  const paths = flatten(
+    locales.map((locale) =>
+      programs.map(({ id }) => ({
+        params: { id },
+        locale,
+      }))
+    )
+  );
   return {
     paths,
     fallback: "blocking",

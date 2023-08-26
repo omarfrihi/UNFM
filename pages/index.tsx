@@ -55,7 +55,7 @@ const Home: NextPage = ({ data }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }: any) {
   const slider = {
     data: [
       require("../public/assets/banner2.png"),
@@ -80,7 +80,7 @@ export async function getStaticProps() {
         inclusive et plus durable.`,
       ],
     },
-    action: { text: "En savoir plus", link: "article" },
+    action: { text: "En savoir plus", link: "/article" },
   };
 
   const numbers = {
@@ -141,7 +141,7 @@ export async function getStaticProps() {
     title: "Nos Programmes",
     data: programsList.map(({ image, id }) => ({
       image,
-      link: `programs/${id}`,
+      id,
     })),
   };
   const tools = {
@@ -150,19 +150,19 @@ export async function getStaticProps() {
         icon: require("../public/assets/toolicon1.png"),
         image: require("../public/assets/tool1.png"),
         text: "Associations accréditées",
-        link: "association-accredité",
+        link: "/association-accredité",
       },
       {
         icon: require("../public/assets/toolicon2.png"),
         image: require("../public/assets/tool2.png"),
         text: "Complexes Lalla Meryem",
-        link: "complexe-lala-meryem",
+        link: "/complexe-lala-meryem",
       },
       {
         icon: require("../public/assets/toolicon3.png"),
         image: require("../public/assets/tool3.png"),
         text: "Déclaration de Marrakech",
-        link: "delcaration-de-marakech",
+        link: "/delcaration-de-marakech",
       },
     ],
     title: "Nos Moyens",
@@ -174,7 +174,7 @@ export async function getStaticProps() {
   };
   const media = {
     title: "Espace Media",
-    action: { text: "En savoir plus", link: "media" },
+    action: { text: "En savoir plus", link: "/medias" },
     data: medias,
   };
 
@@ -231,5 +231,15 @@ export async function getStaticProps() {
     revalidate: true,
   };
 }
+
+// export async function getStaticPaths({ locales }: { locales: string[] }) {
+//   const paths = locales.map((locale) => ({
+//     locale,
+//   }));
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// }
 
 export default Home;

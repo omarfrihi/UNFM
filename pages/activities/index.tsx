@@ -46,5 +46,13 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
     revalidate: true,
   };
 }
-
+// export async function getStaticPaths({ locales }: { locales: string[] }) {
+//   const paths = locales.map((locale) => ({
+//     locale,
+//   }));
+//   return {
+//     paths,
+//     fallback: "blocking",
+//   };
+// }
 export default Activities;
