@@ -2,6 +2,7 @@ import Link from "next/link";
 import Call from "../SVG/call";
 import Phone from "../SVG/phone";
 import PhoneCall from "../SVG/phoneCall";
+import axios from "axios";
 import {
   Wrapper,
   Text,
@@ -18,10 +19,6 @@ export type TopbarProps = {
     callUs: string;
     phoneNumber: string;
     download: { text: string; appName: string; link: string };
-    languages: {
-      label: string;
-      value: string;
-    }[];
   };
 };
 const Topbar = ({
@@ -29,7 +26,6 @@ const Topbar = ({
     callUs,
     phoneNumber,
     download: { text, appName, link },
-    languages,
   },
 }: TopbarProps) => {
   const { locales, locale: currentLocale, asPath } = useRouter();
