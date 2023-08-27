@@ -2,7 +2,7 @@ import { ITestimony } from "./Testimony";
 import { IPartner } from "./Partner";
 import { IMedia } from "../builtins/Media";
 import { IActivity } from "./Activity";
-import { IMedia as IMedia1 } from "./Media";
+import { IMedia1 } from "./Media";
 import { ISlicesArticleList } from "./slices/ArticleList";
 import { IProgramType } from "./ProgramType";
 import { ISingleProgramSection } from "./single/ProgramSection";
