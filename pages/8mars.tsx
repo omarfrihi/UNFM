@@ -16,7 +16,7 @@ const WomenDay = ({ data }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }: { locale: string }) {
   const activities = {
     title: "Nos Activités",
     action: "En Savoir Plus",
@@ -56,7 +56,7 @@ export async function getStaticProps() {
       },
     ],
   };
-  const layout = await getLayoytStaticProps();
+  const layout = await getLayoytStaticProps(locale);
 
   return {
     props: {

@@ -1,30 +1,22 @@
-import {
-  Content,
-  ImageWrapper,
-  Img,
-  Title,
-  Wrapper,
-  Text,
-  ShowMore,
-  ButtonWrapper,
-  ButtonText,
-} from "./styles";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import Button from "../Button";
-import { ReactNode } from "react";
-
-const Article = ({
-  data: { image, title, content },
-  action,
-}: {
+import {
+  ButtonWrapper,
+  Content,
+  ImageWrapper,
+  Text,
+  Title,
+  Wrapper,
+} from "./styles";
+export type ArticleProps = {
   action: { link: string; text: string };
   data: {
     image: string;
     title: string;
     content: string[];
   };
-}) => {
+};
+const Article = ({ data: { image, title, content }, action }: ArticleProps) => {
   return (
     <Wrapper>
       <ImageWrapper>

@@ -56,14 +56,11 @@ const responsive = {
     items: 1,
   },
 };
-
-const Programs = ({
-  data,
-  title,
-}: {
+export type ProgramsProps = {
   data: { id: string; image: string }[];
   title: string;
-}) => {
+};
+const Programs = ({ data, title }: ProgramsProps) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore

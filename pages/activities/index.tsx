@@ -13,8 +13,7 @@ const Activities = ({ data }: any) => {
   );
 };
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
-  console.log("params", params);
+export async function getStaticProps({ locale }: { locale: string }) {
   const cover = {
     data: {
       title: "Activités",
@@ -37,7 +36,7 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
       ],
     },
   };
-  const layout = await getLayoytStaticProps();
+  const layout = await getLayoytStaticProps(locale);
 
   return {
     props: {

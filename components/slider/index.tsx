@@ -12,7 +12,8 @@ var settings = {
   slidesToScroll: 1,
   arrows: false,
 };
-const Banner = ({ data }: { data: string[] }) => {
+export type SliderProps = { data: string[] };
+const Banner = ({ data }: SliderProps) => {
   return (
     <Carousel {...settings} autoplay>
       {data.map((banner) => (

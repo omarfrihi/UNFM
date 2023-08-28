@@ -17,12 +17,7 @@ export enum EMediaType {
   video = "video",
   image = "image",
 }
-
-const Media = ({
-  data,
-  title,
-  action: { text, link },
-}: {
+export type MediaProps = {
   data: {
     title: string;
     type: EMediaType;
@@ -31,7 +26,8 @@ const Media = ({
   }[];
   title: string;
   action: { text: string; link: string };
-}) => (
+};
+const Media = ({ data, title, action: { text, link } }: MediaProps) => (
   <Wrapper>
     <Title>{title}</Title>
     <Medias>

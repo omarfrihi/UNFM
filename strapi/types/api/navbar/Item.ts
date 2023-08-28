@@ -8,7 +8,7 @@ export type INavbarItem<Populate extends string | never = never> = RequiredBy<
     id: number;
     __component: "navbar.item";
     title: string;
-    sub_items: INavbarSubItems<ExtractNested<Populate, "sub_items">>;
+    sub_items: INavbarSubItems<ExtractNested<Populate, "sub_items">>[];
     link: string;
     is_card: boolean;
     actions: INavbarAction[];

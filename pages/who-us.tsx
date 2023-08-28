@@ -15,7 +15,7 @@ const WhoUs = ({ data }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }: { locale: string }) {
   const cover = {
     data: {
       title: "Qui sommes nous?",
@@ -99,7 +99,7 @@ export async function getStaticProps() {
       ],
     },
   };
-  const layout = await getLayoytStaticProps();
+  const layout = await getLayoytStaticProps(locale);
 
   return {
     props: {

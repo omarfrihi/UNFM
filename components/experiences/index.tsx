@@ -24,11 +24,7 @@ var settings = {
   slidesToScroll: 1,
   arrows: false,
 };
-
-const Experiences = ({
-  title,
-  data,
-}: {
+export type ExperiencesProps = {
   title: string;
   data: {
     personImage: string;
@@ -36,7 +32,8 @@ const Experiences = ({
     fonction: string;
     text: string;
   }[];
-}) => {
+};
+const Experiences = ({ title, data }: ExperiencesProps) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore

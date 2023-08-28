@@ -20,14 +20,11 @@ const settings = {
   arrows: false,
   swipe: true,
 };
-
-const Partners = ({
-  title,
-  data,
-}: {
+export type PartnersProps = {
   title: string;
   data: { title: string; partners: string[] }[];
-}) => {
+};
+const Partners = ({ title, data }: PartnersProps) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.

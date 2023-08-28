@@ -9,11 +9,7 @@ import {
 } from "./styles";
 import Image from "next/image";
 import Link from "next/link";
-
-const Tools = ({
-  data,
-  title,
-}: {
+export type ToolsProps = {
   title: string;
   data: {
     icon: string;
@@ -21,7 +17,8 @@ const Tools = ({
     text: string;
     link: string;
   }[];
-}) => (
+};
+const Tools = ({ data, title }: ToolsProps) => (
   <Wrapper>
     <ToolsWrapper>
       {data.map(({ icon, image, text, link }) => (

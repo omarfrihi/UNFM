@@ -8,8 +8,8 @@ const NotFound = ({ data }: any) => {
 
 export default NotFound;
 
-export async function getStaticProps() {
-  const layout = await getLayoytStaticProps();
+export async function getStaticProps({ locale }: { locale: string }) {
+  const layout = await getLayoytStaticProps(locale);
 
   return {
     props: {

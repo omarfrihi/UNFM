@@ -8,7 +8,7 @@ export interface IFooter<Populate extends string | never = never> {
     {
       contact_us: string;
       copyright: string;
-      phone_numbers: IFooterPhoneNumbers;
+      phone_numbers: IFooterPhoneNumbers[];
       email: string;
       publishedAt: string;
       createdAt: string;

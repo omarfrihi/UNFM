@@ -20,6 +20,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useRouter } from "next/router";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { NavbarProps } from "../navbar";
+import { isEmpty } from "lodash";
 
 const NavbarMobile = ({
   open,
@@ -42,7 +43,7 @@ const NavbarMobile = ({
           {data.map(({ title, subMenu, link }) => (
             <>
               <Item active={asPath === link} key={title}>
-                {subMenu ? (
+                {!isEmpty(subMenu) ? (
                   <Accordion
                     sx={{
                       boxShadow: "none !important",
@@ -74,7 +75,7 @@ const NavbarMobile = ({
 
                     <AccordionDetails>
                       <SubItems>
-                        {subMenu.map(({ link, title }) => (
+                        {subMenu?.map(({ link, title }) => (
                           <Link href={link || "/"} key={title}>
                             <SubItem active={asPath === link}>{title}</SubItem>
                           </Link>

@@ -6,7 +6,7 @@ export interface INavbar<Populate extends string | never = never> {
   id: number;
   attributes: RequiredBy<
     {
-      item: INavbarItem<ExtractNested<Populate, "item">>[];
+      items: INavbarItem<ExtractNested<Populate, "items">>[];
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

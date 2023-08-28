@@ -1,18 +1,18 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Avtivities from "../components/activities";
-import Article from "../components/article";
-import Download from "../components/download";
-import Experiences from "../components/experiences";
-import Goals from "../components/goals";
+import Avtivities, { ActivitiesProps } from "../components/activities";
+import Article, { ArticleProps } from "../components/article";
+import Download, { DownloadProps } from "../components/download";
+import Experiences, { ExperiencesProps } from "../components/experiences";
+import Goals, { GoalsProps } from "../components/goals";
 import RootLayout, { getLayoytStaticProps } from "../components/layout";
-import Media, { EMediaType } from "../components/media";
-import Numbers from "../components/numbers";
-import Partners from "../components/partners";
-import Programs from "../components/programs";
-import Slider from "../components/slider";
-import Tools from "../components/tools";
+import Media, { EMediaType, MediaProps } from "../components/media";
+import Numbers, { NumbersProps } from "../components/numbers";
+import Partners, { PartnersProps } from "../components/partners";
+import Programs, { ProgramsProps } from "../components/programs";
+import Slider, { SliderProps } from "../components/slider";
+import Tools, { ToolsProps } from "../components/tools";
 import styles from "../styles/Home.module.css";
 import {
   medias,
@@ -22,6 +22,21 @@ import {
   programs as programsList,
 } from "../utils/constants";
 import { groupBy } from "lodash";
+
+export type HomeProps = {
+  article: ArticleProps;
+  slider: SliderProps;
+  numbers: NumbersProps;
+  goals: GoalsProps;
+  programs: ProgramsProps;
+  tools: ToolsProps;
+  activities: ActivitiesProps;
+  media: MediaProps;
+  experiences: ExperiencesProps;
+  partners: PartnersProps;
+  download: DownloadProps;
+};
+
 const Home: NextPage = ({ data }: any) => {
   const {
     article,
@@ -210,7 +225,7 @@ export async function getStaticProps({ locale }: any) {
     ],
   };
 
-  const layout = await getLayoytStaticProps();
+  const layout = await getLayoytStaticProps(locale);
   return {
     props: {
       data: JSON.stringify({

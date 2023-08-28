@@ -68,8 +68,14 @@ const Program = ({ data, id }: any) => {
   );
 };
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
-  const layout = await getLayoytStaticProps();
+export async function getStaticProps({
+  params,
+  locale,
+}: {
+  params: { id: string };
+  locale: string;
+}) {
+  const layout = await getLayoytStaticProps(locale);
   const program = programs.find(({ id }) => id === params.id);
   const media = {
     title: "Médiatheque",

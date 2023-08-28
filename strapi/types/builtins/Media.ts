@@ -25,7 +25,9 @@ export interface IMedia<Populate extends string | never = never> {
       width: number;
       height: number;
       size: number;
+      blurhash: string;
     },
     ExtractFlat<Populate>
   >;
 }
+export type Media = { data: IMedia };

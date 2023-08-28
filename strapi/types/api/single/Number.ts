@@ -8,7 +8,7 @@ export type ISingleNumber<Populate extends string | never = never> = RequiredBy<
     __component: "single.number";
     logo: { data: IMedia };
     description: string;
-    value: number;
+    value: string;
   },
   ExtractFlat<Populate>
 >;

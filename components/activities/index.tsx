@@ -85,15 +85,12 @@ export const ActivityComponent = ({
     </ActivityContent>
   </Activity>
 );
-const Avtivities = ({
-  title,
-  data,
-  action,
-}: {
+export type ActivitiesProps = {
   title: string;
   action: string;
   data: ActivityType[];
-}) => {
+};
+const Avtivities = ({ title, data, action }: ActivitiesProps) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore

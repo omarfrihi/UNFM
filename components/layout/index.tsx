@@ -8,7 +8,7 @@ import Footer, { FooterProps } from "../footer";
 import TopbarMobile from "../TopbarMobile";
 import { programs } from "../../utils/constants";
 import axios from "axios";
-import { getTopBar } from "../../strapi/api";
+import { getFooter, getNavBar, getTopBar } from "../../strapi/api";
 const RootLayout = ({
   children,
   topbar,
@@ -31,54 +31,13 @@ const RootLayout = ({
   );
 };
 
-export const getLayoytStaticProps = async () => {
+export const getLayoytStaticProps = async (locale: string) => {
   let props = {};
   try {
-    const topbar = await getTopBar();
-
-    const footer = {
-      data: {
-        contactUs: "Nous contactez:",
-        phoneNumbers: ["05 37 63 13 17", "05 37 63 12 91"],
-        email: "contact@unfm.ma",
-        copytight: "Copyright © UNFM 2023 Tous droits réservés",
-      },
-    };
-    const navbar = {
-      data: [
-        { title: "Accueil", link: "/" },
-        {
-          title: "UNFM",
-
-          subMenu: [
-            { title: "Qui sommes nous?", link: "/who-us" },
-            { title: "Discours fondateur", link: "/discours" },
-            { title: "Les allocutions princières", link: "/allocutions" },
-          ],
-        },
-        { title: "Notre Histoire", link: "/history" },
-        { title: "Journée de la femme", link: "/8mars" },
-
-        {
-          title: "Activités",
-          link: "/activities",
-        },
-        {
-          title: "Programmes",
-          isCard: true,
-          actions: [
-            { text: "Tous les Programmes", link: "/programs" },
-            { text: "Toutes Nos Catégories", link: "/programs" },
-          ],
-          subMenu: programs.map(({ id, image }) => ({
-            image,
-            link: `/programs/${id}`,
-            title: id,
-          })),
-        },
-        { title: "Associations accréditées", link: "/associations-accredite" },
-      ],
-    };
+    const topbar = await getTopBar(locale);
+    const footer = await getFooter(locale);
+    const navbar = await getNavBar(locale);
+    console.log("navbardata", navbar);
     props = {
       topbar,
       footer,

@@ -1,11 +1,7 @@
 import { Actions, Application, Wrapper, Text, Buttons } from "./styles";
 import Image from "next/image";
 import Link from "next/link";
-
-const Download = ({
-  downloadText,
-  data,
-}: {
+export type DownloadProps = {
   downloadText: string;
   data: {
     androidLink: string;
@@ -13,7 +9,8 @@ const Download = ({
     icon: string;
     poster: string;
   }[];
-}) => (
+};
+const Download = ({ downloadText, data }: DownloadProps) => (
   <Wrapper>
     {data.map(({ androidLink, iOsLink, icon, poster }) => (
       <Application key={poster}>

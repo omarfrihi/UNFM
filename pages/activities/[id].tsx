@@ -44,8 +44,14 @@ const Activities = ({ data }: any) => {
   );
 };
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
-  const layout = await getLayoytStaticProps();
+export async function getStaticProps({
+  params,
+  locale,
+}: {
+  locale: string;
+  params: { id: string };
+}) {
+  const layout = await getLayoytStaticProps(locale);
   const activity = mockActivities.find(({ id }) => id === params.id);
 
   return {

@@ -10,13 +10,12 @@ import Logo from "../../public/assets/logo2.png";
 import Cap from "../../public/assets/cap.png";
 
 import Image from "next/image";
-const Numbers = ({
-  data,
-  logo,
-}: {
+
+export type NumbersProps = {
   logo?: string;
   data: { number: string; description: string }[];
-}) => (
+};
+const Numbers = ({ data, logo }: NumbersProps) => (
   <Wrapper>
     <ImgWrapper>
       <Image width={90} src={logo || Logo} alt="logo"></Image>

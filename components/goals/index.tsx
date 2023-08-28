@@ -8,14 +8,11 @@ import {
   UnderLine,
   Wrapper,
 } from "./styles";
-
-const Goals = ({
-  data,
-  title,
-}: {
+export type GoalsProps = {
   title: string;
   data: { content: string; image: string }[];
-}) => (
+};
+const Goals = ({ data, title }: GoalsProps) => (
   <Wrapper>
     <div>
       <Title>{title}</Title>
