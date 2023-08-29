@@ -12,6 +12,7 @@ export interface ITestimony<Populate extends string | never = never> {
       fonction: string;
       content: string;
       program: { data: IProgram<ExtractNested<Populate, "program">> };
+      key: string;
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

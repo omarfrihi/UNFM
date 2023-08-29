@@ -46,98 +46,129 @@ const navbarFormater = ({ attributes }: INavbar): NavbarProps => ({
 });
 
 const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
-  const {article}=attributes
-  
-  return({
+  const {
+    article,
+    slider,
+    numbers,
+    objectifs,
+    downloads,
+    activities,
+    programs,
+    tools,
+    medias,
+    testimonies,
+    partners,
+  } = attributes;
 
-  article: {
-    action: {
+  return {
+    article: {
+      action: {
         link: article.action_link,
         text: article.action,
+      },
+      data: {
+        image: article.article.image,
+        title: "",
+        content: article.article.content,
+      },
     },
-    data: {
-        image: "",
-        title: "",
-        content: string[];
-    };
-};
-  slider: {
-    data: string[];
-};
-  numbers: {
-    logo?: string | undefined;
-    data: {
-        number: "",
-        description: "",
-    }[];
-};
-  goals: {
-    title: "",
-    data: {
-        content: "",
-        image: "",
-    }[];
-};
-  programs: {
-    data: {
-        id: "",
-        image: "",
-    }[];
-    title: "",
-};
-  tools: {
-    title: "",
-    data: {
-        icon: "",
-        image: "",
-        text: "",
+    slider,
+    numbers: {
+      data: numbers.list.map(({ description, value, logo }) => ({
+        logo,
+        number: value,
+        description,
+      })),
+    },
+    goals: {
+      title: objectifs.title,
+      data: objectifs.list.map(({ logo, content }) => ({
+        content,
+        image: logo,
+      })),
+    },
+    programs: {
+      data: programs.list.data.map(({ attributes }) => ({
+        id: attributes.key,
+        image: attributes.logo,
+      })),
+      title: programs.title,
+    },
+
+    tools: {
+      data: tools.list.data.map(({ attributes }) => ({
+        icon: attributes.logo,
+        image: attributes.logo,
+        text: attributes.title,
+        link: attributes.key,
+      })),
+      title: tools.title,
+    },
+
+    activities: {
+      title: activities.title,
+      action: activities.call_to_action,
+      data: activities.list.data.map(
+        ({
+          id,
+          attributes: { cover, title, articles, activity_type, key },
+        }) => ({
+          cover,
+          title,
+          tag: activity_type.data.attributes.name,
+          articles: articles.list.map(({ image, content }) => ({
+            image,
+            description: content,
+          })),
+
+          action: activities.call_to_action,
+          id: key,
+        })
+      ),
+    },
+    media: {
+      data: medias.list.data.map(
+        ({ attributes: { key, title, type, video_link, photo } }) => ({
+          title,
+          type,
+          src: type === "image" ? photo : video_link,
+          id: key,
+        })
+      ),
+
+      title: medias.title,
+      action: {
+        text: medias.call_to_action,
         link: "",
-    }[];
+      },
+    },
+    experiences: {
+      title: testimonies.title,
+      data: testimonies.list.data.map(({ attributes }) => ({
+        personImage: attributes.image,
+        name: attributes.name,
+        fonction: attributes.fonction,
+        text: attributes.content,
+      })),
+    },
+    partners: {
+      title: partners.title,
+      data: partners.categories.map(({ title, list }) => ({
+        title,
+        partners: list.data.map(({ attributes }) => attributes.logo),
+      })),
+    },
+    download: {
+      downloadText: downloads.download_text,
+      data: downloads.list.map(({ ios_link, android_link, poster, logo }) => ({
+        androidLink: android_link,
+        iOsLink: ios_link,
+        icon: logo,
+        poster,
+      })),
+    },
+  };
 };
-  activities: {
-    title: "",
-    action: "",
-    data: ActivityType[];
-};
-  media: {
-    data: {
-        title: "",
-        type: EMediaType;
-        src: "",
-        id: "",
-    }[];
-    title: "",
-    action: {
-        text: "",
-        link: "",
-    };
-};
-  experiences: {
-    title: "",
-    data: {
-        personImage: "",
-        name: "",
-        fonction: "",
-        text: "",
-    }[];
-};
-  partners: {
-    title: "",
-    data: {
-        title: "",
-        partners: string[];
-    }[];
-};
-  download: {
-    downloadText: "",
-    data: {
-        androidLink: "",
-        iOsLink: "",
-        icon: "",
-        poster: "",
-    }[];
-};
-})};
 
 export enum EStrapi_Single_Types {
   TOP_BAR = "topbar",

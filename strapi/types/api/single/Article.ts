@@ -7,7 +7,6 @@ export type ISingleArticle<Populate extends string | never = never> =
     {
       id: number;
       __component: "single.article";
-      title: string;
       content: string;
       image: { data: IMedia };
     },

@@ -8,8 +8,11 @@ export interface IMedia1<Populate extends string | never = never> {
   attributes: RequiredBy<
     {
       title: string;
-      programs: { data: IProgram<ExtractNested<Populate, "programs">>[] };
-      media: { data: IMedia };
+      programs?: { data: IProgram<ExtractNested<Populate, "programs">>[] };
+      photo: { data: IMedia };
+      key: string;
+      video_link: string;
+      type: "video" | "image";
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

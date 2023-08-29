@@ -13,13 +13,14 @@ export interface IActivity<Populate extends string | never = never> {
       title: string;
       programs: { data: IProgram<ExtractNested<Populate, "programs">>[] };
       cover: { data: IMedia };
-      articles: ISlicesArticleList<ExtractNested<Populate, "articles">>[];
+      articles: ISlicesArticleList<ExtractNested<Populate, "articles">>;
       associations: {
         data: IAssociation<ExtractNested<Populate, "associations">>[];
       };
       activity_type: {
         data: IActivityType<ExtractNested<Populate, "activity_type">>;
       };
+      key: string;
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

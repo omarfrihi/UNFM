@@ -8,12 +8,14 @@ import {
   Title,
   Wrapper,
 } from "./styles";
+import ReactMarkdown from "react-markdown";
+
 export type ArticleProps = {
   action: { link: string; text: string };
   data: {
     image: string;
     title: string;
-    content: string[];
+    content: string;
   };
 };
 const Article = ({ data: { image, title, content }, action }: ArticleProps) => {
@@ -29,10 +31,7 @@ const Article = ({ data: { image, title, content }, action }: ArticleProps) => {
       </ImageWrapper>
       <Content>
         <Title>{title}</Title>
-        {content.map((c) => (
-          <Text dangerouslySetInnerHTML={{ __html: c }} key={c}></Text>
-        ))}
-
+        <ReactMarkdown>{content}</ReactMarkdown>
         <ButtonWrapper>
           <Button href={action.link}>{action.text}</Button>
         </ButtonWrapper>

@@ -10,10 +10,11 @@ import Logo from "../../public/assets/logo2.png";
 import Cap from "../../public/assets/cap.png";
 
 import Image from "next/image";
+import { Media } from "../../strapi/types";
 
 export type NumbersProps = {
   logo?: string;
-  data: { number: string; description: string }[];
+  data: { number: string; description: string; logo: Media }[];
 };
 const Numbers = ({ data, logo }: NumbersProps) => (
   <Wrapper>

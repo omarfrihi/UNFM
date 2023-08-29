@@ -8,6 +8,7 @@ import {
   Wrapper,
   Article as ArticleContainer,
 } from "./styles";
+import ReactMarkdown from "react-markdown";
 
 const Article = ({
   data,
@@ -15,7 +16,7 @@ const Article = ({
   data: {
     title?: string;
     image: string;
-    content: string[];
+    content: string;
   }[];
 }) => (
   <Wrapper>
@@ -23,9 +24,7 @@ const Article = ({
       <ArticleContainer key={title}>
         <Content>
           {title && <Title>{title}</Title>}
-          {content.map((x) => (
-            <Text dangerouslySetInnerHTML={{ __html: x }} key={x}></Text>
-          ))}
+          <ReactMarkdown>{content}</ReactMarkdown>
         </Content>
         <ImageWrapper>
           <Image

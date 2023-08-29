@@ -27,6 +27,7 @@ export interface IProgram<Populate extends string | never = never> {
         data: IProgramType<ExtractNested<Populate, "program_type">>;
       };
       sections: ISingleProgramSection[];
+      key: string;
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

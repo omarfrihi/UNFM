@@ -49,7 +49,7 @@ export type ActivityType = {
   tag: string;
   articles: {
     image: string;
-    description: string[];
+    description: string;
   }[];
 
   action: string;

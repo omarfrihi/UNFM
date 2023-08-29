@@ -8,6 +8,7 @@ export interface IActivityType<Populate extends string | never = never> {
     {
       name: string;
       activities: { data: IActivity<ExtractNested<Populate, "activities">>[] };
+      key: string;
       publishedAt: string;
       createdAt: string;
       updatedAt: string;
