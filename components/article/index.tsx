@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../Image";
 import Button from "../Button";
 import {
   ButtonWrapper,
@@ -9,11 +9,12 @@ import {
   Wrapper,
 } from "./styles";
 import ReactMarkdown from "react-markdown";
+import { Media } from "../../strapi/types";
 
 export type ArticleProps = {
   action: { link: string; text: string };
   data: {
-    image: string;
+    image: Media;
     title: string;
     content: string;
   };
@@ -22,12 +23,7 @@ const Article = ({ data: { image, title, content }, action }: ArticleProps) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image
-          layout="responsive"
-          placeholder="blur"
-          alt="article1"
-          src={image}
-        ></Image>
+        <Image layout="responsive" placeholder="blur" src={image}></Image>
       </ImageWrapper>
       <Content>
         <Title>{title}</Title>

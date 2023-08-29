@@ -17,8 +17,9 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import Arrows from "../Arrows";
-import Image from "next/image";
 import "react-multi-carousel/lib/styles.css";
+import { Media } from "../../strapi/types";
+import Image from "../Image";
 
 const responsive = {
   desktop: {
@@ -44,11 +45,11 @@ const responsive = {
 };
 
 export type ActivityType = {
-  cover: string;
+  cover: Media;
   title: string;
   tag: string;
   articles: {
-    image: string;
+    image: Media;
     description: string;
   }[];
 
@@ -66,7 +67,6 @@ export const ActivityComponent = ({
     <ImageWrapper>
       <Image
         src={articles[0].image}
-        alt={title}
         layout="fill"
         objectFit="cover"
         placeholder="blur"

@@ -9,7 +9,9 @@ import {
 import Logo from "../../public/assets/logo2.png";
 import Cap from "../../public/assets/cap.png";
 
-import Image from "next/image";
+import ImageNext from "next/image";
+import Image from "../Image";
+
 import { Media } from "../../strapi/types";
 
 export type NumbersProps = {
@@ -19,12 +21,12 @@ export type NumbersProps = {
 const Numbers = ({ data, logo }: NumbersProps) => (
   <Wrapper>
     <ImgWrapper>
-      <Image width={90} src={logo || Logo} alt="logo"></Image>
+      <ImageNext width={90} src={logo || Logo} alt="logo"></ImageNext>
     </ImgWrapper>
     <Box>
-      {data.map(({ number, description }) => (
+      {data.map(({ number, description, logo }) => (
         <NumberWrapper key={number}>
-          <Image width={40} height={40} src={Cap} alt="cap"></Image>
+          <Image width={40} height={40} src={logo}></Image>
           <Number>{number}</Number>
           <Text>{description}</Text>
         </NumberWrapper>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../Image";
 import {
   Card,
   CardsContainer,
@@ -8,9 +8,10 @@ import {
   UnderLine,
   Wrapper,
 } from "./styles";
+import { Media } from "../../strapi/types";
 export type GoalsProps = {
   title: string;
-  data: { content: string; image: string }[];
+  data: { content: string; image: Media }[];
 };
 const Goals = ({ data, title }: GoalsProps) => (
   <Wrapper>
@@ -20,9 +21,9 @@ const Goals = ({ data, title }: GoalsProps) => (
     </div>
     <CardsContainer>
       {data.map(({ image, content }) => (
-        <CardWrapper key={image}>
+        <CardWrapper key={content}>
           <Card>
-            <Image width={40} height={40} alt="goal1" src={image}></Image>
+            <Image width={40} height={40} src={image}></Image>
             <Content>{content}</Content>
           </Card>
         </CardWrapper>

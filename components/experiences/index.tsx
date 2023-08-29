@@ -13,10 +13,13 @@ import {
   Title,
   Wrapper,
 } from "./styles";
-import Image from "next/image";
+import Image from "../Image";
+import NextImage from "next/image";
+
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import Arrows from "../Arrows";
+import { Media } from "../../strapi/types";
 var settings = {
   infinite: true,
   speed: 500,
@@ -27,7 +30,7 @@ var settings = {
 export type ExperiencesProps = {
   title: string;
   data: {
-    personImage: string;
+    personImage: Media;
     name: string;
     fonction: string;
     text: string;
@@ -54,28 +57,28 @@ const Experiences = ({ title, data }: ExperiencesProps) => {
             <Experience key={name}>
               <Header>
                 <ImageWrapper>
-                  <Image src={personImage} alt="person" layout="fill"></Image>
+                  <Image src={personImage} layout="fill"></Image>
                 </ImageWrapper>
                 <Name>{name}</Name>
                 <Fonction>{fonction}</Fonction>
               </Header>
               <Content>
                 <StartContent>
-                  <Image
+                  <NextImage
                     src={require("../../public/assets/start.png")}
                     alt="start"
                     width={30}
                     height={30}
-                  ></Image>
+                  ></NextImage>
                 </StartContent>
                 <ContentText>{text}</ContentText>
                 <EndContent>
-                  <Image
+                  <NextImage
                     src={require("../../public/assets/end.png")}
                     alt="end"
                     width={30}
                     height={30}
-                  ></Image>
+                  ></NextImage>
                 </EndContent>
               </Content>
             </Experience>

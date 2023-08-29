@@ -1,18 +1,24 @@
 import Img, { ImageProps } from "next/image";
 import useNextBlurhash from "use-next-blurhash";
+import { Media } from "../../strapi/types";
+import { urlBuilder } from "../../strapi/utils";
 
 const Image = ({
-  blurhash,
+  src: image,
   placeholder,
   ...rest
-}: ImageProps & { blurhash?: string }) => {
+}: Omit<Omit<ImageProps, "src">, "alt"> & { src: Media }) => {
+  const builtImage = urlBuilder(image);
+
+  const { blurhash, ...imageProps } = builtImage;
+
   const [blurDataURL] = useNextBlurhash(
     blurhash || "LEHV6nWB2yk8pyo0adR*.7kCMdnj"
   );
-  console.log("test", blurhash);
-  console.log("blurDataURL", blurDataURL);
+
   return (
     <Img
+      {...imageProps}
       {...rest}
       {...(blurhash && { blurDataURL })}
       {...(placeholder && { placeholder })}

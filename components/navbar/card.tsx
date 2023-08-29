@@ -27,7 +27,7 @@ const Card = ({
             <Slide>
               <Link href={link}>
                 <Image
-                  {...urlBuilder(image)}
+                  src={image}
                   placeholder="blur"
                   layout="fill"
                   objectFit="contain"

@@ -1,3 +1,4 @@
+import { Media } from "../../strapi/types";
 import Title from "../title";
 import {
   ContentWrapper,
@@ -7,13 +8,13 @@ import {
   ToolsWrapper,
   Wrapper,
 } from "./styles";
-import Image from "next/image";
+import Image from "../Image";
 import Link from "next/link";
 export type ToolsProps = {
   title: string;
   data: {
-    icon: string;
-    image: string;
+    icon: Media;
+    image: Media;
     text: string;
     link: string;
   }[];
@@ -26,7 +27,6 @@ const Tools = ({ data, title }: ToolsProps) => (
           <Tool>
             <ImageWrapper>
               <Image
-                alt="tool"
                 src={image}
                 placeholder="blur"
                 layout="fill"
@@ -37,7 +37,6 @@ const Tools = ({ data, title }: ToolsProps) => (
               <Image
                 width={28}
                 height={28}
-                alt="tool1"
                 src={icon}
                 placeholder="blur"
               ></Image>
