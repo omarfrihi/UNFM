@@ -1,9 +1,12 @@
-import Goals from "../../components/goals";
-import RootLayout, { getLayoytStaticProps } from "../../components/layout";
-import Numbers from "../../components/numbers";
-import Article from "../../components/who-us/article";
-import Cover from "../../components/who-us/cover";
-import Activities from "../../components/activities";
+import Goals, { GoalsProps } from "../../components/goals";
+import RootLayout, {
+  LayoutProps,
+  getLayoytStaticProps,
+} from "../../components/layout";
+import Numbers, { NumbersProps } from "../../components/numbers";
+import Article, { ArticleProps } from "../../components/who-us/article";
+import Cover, { CoverProps } from "../../components/who-us/cover";
+import Activities, { ActivitiesProps } from "../../components/activities";
 
 import {
   medias,
@@ -12,13 +15,43 @@ import {
   mockPartners,
   programs,
 } from "../../utils/constants";
-import Media from "../../components/media";
-import Partners from "../../components/partners";
-import Experiences from "../../components/experiences";
-import Navbar from "../../components/programNavbar";
+import Media, { MediaProps } from "../../components/media";
+import Partners, { PartnersProps } from "../../components/partners";
+import Experiences, { ExperiencesProps } from "../../components/experiences";
+import Navbar, {
+  ProgramsNavbarProps,
+  Sections,
+} from "../../components/programNavbar";
 import { flatten } from "lodash";
+import { getPrograms } from "../../strapi/api";
+export type ProgramProps = {
+  program: {
+    articles: ArticleProps;
+    cover: CoverProps;
+    goals: GoalsProps;
+    numbers: NumbersProps;
+  };
+  activities: ActivitiesProps;
+  media: MediaProps;
+  partners: PartnersProps;
+  experiences: ExperiencesProps;
+  sections: ProgramsNavbarProps;
+};
 
-const Program = ({ data, id }: any) => {
+export enum ENavbarSections {
+  PRESENTATION = "presentation",
+  GOALS = "goals",
+  NUMBERS = "numbers",
+  ACTIVITIES = "activities",
+  MEDIAS = "medias",
+  PARTNERS = "partners",
+  EXPERIENCES = "experiences",
+}
+const Program = ({
+  data,
+}: {
+  data: ProgramProps & { layout: LayoutProps };
+}) => {
   const {
     layout,
     program,
@@ -27,37 +60,32 @@ const Program = ({ data, id }: any) => {
     partners,
     experiences,
     sections,
-  } = JSON.parse(data);
+  } = data;
   return (
     <RootLayout {...layout}>
       {program ? (
         <>
-          <Cover
-            data={{
-              image: program.cover,
-              logo: program.image,
-            }}
-          ></Cover>
-          <Navbar id={id} sections={sections} />
-          <div id="presentation">
-            <Article data={program.articles} />
+          <Cover {...program.cover}></Cover>
+          <Navbar {...sections} />
+          <div id={ENavbarSections.PRESENTATION}>
+            <Article {...program.articles} />
           </div>
-          <div id="goals">
+          <div id={ENavbarSections.GOALS}>
             <Goals {...program.goals} />
           </div>
-          <div id="numbers">
-            <Numbers data={program.numbers} logo={program.image} />
+          <div id={ENavbarSections.NUMBERS}>
+            <Numbers {...program.numbers} />
           </div>
-          <div id="activities">
+          <div id={ENavbarSections.ACTIVITIES}>
             <Activities {...activities} />
           </div>
-          <div id="medias">
+          <div id={ENavbarSections.MEDIAS}>
             <Media {...media} />
           </div>
-          <div id="partners">
+          <div id={ENavbarSections.PARTNERS}>
             <Partners {...partners} />
           </div>
-          <div id="experiences">
+          <div id={ENavbarSections.EXPERIENCES}>
             <Experiences {...experiences} />
           </div>
         </>
@@ -128,14 +156,17 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths({ locales }: { locales: string[] }) {
-  const paths = flatten(
-    locales.map((locale) =>
-      programs.map(({ id }) => ({
+  const programs = await Promise.all(
+    locales.map(async (locale) => {
+      const programs = await getPrograms(locale);
+      return programs.map(({ id }: { id: number }) => ({
         params: { id },
         locale,
-      }))
-    )
+      }));
+    })
   );
+
+  const paths = flatten(programs);
   return {
     paths,
     fallback: "blocking",

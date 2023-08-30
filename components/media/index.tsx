@@ -24,7 +24,7 @@ export type MediaProps = {
     title: string;
     type: string;
     src: Media1 | string;
-    id: string;
+    id: number;
   }[];
   title: string;
   action: { text: string; link: string };

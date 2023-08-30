@@ -9,17 +9,14 @@ import TopbarMobile from "../TopbarMobile";
 import { programs } from "../../utils/constants";
 import axios from "axios";
 import { getFooter, getNavBar, getTopBar } from "../../strapi/api";
-const RootLayout = ({
-  children,
-  topbar,
-  footer,
-  navbar,
-}: {
+
+export type LayoutProps = {
   children: React.ReactNode;
   topbar: TopbarProps;
   footer: FooterProps;
   navbar: NavbarProps;
-}) => {
+};
+const RootLayout = ({ children, topbar, footer, navbar }: LayoutProps) => {
   return (
     <>
       <TopbarMobile {...navbar} />

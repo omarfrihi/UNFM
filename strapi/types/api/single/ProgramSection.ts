@@ -3,6 +3,7 @@ export interface ISingleProgramSection {
   __component: "single.program-section";
   label: string;
   title: string;
+  call_to_action: string;
   section:
     | "presentation"
     | "goals"

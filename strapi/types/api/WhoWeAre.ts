@@ -9,7 +9,7 @@ export interface IWhoWeAre<Populate extends string | never = never> {
   attributes: RequiredBy<
     {
       title: string;
-      cover: { data: IMedia[] };
+      cover: { data: IMedia };
       articles: ISlicesArticleList<ExtractNested<Populate, "articles">>;
       history: ISlicesHistory;
       publishedAt: string;

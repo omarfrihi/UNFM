@@ -9,6 +9,8 @@ import { ISingleProgramSection } from "./single/ProgramSection";
 import { ExtractNested } from "../builtins/ExtractNested";
 import { ExtractFlat } from "../builtins/ExtractFlat";
 import { RequiredBy } from "../builtins/RequiredBy";
+import { ISlicesNumbers } from "./slices/Numbers";
+import { ISlicesGoals } from "./slices/Goals";
 export interface IProgram<Populate extends string | never = never> {
   id: number;
   attributes: RequiredBy<
@@ -27,6 +29,8 @@ export interface IProgram<Populate extends string | never = never> {
         data: IProgramType<ExtractNested<Populate, "program_type">>;
       };
       sections: ISingleProgramSection[];
+      numbers: ISlicesNumbers<ExtractNested<Populate, "numbers">>;
+      objectifs: ISlicesGoals<ExtractNested<Populate, "objectifs">>;
       key: string;
       publishedAt: string;
       createdAt: string;

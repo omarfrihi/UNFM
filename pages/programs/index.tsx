@@ -1,10 +1,23 @@
-import Categories from "../../components/categories";
-import RootLayout, { getLayoytStaticProps } from "../../components/layout";
-import Cover from "../../components/who-us/cover";
+import Categories, { CategoriesProps } from "../../components/categories";
+import RootLayout, {
+  LayoutProps,
+  getLayoytStaticProps,
+} from "../../components/layout";
+import Cover, { CoverProps } from "../../components/who-us/cover";
+import { getProgramsPage } from "../../strapi/api";
 import { categories, programs } from "../../utils/constants";
 
-const Programs = ({ data }: any) => {
-  const { layout, cover, programs } = JSON.parse(data);
+export type ProgramsPageProps = {
+  programs: CategoriesProps;
+  cover: CoverProps;
+};
+
+const Programs = ({
+  data,
+}: {
+  data: ProgramsPageProps & { layout: LayoutProps };
+}) => {
+  const { layout, cover, programs } = data;
   return (
     <RootLayout {...layout}>
       <Cover {...cover} />
@@ -14,36 +27,15 @@ const Programs = ({ data }: any) => {
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const cover = {
-    data: {
-      title: "Catégories",
-      image: require("../../public/assets/categories.png"),
-    },
-  };
-
+  const data = await getProgramsPage(locale);
   const layout = await getLayoytStaticProps(locale);
-  const categoriesData = {
-    data: {
-      programs,
-      categories,
-    },
-  };
+
   return {
     props: {
-      data: JSON.stringify({ layout, cover, programs: categoriesData }),
+      data: { layout, ...data },
     },
     revalidate: true,
   };
 }
-
-// export async function getStaticPaths({ locales }: { locales: string[] }) {
-//   const paths = locales.map((locale) => ({
-//     locale,
-//   }));
-//   return {
-//     paths,
-//     fallback: "blocking",
-//   };
-// }
 
 export default Programs;

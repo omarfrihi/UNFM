@@ -8,6 +8,7 @@ export interface IActivitiesPage<Populate extends string | never = never> {
     {
       cover: { data: IMedia };
       title: string;
+      action: string;
       search_placeholder: string;
       program_type_placeholder: string;
       activity_type_placholder: string;

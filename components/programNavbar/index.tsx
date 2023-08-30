@@ -2,13 +2,13 @@ import Link from "next/link";
 import { Items, Separator, Title, UnderLine, Wrapper } from "./styles";
 import { useRouter } from "next/router";
 
-const Navbar = ({
-  id,
-  sections,
-}: {
-  id: string;
-  sections: { link: string; title: string }[];
-}) => {
+export type Sections = { link: string; title: string }[];
+export type ProgramsNavbarProps = {
+  id: number;
+  sections: Sections;
+};
+
+const Navbar = ({ id, sections }: ProgramsNavbarProps) => {
   const { asPath } = useRouter();
   return (
     <Wrapper>

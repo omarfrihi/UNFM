@@ -1,10 +1,21 @@
-import Activity from "../../components/activity-page";
-import Cover from "../../components/who-us/cover";
+import Activity, { ActivityProps } from "../../components/activity-page";
+import Cover, { CoverProps } from "../../components/who-us/cover";
 import { mockActivities } from "../../utils/constants";
-import RootLayout, { getLayoytStaticProps } from "../../components/layout";
-
-const Activities = ({ data }: any) => {
-  const { activities, cover, layout } = JSON.parse(data);
+import RootLayout, {
+  LayoutProps,
+  getLayoytStaticProps,
+} from "../../components/layout";
+import { getActivitiesPage } from "../../strapi/api";
+export type ActivitiesPageProps = {
+  cover: CoverProps;
+  activities: ActivityProps;
+};
+const Activities = ({
+  data,
+}: {
+  data: ActivitiesPageProps & { layout: LayoutProps };
+}) => {
+  const { activities, cover, layout } = data;
   return (
     <RootLayout {...layout}>
       <Cover {...cover} />
@@ -14,44 +25,15 @@ const Activities = ({ data }: any) => {
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const cover = {
-    data: {
-      title: "Activités",
-      image: require("../../public/assets/activities.png"),
-    },
-  };
-  const activities = {
-    data: mockActivities,
-    action: "En Savoir Plus",
-    filters: {
-      search: "Recherche",
-      selects: [
-        { name: "type d'activité", options: ["activité 1", "actiité 2"] },
-        { name: "type de programme", options: ["programme 1", "programme 2"] },
-        {
-          name: "Associations accréditées",
-          options: ["Association 1", "Association 2"],
-        },
-        { name: "Journées de le Femme", options: ["Journée 1", "Journée 2"] },
-      ],
-    },
-  };
+  const data = await getActivitiesPage(locale);
   const layout = await getLayoytStaticProps(locale);
 
   return {
     props: {
-      data: JSON.stringify({ activities, cover, layout }),
+      data: { ...data, layout },
     },
     revalidate: true,
   };
 }
-// export async function getStaticPaths({ locales }: { locales: string[] }) {
-//   const paths = locales.map((locale) => ({
-//     locale,
-//   }));
-//   return {
-//     paths,
-//     fallback: "blocking",
-//   };
-// }
+
 export default Activities;

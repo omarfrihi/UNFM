@@ -58,7 +58,7 @@ const responsive = {
   },
 };
 export type ProgramsProps = {
-  data: { id: string; image: Media }[];
+  data: { id: number; image: Media }[];
   title: string;
 };
 const Programs = ({ data, title }: ProgramsProps) => {

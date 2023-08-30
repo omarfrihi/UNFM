@@ -16,14 +16,14 @@ export type ToolsProps = {
     icon: Media;
     image: Media;
     text: string;
-    link: string;
+    id: number;
   }[];
 };
 const Tools = ({ data, title }: ToolsProps) => (
   <Wrapper>
     <ToolsWrapper>
-      {data.map(({ icon, image, text, link }) => (
-        <Link href={link} key={text}>
+      {data.map(({ icon, image, text, id }) => (
+        <Link href={`/tools/${id}`} key={text}>
           <Tool>
             <ImageWrapper>
               <Image

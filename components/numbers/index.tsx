@@ -15,13 +15,17 @@ import Image from "../Image";
 import { Media } from "../../strapi/types";
 
 export type NumbersProps = {
-  logo?: string;
+  logo?: Media;
   data: { number: string; description: string; logo: Media }[];
 };
 const Numbers = ({ data, logo }: NumbersProps) => (
   <Wrapper>
     <ImgWrapper>
-      <ImageNext width={90} src={logo || Logo} alt="logo"></ImageNext>
+      {logo ? (
+        <Image width={90} src={logo}></Image>
+      ) : (
+        <ImageNext width={90} src={Logo} alt="logo"></ImageNext>
+      )}
     </ImgWrapper>
     <Box>
       {data.map(({ number, description, logo }) => (

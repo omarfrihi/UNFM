@@ -53,8 +53,8 @@ export type ActivityType = {
     description: string;
   }[];
 
-  action: string;
-  id: string;
+  action?: string;
+  id: number;
 };
 export const ActivityComponent = ({
   title,
