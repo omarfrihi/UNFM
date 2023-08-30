@@ -139,7 +139,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
           tag: activity_type.data.attributes.name,
           articles: articles.list.map(({ image, content }) => ({
             image,
-            description: content,
+            content,
           })),
 
           action: activities.call_to_action,
@@ -240,7 +240,7 @@ const WomenDayFormater = ({ attributes }: IWomenDay): WomenDayProps => {
           tag: activity_type.data.attributes.name,
           articles: articles.list.map(({ image, content }) => ({
             image,
-            description: content,
+            content,
           })),
 
           action: activities.call_to_action,
@@ -316,7 +316,7 @@ const activitiesPageFormater = ({
           tag: activity_type.data.attributes.name,
           articles: articles.list.map(({ image, content }) => ({
             image,
-            description: content,
+            content,
           })),
 
           action,
@@ -335,7 +335,7 @@ const activityFormater = ({ attributes, id }: IActivity): ActivityType => {
     tag: activity_type.data.attributes.name,
     articles: articles.list.map(({ image, content }) => ({
       image,
-      description: content,
+      content,
     })),
     id,
   };
@@ -410,7 +410,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
           tag: activity_type.data.attributes.name,
           articles: articles.list.map(({ image, content }) => ({
             image,
-            description: content,
+            content,
           })),
 
           id,

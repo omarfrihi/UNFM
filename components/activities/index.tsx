@@ -50,7 +50,7 @@ export type ActivityType = {
   tag: string;
   articles: {
     image: Media;
-    description: string;
+    content: string;
   }[];
 
   action?: string;
@@ -77,9 +77,7 @@ export const ActivityComponent = ({
 
       <ActivityTitle>{title}</ActivityTitle>
       <DescriptionContent>
-        <Description>
-          {articles[0].description[0].substring(0, 120)}...
-        </Description>
+        <Description>{articles[0].content[0].substring(0, 120)}...</Description>
         <Button href={`/activities/${id}`}>{action}</Button>
       </DescriptionContent>
     </ActivityContent>
