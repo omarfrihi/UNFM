@@ -10,6 +10,7 @@ import { ENavbarSections, ProgramProps } from "../pages/programs/[id]";
 import { WhoUsProps } from "../pages/who-us";
 import { categories } from "../utils/constants";
 import {
+  ExtractNested,
   IActivitiesPage,
   IActivity,
   IActivityType,
@@ -19,6 +20,8 @@ import {
   INavbar,
   IProgram,
   IProgramsPage,
+  ISingleArticle,
+  ISingleNumber,
   ITopbar,
   IWhoWeAre,
   IWomenDay,
@@ -26,6 +29,23 @@ import {
 } from "./types";
 
 export const strapiApiResponseExtractor = (result: any) => result.data.data;
+
+export const articleFotmat = (
+  data: ISingleArticle<ExtractNested<string, "list">>[]
+) =>
+  data.map(({ image, content }) => ({
+    image,
+    content,
+  }));
+
+export const numbersFormat = (
+  data: ISingleNumber<ExtractNested<string, "list">>[]
+) =>
+  data.map(({ description, value, logo }) => ({
+    logo,
+    number: value,
+    description,
+  }));
 
 const topBarFormater = ({ attributes }: ITopbar): TopbarProps => ({
   data: {
@@ -95,11 +115,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
     },
     slider,
     numbers: {
-      data: numbers.list.map(({ description, value, logo }) => ({
-        logo,
-        number: value,
-        description,
-      })),
+      data: numbersFormat(numbers.list),
     },
     goals: {
       title: objectifs.title,
@@ -137,11 +153,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
           cover,
           title,
           tag: activity_type.data.attributes.name,
-          articles: articles.list.map(({ image, content }) => ({
-            image,
-            content,
-          })),
-
+          articles: articleFotmat(articles.list),
           action: activities.call_to_action,
           id,
         })
@@ -238,11 +250,7 @@ const WomenDayFormater = ({ attributes }: IWomenDay): WomenDayProps => {
           cover,
           title,
           tag: activity_type.data.attributes.name,
-          articles: articles.list.map(({ image, content }) => ({
-            image,
-            content,
-          })),
-
+          articles: articleFotmat(articles.list),
           action: activities.call_to_action,
           id,
         })
@@ -314,11 +322,7 @@ const activitiesPageFormater = ({
           cover,
           title,
           tag: activity_type.data.attributes.name,
-          articles: articles.list.map(({ image, content }) => ({
-            image,
-            content,
-          })),
-
+          articles: articleFotmat(articles.list),
           action,
           id,
         })
@@ -333,10 +337,7 @@ const activityFormater = ({ attributes, id }: IActivity): ActivityType => {
     cover,
     title,
     tag: activity_type.data.attributes.name,
-    articles: articles.list.map(({ image, content }) => ({
-      image,
-      content,
-    })),
+    articles: articleFotmat(articles.list),
     id,
   };
 };
@@ -369,10 +370,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
   return {
     program: {
       articles: {
-        data: attributes.articles.list.map(({ image, content }) => ({
-          image,
-          content,
-        })),
+        data: articleFotmat(attributes.articles.list),
       },
       cover: {
         data: {
@@ -383,11 +381,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
       },
       numbers: {
         logo: attributes.logo,
-        data: attributes.numbers.list.map(({ description, value, logo }) => ({
-          logo,
-          number: value,
-          description,
-        })),
+        data: numbersFormat(attributes.numbers.list),
       },
       goals: {
         title: getSection(ENavbarSections.GOALS)?.title as string,
@@ -408,11 +402,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
           cover,
           title,
           tag: activity_type.data.attributes.name,
-          articles: articles.list.map(({ image, content }) => ({
-            image,
-            content,
-          })),
-
+          articles: articleFotmat(articles.list),
           id,
         })
       ),
