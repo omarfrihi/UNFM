@@ -13,7 +13,6 @@ import { Media } from "../../../strapi/types";
 
 export type ArticleProps = {
   data: {
-    title?: string;
     image: Media;
     content: string;
   }[];
@@ -21,10 +20,9 @@ export type ArticleProps = {
 
 const Article = ({ data }: ArticleProps) => (
   <Wrapper>
-    {data.map(({ title, image, content }) => (
-      <ArticleContainer key={title}>
+    {data.map(({ image, content }) => (
+      <ArticleContainer key={content}>
         <Content>
-          {title && <Title>{title}</Title>}
           <ReactMarkdown>{content}</ReactMarkdown>
         </Content>
         <ImageWrapper>

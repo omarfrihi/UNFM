@@ -111,7 +111,6 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
       },
       data: {
         image: article.article.image,
-        title: "",
         content: article.article.content,
       },
     },

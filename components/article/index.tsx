@@ -15,18 +15,16 @@ export type ArticleProps = {
   action: { link: string; text: string };
   data: {
     image: Media;
-    title: string;
     content: string;
   };
 };
-const Article = ({ data: { image, title, content }, action }: ArticleProps) => {
+const Article = ({ data: { image, content }, action }: ArticleProps) => {
   return (
     <Wrapper>
       <ImageWrapper>
         <Image layout="responsive" placeholder="blur" src={image}></Image>
       </ImageWrapper>
       <Content>
-        <Title>{title}</Title>
         <ReactMarkdown>{content}</ReactMarkdown>
         <ButtonWrapper>
           <Button href={action.link}>{action.text}</Button>
