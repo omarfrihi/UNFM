@@ -29,19 +29,17 @@ const RootLayout = ({ children, topbar, footer, navbar }: LayoutProps) => {
 };
 
 export const getLayoytStaticProps = async (locale: string) => {
-  let props = {};
   try {
     const topbar = await getTopBar(locale);
     const footer = await getFooter(locale);
     const navbar = await getNavBar(locale);
-    console.log("navbardata", navbar);
-    props = {
+    return {
       topbar,
       footer,
       navbar,
     };
-  } catch (e) {}
-
-  return props;
+  } catch (e) {
+    return {};
+  }
 };
 export default RootLayout;

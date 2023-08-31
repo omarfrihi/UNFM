@@ -6,34 +6,36 @@ import RootLayout, {
   getLayoytStaticProps,
 } from "../../components/layout";
 import { getActivitiesPage } from "../../strapi/api";
+import WithLayout from "../../hoc";
 export type ActivitiesPageProps = {
   cover: CoverProps;
   activities: ActivityProps;
+  title: string;
 };
-const Activities = ({
-  data,
-}: {
-  data: ActivitiesPageProps & { layout: LayoutProps };
-}) => {
-  const { activities, cover, layout } = data;
+const Activities = ({ data }: { data: ActivitiesPageProps }) => {
+  const { activities, cover } = data;
   return (
-    <RootLayout {...layout}>
+    <>
       <Cover {...cover} />
       <Activity {...activities}></Activity>
-    </RootLayout>
+    </>
   );
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const data = await getActivitiesPage(locale);
   const layout = await getLayoytStaticProps(locale);
 
+  let data = { layout };
+  try {
+    const activities = await getActivitiesPage(locale);
+    data = { ...data, ...activities };
+  } catch {}
   return {
     props: {
-      data: { ...data, layout },
+      data,
     },
     revalidate: true,
   };
 }
 
-export default Activities;
+export default WithLayout(Activities);

@@ -29,7 +29,6 @@ export type NavbarProps = {
 const Navbar = ({ data }: NavbarProps) => {
   const { asPath } = useRouter();
   const test = useRouter();
-  console.log("paths", test);
   return (
     <Wrapper path={asPath}>
       <Link href="/">

@@ -23,8 +23,10 @@ import Navbar, {
   Sections,
 } from "../../components/programNavbar";
 import { flatten } from "lodash";
-import { getPrograms } from "../../strapi/api";
+import { getProgram, getPrograms } from "../../strapi/api";
+import WithLayout from "../../hoc";
 export type ProgramProps = {
+  title: string;
   program: {
     articles: ArticleProps;
     cover: CoverProps;
@@ -47,22 +49,10 @@ export enum ENavbarSections {
   PARTNERS = "partners",
   EXPERIENCES = "experiences",
 }
-const Program = ({
-  data,
-}: {
-  data: ProgramProps & { layout: LayoutProps };
-}) => {
-  const {
-    layout,
-    program,
-    activities,
-    media,
-    partners,
-    experiences,
-    sections,
-  } = data;
+const Program = ({ data }: { data: ProgramProps }) => {
+  const { program, activities, media, partners, experiences, sections } = data;
   return (
-    <RootLayout {...layout}>
+    <>
       {program ? (
         <>
           <Cover {...program.cover}></Cover>
@@ -92,7 +82,7 @@ const Program = ({
       ) : (
         "notfound"
       )}
-    </RootLayout>
+    </>
   );
 };
 
@@ -100,56 +90,20 @@ export async function getStaticProps({
   params,
   locale,
 }: {
-  params: { id: string };
+  params: { id: number };
   locale: string;
 }) {
   const layout = await getLayoytStaticProps(locale);
-  const program = programs.find(({ id }) => id === params.id);
-  const media = {
-    title: "Médiatheque",
-    action: { text: "En savoir plus", link: "media" },
-    data: medias,
-  };
-  const activities = {
-    data: mockActivities,
-    title: "Activités",
-    action: "En Savoir plus",
-  };
+  let data = { layout };
+  try {
+    const program = await getProgram(locale, params.id);
 
-  const partners = {
-    title: "Partenaires",
-    data: [
-      {
-        title: "",
-        partners: mockPartners.map(({ image }) => image),
-      },
-    ],
-  };
-  const experiences = {
-    title: "Elles nous parlent de leur expérience",
-    data: mockExperiences,
-  };
-  const sections = [
-    { link: "presentation", title: "Présentation" },
-    { link: "goals", title: "Objectifs" },
-    { link: "numbers", title: "Chiffres Clés" },
-    { link: "activities", title: "Activités" },
-    { link: "medias", title: "Médiathèque" },
-    { link: "partners", title: "Partenaires" },
-    { link: "experiences", title: "Témoignages" },
-  ];
+    data = { ...data, ...program };
+  } catch {}
   return {
     props: {
       id: params.id,
-      data: JSON.stringify({
-        layout,
-        program,
-        activities,
-        media,
-        partners,
-        experiences,
-        sections,
-      }),
+      data,
     },
     revalidate: true,
   };
@@ -173,4 +127,4 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
   };
 }
 
-export default Program;
+export default WithLayout(Program);

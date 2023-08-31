@@ -20,8 +20,6 @@ const Card = ({
   <ProgramsWrapper>
     <ProgramsContent>
       {subMenu?.map(({ link = "", image }) => {
-        console.log("link", link);
-
         return (
           <SlideWrapper key={link}>
             <Slide>

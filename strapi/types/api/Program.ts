@@ -31,7 +31,7 @@ export interface IProgram<Populate extends string | never = never> {
       sections: ISingleProgramSection[];
       numbers: ISlicesNumbers<ExtractNested<Populate, "numbers">>;
       objectifs: ISlicesGoals<ExtractNested<Populate, "objectifs">>;
-      key: string;
+
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

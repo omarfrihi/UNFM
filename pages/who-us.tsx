@@ -8,36 +8,44 @@ import RootLayout, {
 
 import History, { HistoryProps } from "../components/who-us/history";
 import { getWhoWeAre } from "../strapi/api";
+import WithLayout from "../hoc";
 export type WhoUsProps = {
+  title: string;
   cover: CoverProps;
   article: ArticleProps;
   history: HistoryProps;
 };
 
-const WhoUs = ({ data }: { data: WhoUsProps & { layout: LayoutProps } }) => {
-  const { article, cover, history, layout } = data;
+const WhoUs = ({ data }: { data: WhoUsProps }) => {
+  const { article, cover, history } = data;
   return (
-    <RootLayout {...layout}>
+    <>
       <Cover {...cover} />
       <Article {...article} />
       <History {...history} />
-    </RootLayout>
+    </>
   );
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const data = await getWhoWeAre(locale);
   const layout = await getLayoytStaticProps(locale);
+
+  let data = { layout };
+  try {
+    const whoArewe = await getWhoWeAre(locale);
+
+    data = {
+      ...data,
+      ...whoArewe,
+    };
+  } catch (e) {}
 
   return {
     props: {
-      data: {
-        layout,
-        ...data,
-      },
+      data,
     },
     revalidate: true,
   };
 }
 
-export default WhoUs;
+export default WithLayout(WhoUs);

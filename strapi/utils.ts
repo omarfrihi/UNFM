@@ -99,9 +99,11 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
     medias,
     testimonies,
     partners,
+    title,
   } = attributes;
 
   return {
+    title,
     article: {
       action: {
         link: article.action_link,
@@ -146,10 +148,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
       title: activities.title,
       action: activities.call_to_action,
       data: activities.list.data.map(
-        ({
-          id,
-          attributes: { cover, title, articles, activity_type, key },
-        }) => ({
+        ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
           tag: activity_type.data.attributes.name,
@@ -161,7 +160,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
     },
     media: {
       data: medias.list.data.map(
-        ({ id, attributes: { key, title, type, video_link, photo } }) => ({
+        ({ id, attributes: { title, type, video_link, photo } }) => ({
           title,
           type,
           src: type === "image" ? photo : video_link,
@@ -207,6 +206,7 @@ const WhoWeAreFormater = ({ attributes }: IWhoWeAre): WhoUsProps => {
   const { articles, history, title, cover } = attributes;
 
   return {
+    title,
     cover: {
       data: { image: cover, title, fullMode: false },
     },
@@ -230,6 +230,7 @@ const WomenDayFormater = ({ attributes }: IWomenDay): WomenDayProps => {
   const { articles, activities, title, cover } = attributes;
 
   return {
+    title,
     cover: {
       data: { image: cover, title, fullMode: false },
     },
@@ -243,10 +244,7 @@ const WomenDayFormater = ({ attributes }: IWomenDay): WomenDayProps => {
       title: activities.title,
       action: activities.call_to_action,
       data: activities.list.data.map(
-        ({
-          id,
-          attributes: { cover, title, articles, activity_type, key },
-        }) => ({
+        ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
           tag: activity_type.data.attributes.name,
@@ -283,6 +281,7 @@ const activitiesPageFormater = ({
     womenday_placeholder,
   } = activityPage.attributes;
   return {
+    title,
     cover: {
       data: { image: cover, title, fullMode: false },
     },
@@ -291,23 +290,23 @@ const activitiesPageFormater = ({
         selects: [
           {
             name: program_type_placeholder,
-            options: programs.map(({ attributes }) => ({
-              code: attributes.key,
+            options: programs.map(({ attributes, id }) => ({
+              code: id.toString(),
               value: attributes.title,
             })),
           },
           {
             name: activity_type_placholder,
-            options: activityTypes.map(({ attributes }) => ({
-              code: attributes.key,
+            options: activityTypes.map(({ attributes, id }) => ({
+              code: id.toString(),
               value: attributes.name,
             })),
           },
           { name: womenday_placeholder, options: [] },
           {
             name: association_placeholder,
-            options: associations.map(({ attributes }) => ({
-              code: attributes.key,
+            options: associations.map(({ attributes, id }) => ({
+              code: id.toString(),
               value: attributes.title,
             })),
           },
@@ -315,10 +314,7 @@ const activitiesPageFormater = ({
         search: search_placeholder,
       },
       data: activities.map(
-        ({
-          id,
-          attributes: { cover, title, articles, activity_type, key },
-        }) => ({
+        ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
           tag: activity_type.data.attributes.name,
@@ -332,7 +328,7 @@ const activitiesPageFormater = ({
 };
 
 const activityFormater = ({ attributes, id }: IActivity): ActivityType => {
-  const { cover, title, articles, activity_type, key } = attributes;
+  const { cover, title, articles, activity_type } = attributes;
   return {
     cover,
     title,
@@ -351,6 +347,7 @@ const programsPageFormatter = ({
 }): ProgramsPageProps => {
   const { cover, title } = programsPage.attributes;
   return {
+    title,
     cover: { data: { image: cover, title, fullMode: false } },
 
     programs: {
@@ -368,6 +365,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
     attributes.sections?.find(({ section }) => section === key);
 
   return {
+    title: attributes.title,
     program: {
       articles: {
         data: articleFotmat(attributes.articles.list),
@@ -395,10 +393,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
       title: getSection(ENavbarSections.ACTIVITIES)?.title as string,
       action: getSection(ENavbarSections.ACTIVITIES)?.call_to_action as string,
       data: attributes.activities.data.map(
-        ({
-          id,
-          attributes: { cover, title, articles, activity_type, key },
-        }) => ({
+        ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
           tag: activity_type.data.attributes.name,
@@ -410,7 +405,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
 
     media: {
       data: attributes.medias.data.map(
-        ({ id, attributes: { key, title, type, video_link, photo } }) => ({
+        ({ id, attributes: { title, type, video_link, photo } }) => ({
           title,
           type,
           src: type === "image" ? photo : video_link,

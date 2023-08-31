@@ -12,15 +12,16 @@ import { flatten } from "lodash";
 import { ActivityType } from "../../components/activities";
 import { Media } from "../../strapi/types";
 import { getActivities, getActivity } from "../../strapi/api";
+import WithLayout from "../../hoc";
 
 const Activities = ({
   data,
 }: {
-  data: { activity: ActivityType; layout: LayoutProps };
+  data: { activity: ActivityType; title: string };
 }) => {
-  const { layout, activity } = data;
+  const { activity } = data;
   return (
-    <RootLayout {...layout}>
+    <>
       {activity ? (
         <>
           <Cover
@@ -33,16 +34,16 @@ const Activities = ({
             <Title>{activity.title}</Title>
           </TitleWrapper>
           <Article
-            data={activity.articles.map(({ image, description }) => ({
+            data={activity.articles.map(({ image, content }) => ({
               image,
-              content: description,
+              content,
             }))}
           />
         </>
       ) : (
         "notfound"
       )}
-    </RootLayout>
+    </>
   );
 };
 
@@ -54,11 +55,17 @@ export async function getStaticProps({
   params: { id: number };
 }) {
   const layout = await getLayoytStaticProps(locale);
-  const activity = await getActivity(locale, params.id);
+  let data = { layout } as any;
+
+  try {
+    const activity = await getActivity(locale, params.id);
+    //
+    data = { ...data, activity, title: activity.title };
+  } catch (error) {}
 
   return {
     props: {
-      data: { layout, activity },
+      data,
     },
     revalidate: true,
   };
@@ -83,4 +90,4 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
   };
 }
 
-export default Activities;
+export default WithLayout(Activities);

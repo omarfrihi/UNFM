@@ -20,7 +20,7 @@ export interface IActivity<Populate extends string | never = never> {
       activity_type: {
         data: IActivityType<ExtractNested<Populate, "activity_type">>;
       };
-      key: string;
+
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

@@ -8,38 +8,43 @@ import RootLayout, {
   getLayoytStaticProps,
 } from "../components/layout";
 import { getWomenDay } from "../strapi/api";
+import WithLayout from "../hoc";
 
 export type WomenDayProps = {
   cover: CoverProps;
   article: ArticleProps;
   activities: ActivitiesProps;
+  title: string;
 };
 
-const WomenDay = ({
-  data,
-}: {
-  data: WomenDayProps & { layout: LayoutProps };
-}) => {
-  const { activities, cover, article, layout } = data;
+const WomenDay = ({ data }: { data: WomenDayProps }) => {
+  const { activities, cover, article } = data;
   return (
-    <RootLayout {...layout}>
+    <>
       <Cover {...cover} />
       <Article {...article} />
       <Activities {...activities}></Activities>
-    </RootLayout>
+    </>
   );
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const data = await getWomenDay(locale);
   const layout = await getLayoytStaticProps(locale);
+  let data = { layout };
+  try {
+    const womenDay = await getWomenDay(locale);
+    data = {
+      ...data,
+      ...womenDay,
+    };
+  } catch {}
 
   return {
     props: {
-      data: { ...data, layout },
+      data,
     },
     revalidate: true,
   };
 }
 
-export default WomenDay;
+export default WithLayout(WomenDay);

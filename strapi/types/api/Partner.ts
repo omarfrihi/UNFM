@@ -10,7 +10,7 @@ export interface IPartner<Populate extends string | never = never> {
       title: string;
       logo: { data: IMedia };
       programs: { data: IProgram<ExtractNested<Populate, "programs">>[] };
-      key: string;
+
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

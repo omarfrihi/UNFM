@@ -9,7 +9,7 @@ export interface ITool<Populate extends string | never = never> {
       title: string;
       logo: { data: IMedia };
       image: { data: IMedia[] };
-      key: string;
+
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

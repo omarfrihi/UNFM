@@ -8,7 +8,7 @@ export interface IAssociation<Populate extends string | never = never> {
     {
       title: string;
       activities: { data: IActivity<ExtractNested<Populate, "activities">>[] };
-      key: string;
+
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

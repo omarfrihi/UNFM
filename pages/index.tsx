@@ -24,10 +24,12 @@ import {
   mockPartners,
   programs as programsList,
 } from "../utils/constants";
-import { groupBy } from "lodash";
+import { groupBy, isEmpty } from "lodash";
 import { getHomepage } from "../strapi/api";
+import WithLayout from "../hoc";
 
 export type HomeProps = {
+  title: string;
   article: ArticleProps;
   slider: SliderProps;
   numbers: NumbersProps;
@@ -41,7 +43,8 @@ export type HomeProps = {
   download: DownloadProps;
 };
 
-const Home = ({ data }: { data: HomeProps & { layout: LayoutProps } }) => {
+const Home = ({ data }: { data: HomeProps }) => {
+  if (isEmpty(data)) return <>Error</>;
   const {
     article,
     slider,
@@ -54,11 +57,10 @@ const Home = ({ data }: { data: HomeProps & { layout: LayoutProps } }) => {
     experiences,
     partners,
     download,
-    layout,
   } = data;
 
   return (
-    <RootLayout {...layout}>
+    <>
       <Slider {...slider} />
       <Article {...article} />
       <Numbers {...numbers} />
@@ -70,23 +72,28 @@ const Home = ({ data }: { data: HomeProps & { layout: LayoutProps } }) => {
       <Experiences {...experiences} />
       <Partners {...partners} />
       <Download {...download} />
-    </RootLayout>
+    </>
   );
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const hompage = await getHomepage(locale);
-
   const layout = await getLayoytStaticProps(locale);
+  let data = { layout };
+  try {
+    const hompage = await getHomepage(locale);
+
+    data = {
+      ...hompage,
+      ...data,
+    };
+  } catch (e) {}
+
   return {
     props: {
-      data: {
-        ...hompage,
-        layout,
-      },
+      data,
     },
     revalidate: true,
   };
 }
 
-export default Home;
+export default WithLayout(Home);

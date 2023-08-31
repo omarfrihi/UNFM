@@ -8,7 +8,7 @@ export interface IProgramType<Populate extends string | never = never> {
     {
       title: string;
       programs: { data: IProgram<ExtractNested<Populate, "programs">>[] };
-      key: string;
+
       publishedAt: string;
       createdAt: string;
       updatedAt: string;

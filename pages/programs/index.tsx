@@ -4,38 +4,44 @@ import RootLayout, {
   getLayoytStaticProps,
 } from "../../components/layout";
 import Cover, { CoverProps } from "../../components/who-us/cover";
+import WithLayout from "../../hoc";
 import { getProgramsPage } from "../../strapi/api";
 import { categories, programs } from "../../utils/constants";
 
 export type ProgramsPageProps = {
   programs: CategoriesProps;
   cover: CoverProps;
+  title: string;
 };
 
-const Programs = ({
-  data,
-}: {
-  data: ProgramsPageProps & { layout: LayoutProps };
-}) => {
-  const { layout, cover, programs } = data;
+const Programs = ({ data }: { data: ProgramsPageProps }) => {
+  const { cover, programs } = data;
   return (
-    <RootLayout {...layout}>
+    <>
       <Cover {...cover} />
       <Categories {...programs} />
-    </RootLayout>
+    </>
   );
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const data = await getProgramsPage(locale);
   const layout = await getLayoytStaticProps(locale);
+  let data = { layout };
+  try {
+    const programs = await getProgramsPage(locale);
+
+    data = {
+      ...programs,
+      ...data,
+    };
+  } catch {}
 
   return {
     props: {
-      data: { layout, ...data },
+      data,
     },
     revalidate: true,
   };
 }
 
-export default Programs;
+export default WithLayout(Programs);

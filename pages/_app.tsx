@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>UNFM</title>
         <meta name="description" content="unfm" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
