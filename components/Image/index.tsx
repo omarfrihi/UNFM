@@ -224,15 +224,14 @@ const Image = ({
 }: Omit<Omit<ImageProps, "src">, "alt"> & { src: Media }) => {
   const [loading, setLoading] = useState(true);
   const builtImage = urlBuilder(image);
-  console.log("loading", loading);
   const { blurhash, ...imageProps } = builtImage;
-  console.log("test", imageProps);
+
   return (
     <Img
       {...imageProps}
       {...rest}
-      // blurDataURL={blurHashToDataURL(blurhash)}
-      // placeholder="blur"
+      blurDataURL={blurHashToDataURL(blurhash)}
+      placeholder="blur"
       // onLoadingComplete={() => console.log("complter")}
     />
   );
