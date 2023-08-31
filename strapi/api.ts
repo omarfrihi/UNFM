@@ -4,6 +4,7 @@ import {
   strapiApiResponseExtractor,
   EStrapi_Single_Types,
   formaters,
+  prepareData,
 } from "./utils";
 import { FooterProps } from "../components/footer";
 import { NavbarProps } from "../components/navbar";
@@ -38,7 +39,7 @@ export const getFormattedDocument = async (
   id?: number
 ): Promise<any> => {
   const result = await getDocument([type, id].join("/"), locale);
-  return formaters[type](result);
+  return prepareData(formaters[type](result));
 };
 
 export const getTopBar = (locale: string): Promise<TopbarProps> =>
@@ -77,13 +78,15 @@ export const getActivitiesPage = async (
     locale
   );
 
-  return formaters[EStrapi_Single_Types.ACTIVITIES_PAGE]({
-    activities,
-    programs,
-    associations,
-    activityTypes,
-    activityPage,
-  });
+  return prepareData(
+    formaters[EStrapi_Single_Types.ACTIVITIES_PAGE]({
+      activities,
+      programs,
+      associations,
+      activityTypes,
+      activityPage,
+    })
+  );
 };
 
 export const getActivity = (
@@ -102,10 +105,12 @@ export const getProgramsPage = (locale: string): Promise<ProgramsPageProps> => {
   const programPage = getDocument(EStrapi_Single_Types.PROGRAMS_PAGE, locale);
   const programs = getPrograms(locale);
 
-  return formaters[EStrapi_Single_Types.PROGRAMS_PAGE]({
-    programPage,
-    programs,
-  });
+  return prepareData(
+    formaters[EStrapi_Single_Types.PROGRAMS_PAGE]({
+      programPage,
+      programs,
+    })
+  );
 };
 
 export const getProgram = (locale: string, id: number): Promise<ProgramProps> =>

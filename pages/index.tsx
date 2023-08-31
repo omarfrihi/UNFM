@@ -44,7 +44,6 @@ export type HomeProps = {
 };
 
 const Home = ({ data }: { data: HomeProps }) => {
-  if (isEmpty(data)) return <>Error</>;
   const {
     article,
     slider,
@@ -80,13 +79,15 @@ export async function getStaticProps({ locale }: { locale: string }) {
   const layout = await getLayoytStaticProps(locale);
   let data = { layout };
   try {
-    const hompage = await getHomepage(locale);
+    const homepage = await getHomepage(locale);
 
     data = {
-      ...hompage,
+      ...homepage,
       ...data,
     };
-  } catch (e) {}
+  } catch (e) {
+    console.log("eee", e);
+  }
 
   return {
     props: {

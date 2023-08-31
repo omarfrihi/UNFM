@@ -6,7 +6,7 @@ const WithLayout = (Component: any) => (props: any) => {
   const { data, ...restProps } = props;
   const { layout, ...rest } = data;
 
-  if (isEmpty(layout)) return <>Error</>;
+  if (isEmpty(layout)) return <>Error Strapi</>;
 
   return (
     <>
@@ -15,9 +15,9 @@ const WithLayout = (Component: any) => (props: any) => {
       </Head>
       <RootLayout {...layout}>
         {!isEmpty(rest) ? (
-          <Component {...restProps} {...rest} />
+          <Component {...restProps} data={rest} />
         ) : (
-          <div>Error</div>
+          <>Error Strapi</>
         )}
       </RootLayout>
     </>

@@ -28,12 +28,12 @@ import {
   Media,
 } from "./types";
 
-export const strapiApiResponseExtractor = (result: any) => result.data.data;
+export const strapiApiResponseExtractor = (result: any) => result?.data?.data;
 
 export const articleFotmat = (
   data: ISingleArticle<ExtractNested<string, "list">>[]
 ) =>
-  data.map(({ image, content }) => ({
+  data?.map(({ image, content }) => ({
     image,
     content,
   }));
@@ -41,7 +41,7 @@ export const articleFotmat = (
 export const numbersFormat = (
   data: ISingleNumber<ExtractNested<string, "list">>[]
 ) =>
-  data.map(({ description, value, logo }) => ({
+  data?.map(({ description, value, logo }) => ({
     logo,
     number: value,
     description,
@@ -49,39 +49,39 @@ export const numbersFormat = (
 
 const topBarFormater = ({ attributes }: ITopbar): TopbarProps => ({
   data: {
-    callUs: attributes.call_us,
-    phoneNumber: attributes.phone_number,
+    callUs: attributes?.call_us,
+    phoneNumber: attributes?.phone_number,
     download: {
-      text: attributes.dowload,
-      appName: attributes.app_name,
-      link: attributes.app_link,
+      text: attributes?.dowload,
+      appName: attributes?.app_name,
+      link: attributes?.app_link,
     },
   },
 });
 
 const footerFormater = ({ attributes }: IFooter): FooterProps => ({
   data: {
-    contactUs: attributes.contact_us,
-    phoneNumbers: attributes.phone_numbers.map(({ number }) => number),
-    email: attributes.email,
-    copytight: attributes.copyright,
+    contactUs: attributes?.contact_us,
+    phoneNumbers: attributes?.phone_numbers?.map(({ number }) => number),
+    email: attributes?.email,
+    copytight: attributes?.copyright,
   },
 });
 
 const navbarFormater = ({ attributes }: INavbar): NavbarProps => ({
-  data: attributes.items.map((item) => ({
-    title: item.title,
-    link: item.link,
-    isCard: item.is_card,
-    subMenu: item.sub_items.map((subItem) => ({
-      title: subItem.title,
+  data: attributes?.items?.map((item) => ({
+    title: item?.title,
+    link: item?.link,
+    isCard: item?.is_card,
+    subMenu: item?.sub_items?.map((subItem) => ({
+      title: subItem?.title,
 
-      link: subItem.link,
-      image: subItem.logo,
+      link: subItem?.link,
+      image: subItem?.logo,
     })),
-    actions: item.actions.map((action) => ({
-      text: action.title,
-      link: action.link,
+    actions: item?.actions?.map((action) => ({
+      text: action?.title,
+      link: action?.link,
     })),
   })),
 });
@@ -106,60 +106,60 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
     title,
     article: {
       action: {
-        link: article.action_link,
-        text: article.action,
+        link: article?.action_link,
+        text: article?.action,
       },
       data: {
-        image: article.article.image,
+        image: article?.article?.image,
         title: "",
-        content: article.article.content,
+        content: article?.article?.content,
       },
     },
     slider,
     numbers: {
-      data: numbersFormat(numbers.list),
+      data: numbersFormat(numbers?.list),
     },
     goals: {
-      title: objectifs.title,
-      data: objectifs.list.map(({ logo, content }) => ({
+      title: objectifs?.title,
+      data: objectifs?.list?.map(({ logo, content }) => ({
         content,
         image: logo,
       })),
     },
     programs: {
-      data: programs.list.data.map(({ attributes, id }) => ({
+      data: programs?.list?.data?.map(({ attributes, id }) => ({
         id,
-        image: attributes.logo,
+        image: attributes?.logo,
       })),
-      title: programs.title,
+      title: programs?.title,
     },
 
     tools: {
-      data: tools.list.data.map(({ id, attributes }) => ({
-        icon: attributes.logo,
-        image: attributes.logo,
-        text: attributes.title,
+      data: tools?.list?.data?.map(({ id, attributes }) => ({
+        icon: attributes?.logo,
+        image: attributes?.logo,
+        text: attributes?.title,
         id,
       })),
-      title: tools.title,
+      title: tools?.title,
     },
 
     activities: {
-      title: activities.title,
-      action: activities.call_to_action,
-      data: activities.list.data.map(
+      title: activities?.title,
+      action: activities?.call_to_action,
+      data: activities?.list?.data?.map(
         ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
-          tag: activity_type.data.attributes.name,
-          articles: articleFotmat(articles.list),
-          action: activities.call_to_action,
+          tag: activity_type?.data?.attributes?.name,
+          articles: articleFotmat(articles?.list),
+          action: activities?.call_to_action,
           id,
         })
       ),
     },
     media: {
-      data: medias.list.data.map(
+      data: medias?.list?.data?.map(
         ({ id, attributes: { title, type, video_link, photo } }) => ({
           title,
           type,
@@ -168,36 +168,38 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
         })
       ),
 
-      title: medias.title,
+      title: medias?.title,
       action: {
-        text: medias.call_to_action,
+        text: medias?.call_to_action,
         link: "",
       },
     },
     experiences: {
-      title: testimonies.title,
-      data: testimonies.list.data.map(({ attributes }) => ({
-        personImage: attributes.image,
-        name: attributes.name,
-        fonction: attributes.fonction,
-        text: attributes.content,
+      title: testimonies?.title,
+      data: testimonies?.list?.data?.map(({ attributes }) => ({
+        personImage: attributes?.image,
+        name: attributes?.name,
+        fonction: attributes?.fonction,
+        text: attributes?.content,
       })),
     },
     partners: {
-      title: partners.title,
-      data: partners.categories.map(({ title, list }) => ({
+      title: partners?.title,
+      data: partners?.categories?.map(({ title, list }) => ({
         title,
-        partners: list.data.map(({ attributes }) => attributes.logo),
+        partners: list?.data?.map(({ attributes }) => attributes?.logo),
       })),
     },
     download: {
-      downloadText: downloads.download_text,
-      data: downloads.list.map(({ ios_link, android_link, poster, logo }) => ({
-        androidLink: android_link,
-        iOsLink: ios_link,
-        icon: logo,
-        poster,
-      })),
+      downloadText: downloads?.download_text,
+      data: downloads?.list?.map(
+        ({ ios_link, android_link, poster, logo }) => ({
+          androidLink: android_link,
+          iOsLink: ios_link,
+          icon: logo,
+          poster,
+        })
+      ),
     },
   };
 };
@@ -211,16 +213,16 @@ const WhoWeAreFormater = ({ attributes }: IWhoWeAre): WhoUsProps => {
       data: { image: cover, title, fullMode: false },
     },
     article: {
-      data: articles.list.map(({ content, image }) => ({
+      data: articles?.list?.map(({ content, image }) => ({
         image,
         content,
       })),
     },
     history: {
       data: {
-        title: history.title,
-        content: history.summary,
-        action: history.call_to_action,
+        title: history?.title,
+        content: history?.summary,
+        action: history?.call_to_action,
       },
     },
   };
@@ -235,21 +237,21 @@ const WomenDayFormater = ({ attributes }: IWomenDay): WomenDayProps => {
       data: { image: cover, title, fullMode: false },
     },
     article: {
-      data: articles.list.map(({ content, image }) => ({
+      data: articles?.list?.map(({ content, image }) => ({
         image,
         content,
       })),
     },
     activities: {
-      title: activities.title,
-      action: activities.call_to_action,
-      data: activities.list.data.map(
+      title: activities?.title,
+      action: activities?.call_to_action,
+      data: activities?.list?.data?.map(
         ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
-          tag: activity_type.data.attributes.name,
-          articles: articleFotmat(articles.list),
-          action: activities.call_to_action,
+          tag: activity_type?.data?.attributes?.name,
+          articles: articleFotmat(articles?.list),
+          action: activities?.call_to_action,
           id,
         })
       ),
@@ -279,7 +281,7 @@ const activitiesPageFormater = ({
     activity_type_placholder,
     association_placeholder,
     womenday_placeholder,
-  } = activityPage.attributes;
+  } = activityPage?.attributes;
   return {
     title,
     cover: {
@@ -290,35 +292,35 @@ const activitiesPageFormater = ({
         selects: [
           {
             name: program_type_placeholder,
-            options: programs.map(({ attributes, id }) => ({
-              code: id.toString(),
-              value: attributes.title,
+            options: programs?.map(({ attributes, id }) => ({
+              code: id?.toString(),
+              value: attributes?.title,
             })),
           },
           {
             name: activity_type_placholder,
-            options: activityTypes.map(({ attributes, id }) => ({
-              code: id.toString(),
-              value: attributes.name,
+            options: activityTypes?.map(({ attributes, id }) => ({
+              code: id?.toString(),
+              value: attributes?.name,
             })),
           },
           { name: womenday_placeholder, options: [] },
           {
             name: association_placeholder,
-            options: associations.map(({ attributes, id }) => ({
-              code: id.toString(),
-              value: attributes.title,
+            options: associations?.map(({ attributes, id }) => ({
+              code: id?.toString(),
+              value: attributes?.title,
             })),
           },
         ],
         search: search_placeholder,
       },
-      data: activities.map(
+      data: activities?.map(
         ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
-          tag: activity_type.data.attributes.name,
-          articles: articleFotmat(articles.list),
+          tag: activity_type?.data?.attributes?.name,
+          articles: articleFotmat(articles?.list),
           action,
           id,
         })
@@ -332,8 +334,8 @@ const activityFormater = ({ attributes, id }: IActivity): ActivityType => {
   return {
     cover,
     title,
-    tag: activity_type.data.attributes.name,
-    articles: articleFotmat(articles.list),
+    tag: activity_type?.data?.attributes?.name,
+    articles: articleFotmat(articles?.list),
     id,
   };
 };
@@ -345,16 +347,16 @@ const programsPageFormatter = ({
   programsPage: IProgramsPage;
   programs: IProgram[];
 }): ProgramsPageProps => {
-  const { cover, title } = programsPage.attributes;
+  const { cover, title } = programsPage?.attributes;
   return {
     title,
     cover: { data: { image: cover, title, fullMode: false } },
 
     programs: {
-      data: programs.map(({ attributes, id }) => ({
+      data: programs?.map(({ attributes, id }) => ({
         id,
-        image: attributes.logo,
-        category: attributes.program_type.data.attributes.title,
+        image: attributes?.logo,
+        category: attributes?.program_type?.data?.attributes?.title,
       })),
     },
   };
@@ -362,28 +364,28 @@ const programsPageFormatter = ({
 
 const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
   const getSection = (key: string) =>
-    attributes.sections?.find(({ section }) => section === key);
+    attributes?.sections?.find(({ section }) => section === key);
 
   return {
-    title: attributes.title,
+    title: attributes?.title,
     program: {
       articles: {
-        data: articleFotmat(attributes.articles.list),
+        data: articleFotmat(attributes?.articles?.list),
       },
       cover: {
         data: {
-          image: attributes.cover,
-          title: attributes.title,
+          image: attributes?.cover,
+          title: attributes?.title,
           fullMode: false,
         },
       },
       numbers: {
-        logo: attributes.logo,
-        data: numbersFormat(attributes.numbers.list),
+        logo: attributes?.logo,
+        data: numbersFormat(attributes?.numbers?.list),
       },
       goals: {
         title: getSection(ENavbarSections.GOALS)?.title as string,
-        data: attributes.objectifs.list.map(({ logo, content }) => ({
+        data: attributes?.objectifs?.list?.map(({ logo, content }) => ({
           content,
           image: logo,
         })),
@@ -392,19 +394,19 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
     activities: {
       title: getSection(ENavbarSections.ACTIVITIES)?.title as string,
       action: getSection(ENavbarSections.ACTIVITIES)?.call_to_action as string,
-      data: attributes.activities.data.map(
+      data: attributes?.activities?.data?.map(
         ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
-          tag: activity_type.data.attributes.name,
-          articles: articleFotmat(articles.list),
+          tag: activity_type?.data?.attributes?.name,
+          articles: articleFotmat(articles?.list),
           id,
         })
       ),
     },
 
     media: {
-      data: attributes.medias.data.map(
+      data: attributes?.medias?.data?.map(
         ({ id, attributes: { title, type, video_link, photo } }) => ({
           title,
           type,
@@ -421,11 +423,11 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
     },
     experiences: {
       title: getSection(ENavbarSections.EXPERIENCES)?.title as string,
-      data: attributes.testimonies.data.map(({ attributes }) => ({
-        personImage: attributes.image,
-        name: attributes.name,
-        fonction: attributes.fonction,
-        text: attributes.content,
+      data: attributes?.testimonies?.data?.map(({ attributes }) => ({
+        personImage: attributes?.image,
+        name: attributes?.name,
+        fonction: attributes?.fonction,
+        text: attributes?.content,
       })),
     },
     partners: {
@@ -433,15 +435,15 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
       data: [
         {
           title: "",
-          partners: attributes.partners.data.map(
-            ({ attributes }) => attributes.logo
+          partners: attributes?.partners?.data?.map(
+            ({ attributes }) => attributes?.logo
           ),
         },
       ],
     },
     sections: {
       id,
-      sections: attributes.sections.map(({ section, label }) => ({
+      sections: attributes?.sections?.map(({ section, label }) => ({
         link: section,
         title: label,
       })),
@@ -453,7 +455,7 @@ export enum EStrapi_Single_Types {
   TOP_BAR = "topbar",
   FOOTER = "footer",
   NAVBAR = "navbar",
-  HOME_PAGE = "hompage",
+  HOME_PAGE = "homepage",
   WHO_WE_ARE = "who-we-are",
   WOMEN_DAY = "women_day",
   ACTIVITIES_PAGE = "activities-page",
@@ -484,3 +486,14 @@ export const urlBuilder = (media: Media) => ({
   contentType: media.data.attributes.mime,
   src: `https://${process.env.NEXT_PUBLIC_STRAPI_IMAGES_DOMAIN}${media.data.attributes.url}`,
 });
+
+export const prepareData = (obj: any) => {
+  Object.entries(obj).forEach(([key, value]) => {
+    if (!!value && typeof value === "object") {
+      prepareData(value);
+    } else if (value === undefined) {
+      obj[key] = null;
+    }
+  });
+  return obj;
+};
