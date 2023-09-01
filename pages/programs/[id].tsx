@@ -93,11 +93,8 @@ export async function getStaticProps({
   let data = { layout };
   try {
     const program = await getProgram(locale, params.id);
-    console.log("lll", program);
     data = { ...data, ...program };
-  } catch (e) {
-    console.log("eee", e);
-  }
+  } catch (e) {}
   return {
     props: {
       id: params.id,

@@ -18,6 +18,7 @@ import {
   IFooter,
   IHomepage,
   IMedia,
+  IMedia1,
   INavbar,
   IPartner,
   IProgram,
@@ -379,9 +380,8 @@ const programFormatter = ({
   sections: IProgramNavbar;
   activities: IActivity[];
   partners: IPartner[];
-  medias: IMedia[];
+  medias: IMedia1[];
 }): ProgramProps => {
-  console.log("acttt", activities);
   const getSection = (key: string) =>
     sections.sections.find(({ section }) => section === key);
 

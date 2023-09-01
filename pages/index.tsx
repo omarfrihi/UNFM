@@ -85,9 +85,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
       ...homepage,
       ...data,
     };
-  } catch (e) {
-    console.log("eee", e);
-  }
+  } catch (e) {}
 
   return {
     props: {

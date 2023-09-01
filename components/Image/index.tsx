@@ -232,7 +232,6 @@ const Image = ({
       {...rest}
       blurDataURL={blurHashToDataURL(blurhash)}
       placeholder="blur"
-      // onLoadingComplete={() => console.log("complter")}
     />
   );
 };
