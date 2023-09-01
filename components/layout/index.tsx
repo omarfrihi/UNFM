@@ -14,14 +14,14 @@ export type LayoutProps = {
   children: React.ReactNode;
   topbar: TopbarProps;
   footer: FooterProps;
-  navbar: NavbarProps;
+  // navbar: NavbarProps;
 };
-const RootLayout = ({ children, topbar, footer, navbar }: LayoutProps) => {
+const RootLayout = ({ children, topbar, footer }: LayoutProps) => {
   return (
     <>
-      <TopbarMobile {...navbar} />
+      {/* <TopbarMobile {...navbar} /> */}
       <Topbar {...topbar} />
-      <Navbar {...navbar} />
+      {/* <Navbar {...navbar} /> */}
       {children}
       <Footer {...footer} />
     </>
@@ -32,11 +32,11 @@ export const getLayoytStaticProps = async (locale: string) => {
   try {
     const topbar = await getTopBar(locale);
     const footer = await getFooter(locale);
-    const navbar = await getNavBar(locale);
+    // const navbar = await getNavBar(locale);
     return {
       topbar,
       footer,
-      navbar,
+      // navbar,
     };
   } catch (e) {
     return {};
