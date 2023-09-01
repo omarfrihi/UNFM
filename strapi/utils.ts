@@ -462,7 +462,7 @@ export enum EStrapi_Single_Types {
   ACTIVITY_TYPES = "activity-types",
   ACTIVITY = "activities/:id",
   PROGRAM = "programs/id",
-  PROGRAMS_PAGE = "programs_page",
+  PROGRAMS_PAGE = "programs-page",
 }
 export const formaters: { [key in EStrapi_Single_Types]?: any } = {
   [EStrapi_Single_Types.TOP_BAR]: topBarFormater,

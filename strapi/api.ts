@@ -104,13 +104,18 @@ export const getActivities = async (locale: string) =>
 export const getPrograms = async (locale: string) =>
   getDocument(EStrapi_Single_Types.PROGRAMS, locale);
 
-export const getProgramsPage = (locale: string): Promise<ProgramsPageProps> => {
-  const programPage = getDocument(EStrapi_Single_Types.PROGRAMS_PAGE, locale);
-  const programs = getPrograms(locale);
+export const getProgramsPage = async (
+  locale: string
+): Promise<ProgramsPageProps> => {
+  const programsPage = await getDocument(
+    EStrapi_Single_Types.PROGRAMS_PAGE,
+    locale
+  );
+  const programs = await getPrograms(locale);
 
   return prepareData(
     formaters[EStrapi_Single_Types.PROGRAMS_PAGE]({
-      programPage,
+      programsPage,
       programs,
     })
   );
