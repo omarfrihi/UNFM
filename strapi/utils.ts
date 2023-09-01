@@ -136,7 +136,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
     tools: {
       data: tools.list.data.map(({ id, attributes }) => ({
         icon: attributes.logo,
-        image: attributes.logo,
+        image: { data: attributes.image.data[0] },
         text: attributes.title,
         id,
       })),
