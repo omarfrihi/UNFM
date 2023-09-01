@@ -15,6 +15,7 @@ import { ActivitiesPageProps } from "../pages/activities";
 import { ActivityType } from "../components/activities";
 import { ProgramsPageProps } from "../pages/programs";
 import { ProgramProps } from "../pages/programs/[id]";
+import { IProgram } from "./types";
 const strapiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
   headers: {
@@ -24,10 +25,11 @@ const strapiClient = axios.create({
 
 export const getDocument = async (
   type: string,
-  locale: string
+  locale: string,
+  condition?: object
 ): Promise<any> => {
   const result = await strapiClient.get(type, {
-    params: { populate: "deep,10", locale },
+    params: { populate: "deep,10", locale, ...condition },
   });
 
   return strapiApiResponseExtractor(result);
@@ -125,7 +127,7 @@ export const getProgram = async (
   locale: string,
   id: number
 ): Promise<ProgramProps> => {
-  const program = await getDocument(
+  const program: IProgram = await getDocument(
     EStrapi_Single_Types.PROGRAM.replace(":id", id.toString()),
     locale
   );
@@ -133,11 +135,27 @@ export const getProgram = async (
     EStrapi_Single_Types.PROGRAM_NAVBAR,
     locale
   );
+  const activities = await getDocument(
+    EStrapi_Single_Types.ACTIVITIES,
+    locale,
+    { program: program.id }
+  );
+
+  const medias = await getDocument(EStrapi_Single_Types.MEDIAS, locale, {
+    program: program.id,
+  });
+
+  const partners = await getDocument(EStrapi_Single_Types.PARTNERS, locale, {
+    program: program.id,
+  });
 
   return prepareData(
     formaters[EStrapi_Single_Types.PROGRAM]({
       sections,
       program,
+      activities,
+      medias,
+      partners,
     })
   );
 };

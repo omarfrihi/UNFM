@@ -53,35 +53,31 @@ const Program = ({ data }: { data: ProgramProps }) => {
   const { program, activities, media, partners, experiences, sections } = data;
   return (
     <>
-      {program ? (
-        <>
-          <Cover {...program.cover}></Cover>
-          <Navbar {...sections} />
-          <div id={ENavbarSections.PRESENTATION}>
-            <Article {...program.articles} />
-          </div>
-          <div id={ENavbarSections.GOALS}>
-            <Goals {...program.goals} />
-          </div>
-          <div id={ENavbarSections.NUMBERS}>
-            <Numbers {...program.numbers} />
-          </div>
-          <div id={ENavbarSections.ACTIVITIES}>
-            <Activities {...activities} />
-          </div>
-          <div id={ENavbarSections.MEDIAS}>
-            <Media {...media} />
-          </div>
-          <div id={ENavbarSections.PARTNERS}>
-            <Partners {...partners} />
-          </div>
-          <div id={ENavbarSections.EXPERIENCES}>
-            <Experiences {...experiences} />
-          </div>
-        </>
-      ) : (
-        "notfound"
-      )}
+      <>
+        <Cover {...program.cover}></Cover>
+        <Navbar {...sections} />
+        <div id={ENavbarSections.PRESENTATION}>
+          <Article {...program.articles} />
+        </div>
+        <div id={ENavbarSections.GOALS}>
+          <Goals {...program.goals} />
+        </div>
+        <div id={ENavbarSections.NUMBERS}>
+          <Numbers {...program.numbers} />
+        </div>
+        <div id={ENavbarSections.ACTIVITIES}>
+          <Activities {...activities} />
+        </div>
+        <div id={ENavbarSections.MEDIAS}>
+          <Media {...media} />
+        </div>
+        <div id={ENavbarSections.PARTNERS}>
+          <Partners {...partners} />
+        </div>
+        <div id={ENavbarSections.EXPERIENCES}>
+          <Experiences {...experiences} />
+        </div>
+      </>
     </>
   );
 };
@@ -97,9 +93,11 @@ export async function getStaticProps({
   let data = { layout };
   try {
     const program = await getProgram(locale, params.id);
-
+    console.log("lll", program);
     data = { ...data, ...program };
-  } catch {}
+  } catch (e) {
+    console.log("eee", e);
+  }
   return {
     props: {
       id: params.id,

@@ -17,7 +17,9 @@ import {
   IAssociation,
   IFooter,
   IHomepage,
+  IMedia,
   INavbar,
+  IPartner,
   IProgram,
   IProgramsPage,
   ISingleArticle,
@@ -369,10 +371,17 @@ const programsPageFormatter = ({
 const programFormatter = ({
   program: { id, attributes },
   sections: { attributes: sections },
+  activities,
+  medias,
+  partners,
 }: {
   program: IProgram;
   sections: IProgramNavbar;
+  activities: IActivity[];
+  partners: IPartner[];
+  medias: IMedia[];
 }): ProgramProps => {
+  console.log("acttt", activities);
   const getSection = (key: string) =>
     sections.sections.find(({ section }) => section === key);
 
@@ -404,7 +413,7 @@ const programFormatter = ({
     activities: {
       title: getSection(ENavbarSections.ACTIVITIES)?.title as string,
       action: getSection(ENavbarSections.ACTIVITIES)?.call_to_action as string,
-      data: attributes.activities.data.map(
+      data: activities.map(
         ({ id, attributes: { cover, title, articles, activity_type } }) => ({
           cover,
           title,
@@ -416,7 +425,7 @@ const programFormatter = ({
     },
 
     media: {
-      data: attributes.medias.data.map(
+      data: medias.map(
         ({ id, attributes: { title, type, video_link, photo } }) => ({
           title,
           type,
@@ -445,9 +454,7 @@ const programFormatter = ({
       data: [
         {
           title: "",
-          partners: attributes.partners.data.map(
-            ({ attributes }) => attributes.logo
-          ),
+          partners: partners.map(({ attributes }) => attributes.logo),
         },
       ],
     },
@@ -477,6 +484,8 @@ export enum EStrapi_Single_Types {
   PROGRAM = "programs/:id",
   PROGRAMS_PAGE = "programs-page",
   PROGRAM_NAVBAR = "program-navbar",
+  MEDIAS = "medias",
+  PARTNERS = "partners",
 }
 export const formaters: { [key in EStrapi_Single_Types]?: any } = {
   [EStrapi_Single_Types.TOP_BAR]: topBarFormater,
