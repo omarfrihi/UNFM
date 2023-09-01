@@ -460,8 +460,8 @@ export enum EStrapi_Single_Types {
   PROGRAMS = "programs",
   ASSOCIATIONS = "associations",
   ACTIVITY_TYPES = "activity-types",
-  ACTIVITY = "activity",
-  PROGRAM = "program",
+  ACTIVITY = "activities/:id",
+  PROGRAM = "programs/id",
   PROGRAMS_PAGE = "programs_page",
 }
 export const formaters: { [key in EStrapi_Single_Types]?: any } = {

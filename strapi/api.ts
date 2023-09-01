@@ -38,7 +38,10 @@ export const getFormattedDocument = async (
   locale: string,
   id?: number
 ): Promise<any> => {
-  const result = await getDocument([type, id].join("/"), locale);
+  const result = await getDocument(
+    id ? type.replace(":id", id.toString()) : type,
+    locale
+  );
   return prepareData(formaters[type](result));
 };
 
