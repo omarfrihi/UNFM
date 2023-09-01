@@ -93,7 +93,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
     props: {
       data,
     },
-    revalidate: 5,
+    revalidate: true,
   };
 }
 
