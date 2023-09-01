@@ -76,7 +76,7 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
     locales.map(async (locale) => {
       const activities = await getActivities(locale);
       return activities.map(({ id }: ActivityType) => ({
-        params: { id },
+        params: { id: id.toString() },
         locale,
       }));
     })

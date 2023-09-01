@@ -114,7 +114,7 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
     locales.map(async (locale) => {
       const programs = await getPrograms(locale);
       return programs.map(({ id }: { id: number }) => ({
-        params: { id },
+        params: { id: id.toString() },
         locale,
       }));
     })
