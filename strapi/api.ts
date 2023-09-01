@@ -121,5 +121,23 @@ export const getProgramsPage = async (
   );
 };
 
-export const getProgram = (locale: string, id: number): Promise<ProgramProps> =>
-  getFormattedDocument(EStrapi_Single_Types.PROGRAM, locale, id);
+export const getProgram = async (
+  locale: string,
+  id: number
+): Promise<ProgramProps> => {
+  const program = await getDocument(
+    EStrapi_Single_Types.PROGRAM.replace(":id", id.toString()),
+    locale
+  );
+  const sections = await getDocument(
+    EStrapi_Single_Types.PROGRAM_NAVBAR,
+    locale
+  );
+
+  return prepareData(
+    formaters[EStrapi_Single_Types.PROGRAM]({
+      sections,
+      program,
+    })
+  );
+};

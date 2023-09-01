@@ -27,6 +27,7 @@ import {
   IWomenDay,
   Media,
 } from "./types";
+import { IProgramNavbar } from "./types/api/ProgramNavbar";
 
 export const strapiApiResponseExtractor = (result: any) => result.data.data;
 
@@ -72,8 +73,14 @@ const navbarFormater = ({ attributes }: INavbar): NavbarProps => ({
   data: attributes.items.map((item) => ({
     title: item.title,
     link: item.link,
-    isCard: item.is_card,
-    subMenu: item.sub_items.map((subItem) => ({
+    isCard: item.isRelation,
+    subMenu: (item.isRelation
+      ? item.programs.data.map(({ attributes, id }) => ({
+          ...attributes,
+          link: `/programs/${id}`,
+        }))
+      : item.sub_items
+    ).map((subItem) => ({
       title: subItem.title,
 
       link: subItem.link,
@@ -136,7 +143,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
     tools: {
       data: tools.list.data.map(({ id, attributes }) => ({
         icon: attributes.logo,
-        image: { data: attributes.image.data[0] },
+        image: attributes.image,
         text: attributes.title,
         id,
       })),
@@ -359,9 +366,15 @@ const programsPageFormatter = ({
   };
 };
 
-const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
+const programFormatter = ({
+  program: { id, attributes },
+  sections: { attributes: sections },
+}: {
+  program: IProgram;
+  sections: IProgramNavbar;
+}): ProgramProps => {
   const getSection = (key: string) =>
-    attributes.sections.find(({ section }) => section === key);
+    sections.sections.find(({ section }) => section === key);
 
   return {
     title: attributes.title,
@@ -440,7 +453,7 @@ const programFormatter = ({ id, attributes }: IProgram): ProgramProps => {
     },
     sections: {
       id,
-      sections: attributes.sections.map(({ section, label }) => ({
+      sections: sections.sections.map(({ section, label }) => ({
         link: section,
         title: label,
       })),
@@ -461,8 +474,9 @@ export enum EStrapi_Single_Types {
   ASSOCIATIONS = "associations",
   ACTIVITY_TYPES = "activity-types",
   ACTIVITY = "activities/:id",
-  PROGRAM = "programs/id",
+  PROGRAM = "programs/:id",
   PROGRAMS_PAGE = "programs-page",
+  PROGRAM_NAVBAR = "program-navbar",
 }
 export const formaters: { [key in EStrapi_Single_Types]?: any } = {
   [EStrapi_Single_Types.TOP_BAR]: topBarFormater,

@@ -28,13 +28,13 @@ export interface IProgram<Populate extends string | never = never> {
       program_type: {
         data: IProgramType<ExtractNested<Populate, "program_type">>;
       };
-      sections: ISingleProgramSection[];
       numbers: ISlicesNumbers<ExtractNested<Populate, "numbers">>;
       objectifs: ISlicesGoals<ExtractNested<Populate, "objectifs">>;
 
       publishedAt: string;
       createdAt: string;
       updatedAt: string;
+      color: string;
     },
     ExtractFlat<Populate>
   >;
