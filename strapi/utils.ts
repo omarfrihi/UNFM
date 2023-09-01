@@ -454,7 +454,7 @@ export enum EStrapi_Single_Types {
   NAVBAR = "navbar",
   HOME_PAGE = "homepage",
   WHO_WE_ARE = "who-we-are",
-  WOMEN_DAY = "women_day",
+  WOMEN_DAY = "women-day",
   ACTIVITIES_PAGE = "activities-page",
   ACTIVITIES = "activities",
   PROGRAMS = "programs",
