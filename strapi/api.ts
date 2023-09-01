@@ -29,7 +29,7 @@ export const getDocument = async (
   condition?: object
 ): Promise<any> => {
   const result = await strapiClient.get(type, {
-    params: { populate: "deep,10", locale, ...condition },
+    params: { populate: "deep,6", locale, ...condition },
   });
 
   return strapiApiResponseExtractor(result);
