@@ -34,7 +34,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
     props: {
       data,
     },
-    revalidate: true,
+    revalidate: 5,
   };
 }
 

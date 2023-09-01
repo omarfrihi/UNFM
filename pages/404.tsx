@@ -15,6 +15,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
     props: {
       data: JSON.stringify({ layout }),
     },
-    revalidate: true,
+    revalidate: 5,
   };
 }

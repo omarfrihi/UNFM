@@ -100,7 +100,7 @@ export async function getStaticProps({
       id: params.id,
       data,
     },
-    revalidate: true,
+    revalidate: 5,
   };
 }
 
