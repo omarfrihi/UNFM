@@ -1,43 +1,43 @@
 import { Actions, Application, Wrapper, Text, Buttons } from "./styles";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "../Image";
+import NextImage from "next/image";
 
-const Download = ({
-  downloadText,
-  data,
-}: {
+import Link from "next/link";
+import { Media } from "../../strapi/types";
+export type DownloadProps = {
   downloadText: string;
   data: {
     androidLink: string;
     iOsLink: string;
-    icon: string;
-    poster: string;
+    icon: Media;
+    poster: Media;
   }[];
-}) => (
+};
+const Download = ({ downloadText, data }: DownloadProps) => (
   <Wrapper>
     {data.map(({ androidLink, iOsLink, icon, poster }) => (
-      <Application key={poster}>
+      <Application key={iOsLink}>
         <Actions>
-          <Image src={icon} alt="logo" height={80}></Image>
+          <Image src={icon} height={80}></Image>
           <Buttons>
             <Text>{downloadText}</Text>
             <Link href={iOsLink}>
-              <Image
+              <NextImage
                 src={require("../../public/assets/appstore.png")}
                 alt="app-store"
                 height={30}
-              ></Image>
+              ></NextImage>
             </Link>
             <Link href={androidLink}>
-              <Image
+              <NextImage
                 src={require("../../public/assets/googleplay.png")}
                 alt="google-play"
                 height={30}
-              ></Image>
+              ></NextImage>
             </Link>
           </Buttons>
         </Actions>
-        <Image src={poster} alt="poster" height={250}></Image>
+        <Image src={poster} height={250}></Image>
       </Application>
     ))}
   </Wrapper>

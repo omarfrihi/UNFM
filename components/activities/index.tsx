@@ -17,8 +17,9 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import Arrows from "../Arrows";
-import Image from "next/image";
 import "react-multi-carousel/lib/styles.css";
+import { Media } from "../../strapi/types";
+import Image from "../Image";
 
 const responsive = {
   desktop: {
@@ -42,63 +43,52 @@ const responsive = {
     items: 1,
   },
 };
-var settings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  arrows: false,
-};
+
 export type ActivityType = {
+  cover: Media;
   title: string;
   tag: string;
   articles: {
-    image: string;
-    description: string[];
+    image: Media;
+    content: string;
   }[];
 
-  action: string;
-  link: string;
+  action?: string;
+  id: number;
 };
 export const ActivityComponent = ({
   title,
   tag,
   articles,
   action,
-  link,
-}: ActivityType) => (
-  <Activity>
-    <ImageWrapper>
-      <Image
-        src={articles[0].image}
-        alt={title}
-        layout="fill"
-        objectFit="cover"
-        placeholder="blur"
-      />
-    </ImageWrapper>
-    <ActivityContent>
-      <ActivityTag>{tag}</ActivityTag>
+  id,
+  cover,
+}: ActivityType) => {
+  return (
+    <Activity>
+      <ImageWrapper>
+        <Image src={cover} layout="fill" objectFit="cover" placeholder="blur" />
+      </ImageWrapper>
+      <ActivityContent>
+        <ActivityTag>{tag}</ActivityTag>
 
-      <ActivityTitle>{title}</ActivityTitle>
-      <DescriptionContent>
-        <Description>
-          {articles[0].description[0].substring(0, 120)}...
-        </Description>
-        <Button href={`activities/${link}`}>{action}</Button>
-      </DescriptionContent>
-    </ActivityContent>
-  </Activity>
-);
-const Avtivities = ({
-  title,
-  data,
-  action,
-}: {
+        <ActivityTitle>{title}</ActivityTitle>
+        <DescriptionContent>
+          <Description>
+            {articles[0].content[0].substring(0, 120)}...
+          </Description>
+          <Button href={`/activities/${id}`}>{action}</Button>
+        </DescriptionContent>
+      </ActivityContent>
+    </Activity>
+  );
+};
+export type ActivitiesProps = {
   title: string;
   action: string;
   data: ActivityType[];
-}) => {
+};
+const Avtivities = ({ title, data, action }: ActivitiesProps) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore

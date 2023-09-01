@@ -15,7 +15,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useRef } from "react";
-import Image from "next/image";
+import Image from "../Image";
 import Title from "../title";
 import Arrows from "../Arrows";
 import "slick-carousel/slick/slick.css";
@@ -25,6 +25,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import styled from "@emotion/styled";
 import Link from "next/link";
+import { Media } from "../../strapi/types";
 
 const CustomCarousel = styled(Carousel)`
   & .react-multi-carousel-item {
@@ -56,14 +57,11 @@ const responsive = {
     items: 1,
   },
 };
-
-const Programs = ({
-  data,
-  title,
-}: {
-  data: { link: string; image: string }[];
+export type ProgramsProps = {
+  data: { id: number; image: Media }[];
   title: string;
-}) => {
+};
+const Programs = ({ data, title }: ProgramsProps) => {
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore
@@ -95,16 +93,11 @@ const Programs = ({
           draggable={true}
           ref={ref}
         >
-          {data.map(({ link, image }) => (
-            <SlideWrapper key={link}>
-              <Link href={link}>
+          {data.map(({ id, image }) => (
+            <SlideWrapper key={id}>
+              <Link href={`/programs/${id}`}>
                 <Slide>
-                  <Image
-                    src={image}
-                    alt="program"
-                    placeholder="blur"
-                    height={130}
-                  />
+                  <Image src={image} placeholder="blur" height={130} />
                 </Slide>
               </Link>
             </SlideWrapper>

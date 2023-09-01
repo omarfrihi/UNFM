@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../Image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -11,6 +11,7 @@ import {
   PartnerTitle,
   Wrapper,
 } from "./styles";
+import { Media } from "../../strapi/types";
 
 const settings = {
   infinite: false,
@@ -20,14 +21,11 @@ const settings = {
   arrows: false,
   swipe: true,
 };
-
-const Partners = ({
-  title,
-  data,
-}: {
+export type PartnersProps = {
   title: string;
-  data: { title: string; partners: string[] }[];
-}) => {
+  data: { title: string; partners: Media[] }[];
+};
+const Partners = ({ title, data }: PartnersProps) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -82,12 +80,7 @@ const Partners = ({
               {partners.map((src, index) => (
                 <PartnerContainer key={index}>
                   <Partner>
-                    <Image
-                      src={src}
-                      layout="fill"
-                      objectFit="contain"
-                      alt="partner"
-                    ></Image>
+                    <Image src={src} layout="fill" objectFit="contain"></Image>
                   </Partner>
                 </PartnerContainer>
               ))}

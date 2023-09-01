@@ -1,46 +1,31 @@
+import Image from "../Image";
+import Button from "../Button";
 import {
+  ButtonWrapper,
   Content,
   ImageWrapper,
-  Img,
+  Text,
   Title,
   Wrapper,
-  Text,
-  ShowMore,
-  ButtonWrapper,
-  ButtonText,
 } from "./styles";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Image from "next/image";
-import Button from "../Button";
-import { ReactNode } from "react";
+import ReactMarkdown from "react-markdown";
+import { Media } from "../../strapi/types";
 
-const Article = ({
-  data: { image, title, content },
-  action,
-}: {
+export type ArticleProps = {
   action: { link: string; text: string };
   data: {
-    image: string;
-    title: string;
-    content: string[];
+    image: Media;
+    content: string;
   };
-}) => {
+};
+const Article = ({ data: { image, content }, action }: ArticleProps) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image
-          layout="responsive"
-          placeholder="blur"
-          alt="article1"
-          src={image}
-        ></Image>
+        <Image layout="responsive" placeholder="blur" src={image}></Image>
       </ImageWrapper>
       <Content>
-        <Title>{title}</Title>
-        {content.map((c) => (
-          <Text dangerouslySetInnerHTML={{ __html: c }} key={c}></Text>
-        ))}
-
+        <ReactMarkdown>{content}</ReactMarkdown>
         <ButtonWrapper>
           <Button href={action.link}>{action.text}</Button>
         </ButtonWrapper>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../../Image";
 import { ReactNode } from "react";
 import {
   Content,
@@ -8,32 +8,25 @@ import {
   Wrapper,
   Article as ArticleContainer,
 } from "./styles";
+import ReactMarkdown from "react-markdown";
+import { Media } from "../../../strapi/types";
 
-const Article = ({
-  data,
-}: {
+export type ArticleProps = {
   data: {
-    title?: string;
-    image: string;
-    content: string[];
+    image: Media;
+    content: string;
   }[];
-}) => (
+};
+
+const Article = ({ data }: ArticleProps) => (
   <Wrapper>
-    {data.map(({ title, image, content }) => (
-      <ArticleContainer key={title}>
+    {data.map(({ image, content }) => (
+      <ArticleContainer key={content}>
         <Content>
-          {title && <Title>{title}</Title>}
-          {content.map((x) => (
-            <Text dangerouslySetInnerHTML={{ __html: x }} key={x}></Text>
-          ))}
+          <ReactMarkdown>{content}</ReactMarkdown>
         </Content>
         <ImageWrapper>
-          <Image
-            layout="responsive"
-            placeholder="blur"
-            alt="article1"
-            src={image}
-          ></Image>
+          <Image layout="responsive" placeholder="blur" src={image}></Image>
         </ImageWrapper>
       </ArticleContainer>
     ))}

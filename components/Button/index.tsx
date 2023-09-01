@@ -5,7 +5,7 @@ const Button = ({
   children,
   href = "",
 }: {
-  children: string;
+  children?: string;
   href?: string;
 }) => (
   <Link href={href}>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Button from "../Button";
 import {
@@ -8,30 +7,34 @@ import {
   Slide,
   SlideWrapper,
 } from "./styles";
+import { Media } from "../../strapi/types";
+import { urlBuilder } from "../../strapi/utils";
+import Image from "../Image";
 const Card = ({
   subMenu,
   actions,
 }: {
   actions: { text: string; link: string }[];
-  subMenu: { title: string; link: string; image?: string }[];
+  subMenu?: { title: string; link: string; image: Media }[];
 }) => (
   <ProgramsWrapper>
     <ProgramsContent>
-      {subMenu.map(({ link = "", image = "" }) => (
-        <SlideWrapper key={link}>
-          <Slide>
-            <Link href={link}>
-              <Image
-                src={image}
-                alt="item"
-                placeholder="blur"
-                layout="fill"
-                objectFit="contain"
-              />
-            </Link>
-          </Slide>
-        </SlideWrapper>
-      ))}
+      {subMenu?.map(({ link = "", image }) => {
+        return (
+          <SlideWrapper key={link}>
+            <Slide>
+              <Link href={link}>
+                <Image
+                  src={image}
+                  placeholder="blur"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Link>
+            </Slide>
+          </SlideWrapper>
+        );
+      })}
     </ProgramsContent>
     <Buttons>
       {actions.map(({ text, link }) => (

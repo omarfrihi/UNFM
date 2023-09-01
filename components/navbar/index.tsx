@@ -1,39 +1,34 @@
 import Image from "next/image";
+import Logo from "../../public/assets/logo.png";
+import Logo2 from "../../public/assets/logo2.png";
 import {
-  Buttons,
   Item,
   NavarbarItems,
-  ProgramsContent,
-  ProgramsWrapper,
-  Slide,
-  SlideWrapper,
   SubItem,
   SubMenu,
   Title,
   Wrapper,
 } from "./styles";
-import Logo from "../../public/assets/logo.png";
-import Logo2 from "../../public/assets/logo2.png";
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Link from "next/link";
-import Button from "../Button";
-import Card from "./card";
 import { useRouter } from "next/router";
+import { Media } from "../../strapi/types";
+import Card from "./card";
+import { isEmpty } from "lodash";
 
 export type NavbarProps = {
   data: {
     title: string;
     link?: string;
     isCard?: boolean;
-    subMenu?: { title: string; link: string; image?: string }[];
+    subMenu?: { title: string; link: string; image: Media }[];
     actions: { text: string; link: string }[];
   }[];
 };
 const Navbar = ({ data }: NavbarProps) => {
   const { asPath } = useRouter();
   const test = useRouter();
-  console.log("paths", test);
   return (
     <Wrapper path={asPath}>
       <Link href="/">
@@ -56,22 +51,22 @@ const Navbar = ({ data }: NavbarProps) => {
                 key={title}
                 path={asPath}
               >
-                {subMenu ? (
+                {!isEmpty(subMenu) ? (
                   <Title>
                     {title}
-                    {subMenu && <ArrowDropDownIcon />}
+                    <ArrowDropDownIcon />
                   </Title>
                 ) : (
                   <Link href={link || "/"}>
                     <Title>{title}</Title>
                   </Link>
                 )}
-                {subMenu && (
+                {!isEmpty(subMenu) && (
                   <SubMenu>
                     {isCard ? (
                       <Card subMenu={subMenu} actions={actions} />
                     ) : (
-                      subMenu.map((item) => (
+                      subMenu?.map((item) => (
                         <Link href={item.link} key={item.title}>
                           <SubItem active={asPath === item.link}>
                             {item.title}

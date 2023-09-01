@@ -2,6 +2,7 @@ import Link from "next/link";
 import Call from "../SVG/call";
 import Phone from "../SVG/phone";
 import PhoneCall from "../SVG/phoneCall";
+import axios from "axios";
 import {
   Wrapper,
   Text,
@@ -12,15 +13,12 @@ import {
   WithYouText,
   Lang,
 } from "./styles";
+import { useRouter } from "next/router";
 export type TopbarProps = {
   data: {
     callUs: string;
     phoneNumber: string;
     download: { text: string; appName: string; link: string };
-    languages: {
-      label: string;
-      value: string;
-    }[];
   };
 };
 const Topbar = ({
@@ -28,32 +26,34 @@ const Topbar = ({
     callUs,
     phoneNumber,
     download: { text, appName, link },
-    languages,
   },
-}: TopbarProps) => (
-  <Container>
-    <Actions>
-      <Wrapper>
-        <Call />
-        <Text>{`${callUs} ${phoneNumber}`}</Text>
-      </Wrapper>
-
-      <Link href={link}>
+}: TopbarProps) => {
+  const { locales, locale: currentLocale, asPath } = useRouter();
+  return (
+    <Container>
+      <Actions>
         <Wrapper>
-          <Phone />
-          <Text>{`${text}`}</Text>
-          <DownloadText>{appName}</DownloadText>
+          <Call />
+          <Text>{`${callUs} ${phoneNumber}`}</Text>
         </Wrapper>
-      </Link>
-    </Actions>
-    <LangWrapper>
-      {languages.map(({ label, value }) => (
-        <Link href="" key={"fr"}>
-          <Lang active={value === "fr"}>{label}</Lang>
+
+        <Link href={link}>
+          <Wrapper>
+            <Phone />
+            <Text>{`${text}`}</Text>
+            <DownloadText>{appName}</DownloadText>
+          </Wrapper>
         </Link>
-      ))}
-    </LangWrapper>
-  </Container>
-);
+      </Actions>
+      <LangWrapper>
+        {locales?.map((locale) => (
+          <Link href={asPath} key={"fr"} locale={locale}>
+            <Lang active={locale === currentLocale}>{locale}</Lang>
+          </Link>
+        ))}
+      </LangWrapper>
+    </Container>
+  );
+};
 
 export default Topbar;

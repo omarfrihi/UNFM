@@ -11,7 +11,13 @@ import {
   Wrapper,
 } from "./styles";
 
-const Select = ({ title, options }: { title: string; options: string[] }) => (
+const Select = ({
+  title,
+  options,
+}: {
+  title: string;
+  options: { code: string; value: string }[];
+}) => (
   <SelectFilter
     value="value"
     sx={{
@@ -36,22 +42,20 @@ const Select = ({ title, options }: { title: string; options: string[] }) => (
       {title}
     </MenuItem>
     {options.map((option) => (
-      <MenuItem value={option} key={option}>
-        {option}
+      <MenuItem value={option.value} key={option.code}>
+        {option.value}
       </MenuItem>
     ))}
   </SelectFilter>
 );
-
-const Activity = ({
-  data,
-  action,
-  filters: { selects, search },
-}: {
-  action: string;
-  filters: { selects: { name: string; options: string[] }[]; search: string };
+export type ActivityProps = {
+  filters: {
+    selects: { name: string; options: { code: string; value: string }[] }[];
+    search: string;
+  };
   data: ActivityType[];
-}) => (
+};
+const Activity = ({ data, filters: { selects, search } }: ActivityProps) => (
   <Wrapper>
     <Filter>
       <Search
@@ -73,7 +77,7 @@ const Activity = ({
     <ActivityWrapper>
       {data.map((activity) => (
         <SingleActivity key={activity.title}>
-          <ActivityComponent {...activity} action={action} />
+          <ActivityComponent {...activity} />
         </SingleActivity>
       ))}
     </ActivityWrapper>

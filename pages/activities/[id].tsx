@@ -1,69 +1,93 @@
 import Activity from "../../components/activity-page";
 import Cover from "../../components/who-us/cover";
 import { mockActivities } from "../../utils/constants";
-import RootLayout, { getLayoytStaticProps } from "../../components/layout";
+import RootLayout, {
+  LayoutProps,
+  getLayoytStaticProps,
+} from "../../components/layout";
 import Article from "../../components/who-us/article";
 import Title from "../../components/title";
 import { TitleWrapper } from "../../components/title/styles";
+import { flatten } from "lodash";
+import { ActivityType } from "../../components/activities";
+import { Media } from "../../strapi/types";
+import { getActivities, getActivity } from "../../strapi/api";
+import WithLayout from "../../hoc";
 
-const Activities = ({ data }: any) => {
-  const { layout, activity } = JSON.parse(data);
+const Activities = ({
+  data,
+}: {
+  data: { activity: ActivityType; title: string };
+}) => {
+  const { activity } = data;
   return (
-    <RootLayout {...layout}>
+    <>
       {activity ? (
         <>
           <Cover
             data={{
               fullMode: true,
-              image: activity.articles[0].image,
+              image: activity.cover,
             }}
           ></Cover>
           <TitleWrapper>
             <Title>{activity.title}</Title>
           </TitleWrapper>
           <Article
-            data={activity.articles.map(
-              ({
-                image,
-                description,
-              }: {
-                image: string;
-                description: string[];
-              }) => ({
-                image,
-                content: description,
-              })
-            )}
+            data={activity.articles.map(({ image, content }) => ({
+              image,
+              content,
+            }))}
           />
         </>
       ) : (
         "notfound"
       )}
-    </RootLayout>
+    </>
   );
 };
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
-  const layout = await getLayoytStaticProps();
-  const activity = mockActivities.data.find(({ link }) => link === params.id);
+export async function getStaticProps({
+  params,
+  locale,
+}: {
+  locale: string;
+  params: { id: number };
+}) {
+  const layout = await getLayoytStaticProps(locale);
+  let data = { layout } as any;
+
+  try {
+    const activity = await getActivity(locale, params.id);
+    //
+    data = { ...data, activity, title: activity.title };
+  } catch (error) {}
 
   return {
     props: {
-      data: JSON.stringify({ layout, activity }),
+      data,
     },
     revalidate: true,
   };
 }
 
-export async function getStaticPaths() {
-  const activites = mockActivities.data.map(({ link }) => ({
-    params: { id: link },
-  }));
+export async function getStaticPaths({ locales }: { locales: string[] }) {
+  const activities = await Promise.all(
+    locales.map(async (locale) => {
+      const activities = await getActivities(locale);
+      return activities.map(({ id }: ActivityType) => ({
+        params: { id: id.toString() },
+        locale,
+      }));
+    })
+  );
+
+  const paths = flatten(activities);
 
   return {
-    paths: activites,
+    paths,
     fallback: "blocking",
   };
 }
 
-export default Activities;
+export default WithLayout(Activities);

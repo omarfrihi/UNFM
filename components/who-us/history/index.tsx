@@ -2,12 +2,11 @@ import Button from "../../Button";
 import Title from "../../title";
 import Image from "next/image";
 import { Content, EndIcon, StartIcon, Wrapper, Text } from "./styles";
-
-const History = ({
-  data: { title, content, action },
-}: {
-  data: { title: string; content: string[]; action: string };
-}) => (
+import ReactMarkdown from "react-markdown";
+export type HistoryProps = {
+  data: { title: string; content: string; action: string };
+};
+const History = ({ data: { title, content, action } }: HistoryProps) => (
   <Wrapper>
     <Title>{title}</Title>
 
@@ -19,9 +18,7 @@ const History = ({
         ></Image>
       </StartIcon>
       <div>
-        {content.map((x) => (
-          <Text key={x}>{x}</Text>
-        ))}
+        <ReactMarkdown>{content}</ReactMarkdown>
       </div>
       <EndIcon>
         <Image
