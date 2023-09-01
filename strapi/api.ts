@@ -27,7 +27,7 @@ export const getDocument = async (
   locale: string
 ): Promise<any> => {
   const result = await strapiClient.get(type, {
-    params: { populate: "deep", locale },
+    params: { populate: "deep,10", locale },
   });
 
   return strapiApiResponseExtractor(result);

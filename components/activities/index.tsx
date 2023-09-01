@@ -62,27 +62,27 @@ export const ActivityComponent = ({
   articles,
   action,
   id,
-}: ActivityType) => (
-  <Activity>
-    <ImageWrapper>
-      <Image
-        src={articles[0].image}
-        layout="fill"
-        objectFit="cover"
-        placeholder="blur"
-      />
-    </ImageWrapper>
-    <ActivityContent>
-      <ActivityTag>{tag}</ActivityTag>
+  cover,
+}: ActivityType) => {
+  return (
+    <Activity>
+      <ImageWrapper>
+        <Image src={cover} layout="fill" objectFit="cover" placeholder="blur" />
+      </ImageWrapper>
+      <ActivityContent>
+        <ActivityTag>{tag}</ActivityTag>
 
-      <ActivityTitle>{title}</ActivityTitle>
-      <DescriptionContent>
-        <Description>{articles[0].content[0].substring(0, 120)}...</Description>
-        <Button href={`/activities/${id}`}>{action}</Button>
-      </DescriptionContent>
-    </ActivityContent>
-  </Activity>
-);
+        <ActivityTitle>{title}</ActivityTitle>
+        <DescriptionContent>
+          <Description>
+            {articles[0].content[0].substring(0, 120)}...
+          </Description>
+          <Button href={`/activities/${id}`}>{action}</Button>
+        </DescriptionContent>
+      </ActivityContent>
+    </Activity>
+  );
+};
 export type ActivitiesProps = {
   title: string;
   action: string;
