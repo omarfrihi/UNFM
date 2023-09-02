@@ -64,8 +64,7 @@ export type ActivitiesProps = {
   action: string;
   data: ActivityType[];
 };
-const Avtivities = ({ title, data: kk, action }: ActivitiesProps) => {
-  const data = [kk[0], kk[0], kk[0], kk[0], kk[0]];
+const Avtivities = ({ title, data, action }: ActivitiesProps) => {
   const ref = useRef(null);
   const { width } = useWindowSize();
 
