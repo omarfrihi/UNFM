@@ -5,7 +5,7 @@ export const Box = styled.div`
   border-radius: 3rem;
   border: 1px solid ${({ theme }) => theme.colors.grey[200]};
   backdrop-filter: blur(6px);
-  padding: 3rem 3rem 2rem 3rem;
+  padding: 5rem 3rem 2rem 3rem;
   gap: 2.5rem;
   justify-contenr: center;
   display: flex;
@@ -16,7 +16,7 @@ export const Box = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
-  padding: 8rem 15%;
+  padding: 3rem 15%;
   ${responsive.lg`
   padding: 4rem 10%;
 
@@ -28,7 +28,12 @@ export const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: transparent;
-  transform: translateY(36px);
+  transform: translateY(60px);
+  display: flex;
+  justify-content: center;
+  img {
+    background-color: ${({ theme }) => theme.colors.white[200]};
+  }
 `;
 
 export const NumberWrapper = styled.div`

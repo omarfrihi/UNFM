@@ -22,9 +22,9 @@ const Numbers = ({ data, logo }: NumbersProps) => (
   <Wrapper>
     <ImgWrapper>
       {logo ? (
-        <Image width={90} src={logo}></Image>
+        <Image height={130} src={logo}></Image>
       ) : (
-        <ImageNext width={90} src={Logo} alt="logo"></ImageNext>
+        <ImageNext height={130} src={Logo} alt="logo"></ImageNext>
       )}
     </ImgWrapper>
     <Box>
