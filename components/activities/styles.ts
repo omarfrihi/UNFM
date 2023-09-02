@@ -5,10 +5,19 @@ import "react-multi-carousel/lib/styles.css";
 
 export const CustomCarousel = styled(Carousel)`
   & .react-multi-carousel-item {
-    div {
+    > div {
+      width: 640px;
+    }
+  }
+
+  ${responsive.sm`
+  & .react-multi-carousel-item {
+    > div {
       width: 100%;
     }
   }
+
+  `}
 `;
 
 export const Wrapper = styled.div`
@@ -33,7 +42,12 @@ export const ActivityContent = styled.div`
   flex-direction: column;
   background: rgba(20, 64, 86, 0.06);
   padding: 1rem;
-  flex: 2;
+  width: 420px;
+  ${responsive.sm`
+  width: 100%;
+
+
+  `}
 `;
 
 export const DescriptionContent = styled.div`
@@ -74,26 +88,34 @@ export const ActivityTag = styled.div`
   padding: 0.1rem 0.3rem;
 `;
 
-export const ActivitiesWrapper = styled.div`
+export const ActivitiesWrapper = styled.div<{
+  length: number;
+  padding: number;
+}>`
   width: 100%;
 
-  padding: 3rem 0rem 3rem 16.5%;
-
-  ${responsive.md`
-  padding-left:  7%;
-
-  
-  `}
+  padding: ${({ length, padding }) =>
+    `3rem ${
+      length <= 1
+        ? `${padding}px 3rem ${padding}px`
+        : `0rem 3rem ${padding * 2}px`
+    } `};
   ${responsive.sm`
-  padding: 3rem 5%;
-
+  padding:3rem 10% 3rem 10%;
   
-  `}
+  
+    `}
+
+  ${responsive.xs`
+  padding:3rem 5% 3rem 5%;
+  
+  
+    `}
 `;
 
 export const ImageWrapper = styled.div`
   height: 22rem;
-  flex: 1;
+  width: 220px;
   overflow: hidden;
   position: relative;
   border-radius: 0.5rem 0rem 0rem 0.5rem;

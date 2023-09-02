@@ -20,29 +20,7 @@ import Arrows from "../Arrows";
 import "react-multi-carousel/lib/styles.css";
 import { Media } from "../../strapi/types";
 import Image from "../Image";
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 4000, min: 1380 },
-    items: 2.5,
-  },
-  desktop2: {
-    breakpoint: { max: 1380, min: 1200 },
-    items: 2.2,
-  },
-  desktop3: {
-    breakpoint: { max: 1200, min: 920 },
-    items: 1.7,
-  },
-  desktop5: {
-    breakpoint: { max: 920, min: 767 },
-    items: 1.5,
-  },
-  desktop4: {
-    breakpoint: { max: 767, min: 0 },
-    items: 1,
-  },
-};
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export type ActivityType = {
   cover: Media;
@@ -74,9 +52,7 @@ export const ActivityComponent = ({
 
         <ActivityTitle>{title}</ActivityTitle>
         <DescriptionContent>
-          <Description>
-            {articles[0].content[0].substring(0, 120)}...
-          </Description>
+          <Description>{articles[0].content.substring(0, 120)}...</Description>
           <Button href={`/activities/${id}`}>{action}</Button>
         </DescriptionContent>
       </ActivityContent>
@@ -88,8 +64,11 @@ export type ActivitiesProps = {
   action: string;
   data: ActivityType[];
 };
-const Avtivities = ({ title, data, action }: ActivitiesProps) => {
+const Avtivities = ({ title, data: kk, action }: ActivitiesProps) => {
+  const data = [kk[0], kk[0], kk[0], kk[0], kk[0]];
   const ref = useRef(null);
+  const { width } = useWindowSize();
+
   const handleNextSlide = () => {
     //@ts-ignore
     ref?.current?.next();
@@ -100,10 +79,43 @@ const Avtivities = ({ title, data, action }: ActivitiesProps) => {
 
     ref?.current?.previous();
   };
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 4000, min: 1510 },
+      items: Math.min(2.2, data.length),
+    },
+    desktop2: {
+      breakpoint: { max: 1510, min: 1270 },
+      items: Math.min(1.9, data.length),
+    },
+    desktop3: {
+      breakpoint: { max: 1270, min: 1000 },
+      items: Math.min(1.5, data.length),
+    },
+    desktop5: {
+      breakpoint: { max: 1000, min: 860 },
+      items: Math.min(1.3, data.length),
+    },
+    desktop4: {
+      breakpoint: { max: 860, min: 0 },
+      items: 1,
+    },
+  };
+  const items = Object.values(responsive).find(
+    //@ts-ignore
+    ({ breakpoint: { max, min } }) => width <= max && width > min
+  )?.items;
+  const padding =
+    //@ts-ignore
+    (width -
+      //@ts-ignore
+      items * 640) /
+    2;
   return (
     <Wrapper>
       <Title>{title}</Title>
-      <ActivitiesWrapper>
+      <ActivitiesWrapper length={items || 0} padding={padding}>
         <CustomCarousel
           infinite={true}
           responsive={responsive}

@@ -1,30 +1,17 @@
+import Activities, { ActivitiesProps } from "../../components/activities";
 import Goals, { GoalsProps } from "../../components/goals";
-import RootLayout, {
-  LayoutProps,
-  getLayoytStaticProps,
-} from "../../components/layout";
+import { getLayoytStaticProps } from "../../components/layout";
 import Numbers, { NumbersProps } from "../../components/numbers";
 import Article, { ArticleProps } from "../../components/who-us/article";
 import Cover, { CoverProps } from "../../components/who-us/cover";
-import Activities, { ActivitiesProps } from "../../components/activities";
 
-import {
-  medias,
-  mockActivities,
-  mockExperiences,
-  mockPartners,
-  programs,
-} from "../../utils/constants";
+import { flatten } from "lodash";
+import Experiences, { ExperiencesProps } from "../../components/experiences";
 import Media, { MediaProps } from "../../components/media";
 import Partners, { PartnersProps } from "../../components/partners";
-import Experiences, { ExperiencesProps } from "../../components/experiences";
-import Navbar, {
-  ProgramsNavbarProps,
-  Sections,
-} from "../../components/programNavbar";
-import { flatten } from "lodash";
-import { getProgram, getPrograms } from "../../strapi/api";
+import Navbar, { ProgramsNavbarProps } from "../../components/programNavbar";
 import WithLayout from "../../hoc";
+import { getProgram, getPrograms } from "../../strapi/api";
 export type ProgramProps = {
   title: string;
   program: {
@@ -50,11 +37,12 @@ export enum ENavbarSections {
   EXPERIENCES = "experiences",
 }
 const Program = ({ data }: { data: ProgramProps }) => {
+  console.log("data", data);
   const { program, activities, media, partners, experiences, sections } = data;
   return (
     <>
       <>
-        <Cover {...program.cover}></Cover>
+        {/* <Cover {...program.cover}></Cover>
         <Navbar {...sections} />
         <div id={ENavbarSections.PRESENTATION}>
           <Article {...program.articles} />
@@ -64,11 +52,11 @@ const Program = ({ data }: { data: ProgramProps }) => {
         </div>
         <div id={ENavbarSections.NUMBERS}>
           <Numbers {...program.numbers} />
-        </div>
+        </div> */}
         <div id={ENavbarSections.ACTIVITIES}>
           <Activities {...activities} />
         </div>
-        <div id={ENavbarSections.MEDIAS}>
+        {/* <div id={ENavbarSections.MEDIAS}>
           <Media {...media} />
         </div>
         <div id={ENavbarSections.PARTNERS}>
@@ -76,7 +64,7 @@ const Program = ({ data }: { data: ProgramProps }) => {
         </div>
         <div id={ENavbarSections.EXPERIENCES}>
           <Experiences {...experiences} />
-        </div>
+        </div> */}
       </>
     </>
   );
@@ -122,4 +110,4 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
   };
 }
 
-export default WithLayout(Program);
+export default Program;
