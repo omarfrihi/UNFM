@@ -42,6 +42,7 @@ export const SubMenu = styled.div`
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.3s linear;
+  overflow: hidden;
 `;
 export const Item = styled.div<{ active?: boolean; path?: string }>`
   white-space: nowrap;
@@ -74,14 +75,13 @@ export const Title = styled.div`
 `;
 
 export const SubItem = styled(Item)`
-  overflow: hidden;
   text-decoration: none;
   padding: 0.7rem 0.7rem;
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[400]};
-
   :hover {
     background-color: ${({ theme }) => theme.colors.white[300]};
+    overflow: hidden;
   }
 `;
 
