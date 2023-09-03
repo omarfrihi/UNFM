@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { responsive } from "../../styles/mixins";
+import CircleIcon from "@mui/icons-material/Circle";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,6 +29,7 @@ export const UnderLine = styled.div`
 `;
 
 export const Card = styled.div`
+  margin: 1rem 0rem;
   height: 100%;
   align-items: stretch;
   padding: 1.5rem;
@@ -42,18 +44,69 @@ export const Card = styled.div`
   );
 `;
 export const CardWrapper = styled.div`
-  padding: 1rem;
-  flex-basis: 50%;
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  position: relative;
+  flex: 1;
+`;
+export const CircleWrapper = styled.div<{ direction: Direction }>`
+  display: flex;
+  align-items: center;
+  transform: translateX(
+    ${({ direction }) => (direction === Direction.RIGHT ? `-25px` : "25px")}
+  );
   ${responsive.sm`
-  flex-basis: 100%;
-  `};
+  display:none;
+  `}
 `;
 
-export const CardsContainer = styled.div`
+export enum Direction {
+  LEFT = "left",
+  RIGHT = "right",
+}
+export const Circle = styled(CircleIcon)<{
+  clr?: string;
+}>(({ clr }) => ({
+  color: clr,
+  fontSize: "15px",
+}));
+
+export const Bar = styled.div<{ color?: string; invisible?: boolean }>`
+  width: 2px;
+  height: 100%;
+  flex: 1;
+  background-color: ${({ color, invisible = false }) =>
+    invisible ? "transparent" : color};
+`;
+
+export const BarWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
+  flex-direction: column;
+  ${responsive.sm`
+  display:none;
+  `}
+`;
+
+export const CardsContainer = styled.div<{ direction: Direction }>`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transform: translateX(
+    ${({ direction }) => (direction === Direction.RIGHT ? `-` : "")}32px
+  );
+  ${responsive.sm`
+  transform :unset;
+  `}
+`;
+
+export const CardsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  ${responsive.sm`
+  flex-direction:column;
+  `}
 `;
 
 export const Content = styled.p`

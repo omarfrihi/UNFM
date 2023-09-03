@@ -403,6 +403,7 @@ const programFormatter = ({
         data: numbersFormat(attributes.numbers.list),
       },
       goals: {
+        color: attributes.color,
         title: getSection(ENavbarSections.GOALS)?.title as string,
         data: attributes.objectifs.list.map(({ logo, content }) => ({
           content,
