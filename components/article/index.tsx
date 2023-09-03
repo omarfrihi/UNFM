@@ -22,7 +22,12 @@ const Article = ({ data: { image, content }, action }: ArticleProps) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image layout="responsive" placeholder="blur" src={image}></Image>
+        <Image
+          layout="responsive"
+          placeholder="blur"
+          src={image}
+          width={250}
+        ></Image>
       </ImageWrapper>
       <Content>
         <ReactMarkdown>{content}</ReactMarkdown>

@@ -35,13 +35,6 @@ export const ImageWrapper = styled.div`
   width:100%;
   flex:unset;
   `}
-
-  border-radius: 0.5rem 0.5rem 0.5rem 9rem;
-  border: 0.3px solid ${({ theme }) => theme.colors.blue[100]};
-  img {
-    transform: translate(9px, -7px);
-    border-radius: 0 0 0 9rem;
-  }
 `;
 
 export const Title = styled.h1`

@@ -65,7 +65,7 @@ const Home = ({ data }: { data: HomeProps }) => {
       <Numbers {...numbers} />
       <Goals {...goals} />
       <Programs {...programs} />
-      <Tools {...tools} />
+      {/* <Tools {...tools} /> */}
       <Avtivities {...activities} />
       <Media {...media} />
       <Experiences {...experiences} />
