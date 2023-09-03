@@ -26,7 +26,6 @@ padding: 0.5rem 0%;
 `;
 
 export const ContactUs = styled.span`
-  font-family: Poppins;
   font-size: 0.7rem;
   font-style: normal;
   font-weight: 300;

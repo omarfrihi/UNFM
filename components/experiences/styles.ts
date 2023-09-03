@@ -23,7 +23,7 @@ export const ExperiencesWrapper = styled.div`
 export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.white[100]};
   text-align: center;
-  font-family: Poppins;
+
   font-size: 2rem;
   font-style: normal;
   font-weight: 600;
@@ -40,7 +40,7 @@ export const Experience = styled.div`
 export const Name = styled.span`
   color: ${({ theme }) => theme.colors.white[100]};
   text-align: center;
-  font-family: Poppins;
+
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -50,7 +50,7 @@ export const Name = styled.span`
 export const Fonction = styled.span`
   color: ${({ theme }) => theme.colors.green[200]};
   text-align: center;
-  font-family: Poppins;
+
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 500;
@@ -85,7 +85,7 @@ export const EndContent = styled.div`
 export const ContentText = styled.span`
   color: ${({ theme }) => theme.colors.white[200]};
   text-align: justify;
-  font-family: Poppins;
+
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;

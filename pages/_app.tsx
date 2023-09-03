@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
-          href="'https://fonts.cdnfonts.com/css2?family=Gelasio:wght@100;200;300;400;500;600;700;800'"
+          href="'https://fonts.cdnfonts.com/css/red-hat-display?styles=45849,45847,45844,45842,45855,45853,45850'"
         />
       </Head>
       <ThemeProvider>

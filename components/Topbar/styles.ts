@@ -22,7 +22,6 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.span`
-  font-family: Poppins;
   font-size: 0.6875rem;
   font-style: normal;
   font-weight: 800;

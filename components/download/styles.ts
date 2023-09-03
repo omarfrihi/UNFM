@@ -47,7 +47,7 @@ export const Buttons = styled.div`
 export const Text = styled.span`
   color: #000;
   text-align: center;
-  font-family: Poppins;
+
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
