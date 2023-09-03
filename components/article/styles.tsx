@@ -39,7 +39,7 @@ export const ImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   img {
-    width: 250px !importants;
+    width: 180px !important;
   }
 `;
 
