@@ -80,7 +80,7 @@ export const SubItem = styled(Item)`
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[400]};
   :hover {
-    background-color: ${({ theme }) => theme.colors.white[300]};
+    background-color: ${({ theme }) => theme.colors.white[100]};
     overflow: hidden;
   }
 `;
@@ -89,8 +89,10 @@ export const ProgramsWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
   gap: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
 `;
 
 export const ProgramsContent = styled("div")`
@@ -105,8 +107,8 @@ export const Buttons = styled("div")`
 
 export const Slide = styled.div`
   border-radius: 0.5rem;
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,5 +121,4 @@ export const SlideWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.03);
 `;
