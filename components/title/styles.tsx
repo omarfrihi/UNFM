@@ -10,9 +10,9 @@ export const Title = styled.h1`
   margin: 0.2rem;
 `;
 
-export const UnderLine = styled.div`
+export const UnderLine = styled.div<{ clr?: string }>`
   margin: 0rem 20%;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.green[200]};
+  border-bottom: 1px solid ${({ theme, clr }) => clr || theme.colors.green[200]};
 `;
 
 export const Wrapper = styled.div`

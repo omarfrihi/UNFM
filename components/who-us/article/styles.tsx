@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
+import { Button, alpha } from "@mui/material";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { responsive } from "../../../styles/mixins";
@@ -54,9 +54,7 @@ flex-direction:column;
 gap:2rem;
 margin-bottom:1rem;
 flex: 1;
-h1 {
-  color:${({ theme }) => theme.colors.blue[100]};
-}
+
 
 `;
 
@@ -100,7 +98,7 @@ export const ButtonText = styled.span`
   text-transform: capitalize;
 `;
 
-export const Article = styled("div")`
+export const Article = styled("div")<{ clr?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +109,8 @@ export const Article = styled("div")`
   gap: 2em;
 
   `};
-  background-color: rgba(216, 150, 32, 0.06);
+  background-color: ${({ clr }) =>
+    clr ? alpha(clr, 0.06) : "rgba(216, 150, 32, 0.06)"};
 
   padding: 2rem 15%;
   align-items: center;

@@ -16,9 +16,10 @@ export type ArticleProps = {
     image: Media;
     content: string;
   }[];
+  color?: string;
 };
 
-const Article = ({ data }: ArticleProps) => (
+const Article = ({ data, color }: ArticleProps) => (
   <Wrapper>
     {data.map(({ image, content }) => (
       <ArticleContainer key={content}>

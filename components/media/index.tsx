@@ -28,10 +28,11 @@ export type MediaProps = {
   }[];
   title: string;
   action: { text: string; link: string };
+  color?: string;
 };
-const Media = ({ data, title, action: { text, link } }: MediaProps) => (
+const Media = ({ color, data, title, action: { text, link } }: MediaProps) => (
   <Wrapper>
-    <Title>{title}</Title>
+    <Title color={color}>{title}</Title>
     <Medias>
       {data.map(({ title, type, src, id }) => (
         <MediaContainer key={title}>

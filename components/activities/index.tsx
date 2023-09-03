@@ -63,8 +63,9 @@ export type ActivitiesProps = {
   title: string;
   action: string;
   data: ActivityType[];
+  color?: string;
 };
-const Avtivities = ({ title, data, action }: ActivitiesProps) => {
+const Avtivities = ({ title, data, action, color }: ActivitiesProps) => {
   const ref = useRef(null);
   const { width } = useWindowSize();
 
@@ -113,7 +114,7 @@ const Avtivities = ({ title, data, action }: ActivitiesProps) => {
     2;
   return (
     <Wrapper>
-      <Title>{title}</Title>
+      <Title color={color}>{title}</Title>
       <ActivitiesWrapper length={items || 0} padding={padding}>
         <CustomCarousel
           infinite={true}

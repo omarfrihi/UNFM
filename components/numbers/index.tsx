@@ -17,8 +17,9 @@ import { Media } from "../../strapi/types";
 export type NumbersProps = {
   logo?: Media;
   data: { number: string; description: string; logo: Media }[];
+  color?: string;
 };
-const Numbers = ({ data, logo }: NumbersProps) => (
+const Numbers = ({ data, logo, color }: NumbersProps) => (
   <Wrapper>
     <ImgWrapper>
       {logo ? (
@@ -31,7 +32,7 @@ const Numbers = ({ data, logo }: NumbersProps) => (
       {data.map(({ number, description, logo }) => (
         <NumberWrapper key={number}>
           <Image width={40} height={40} src={logo}></Image>
-          <Number>{number}</Number>
+          <Number clr={color}>{number}</Number>
           <Text>{description}</Text>
         </NumberWrapper>
       ))}

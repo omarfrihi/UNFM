@@ -390,6 +390,7 @@ const programFormatter = ({
     program: {
       articles: {
         data: articleFotmat(attributes.articles.list),
+        color: attributes.color,
       },
       cover: {
         data: {
@@ -399,6 +400,7 @@ const programFormatter = ({
         },
       },
       numbers: {
+        color: attributes.color,
         logo: attributes.logo,
         data: numbersFormat(attributes.numbers.list),
       },
@@ -412,6 +414,7 @@ const programFormatter = ({
       },
     },
     activities: {
+      color: attributes.color,
       title: getSection(ENavbarSections.ACTIVITIES)?.title as string,
       action: getSection(ENavbarSections.ACTIVITIES)?.call_to_action as string,
       data: activities.map(
@@ -426,6 +429,7 @@ const programFormatter = ({
     },
 
     media: {
+      color: attributes.color,
       data: medias.map(
         ({ id, attributes: { title, type, video_link, photo } }) => ({
           title,
@@ -451,6 +455,7 @@ const programFormatter = ({
       })),
     },
     partners: {
+      color: attributes.color,
       title: getSection(ENavbarSections.PARTNERS)?.label as string,
       data: [
         {

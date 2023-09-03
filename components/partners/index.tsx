@@ -24,8 +24,9 @@ const settings = {
 export type PartnersProps = {
   title: string;
   data: { title: string; partners: Media[] }[];
+  color?: string;
 };
-const Partners = ({ title, data }: PartnersProps) => {
+const Partners = ({ title, data, color }: PartnersProps) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -55,7 +56,7 @@ const Partners = ({ title, data }: PartnersProps) => {
   };
   return (
     <Wrapper>
-      <Title>{title}</Title>
+      <Title color={color}>{title}</Title>
       <List>
         {data.map(({ title, partners }) => (
           <Line key={title}>

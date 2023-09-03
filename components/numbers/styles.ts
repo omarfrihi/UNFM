@@ -50,8 +50,8 @@ export const NumberWrapper = styled.div`
   `}
 `;
 
-export const Number = styled.span`
-  color: ${({ theme }) => theme.colors.green[300]};
+export const Number = styled.span<{ clr?: string }>`
+  color: ${({ theme, clr }) => clr || theme.colors.green[300]};
   text-align: center;
 
   font-size: 2.25rem;
