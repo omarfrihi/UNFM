@@ -113,7 +113,7 @@ const Avtivities = ({ title, data, action, color }: ActivitiesProps) => {
       items * 640) /
     2;
   return (
-    <Wrapper>
+    <Wrapper color={color}>
       <Title color={color}>{title}</Title>
       <ActivitiesWrapper length={items || 0} padding={padding}>
         <CustomCarousel

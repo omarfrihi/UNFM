@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { alpha } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -20,6 +21,34 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
+  ${({ color }) =>
+    color
+      ? `
+    border-radius: 18.75rem;
+   
+    background: linear-gradient(
+      180deg,
+      ${alpha(color, 0.06)} 0%,
+      ${alpha(color, 0.0)} 100%
+    );
+    @media (max-width: 1200px) {
+      border-radius: 12rem;
+
+    }
+
+    @media (max-width: 767px) {
+      border-radius: 8rem;
+
+    }
+
+    @media (max-width: 540px) {
+      border-radius: 5rem;
+
+    }
+  
+
+`
+      : ""}
 `;
 
 export const PartnerTitle = styled.span`

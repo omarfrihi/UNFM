@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { responsive } from "../../styles/mixins";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { alpha } from "@mui/material";
 
 export const CustomCarousel = styled(Carousel)`
   & .react-multi-carousel-item {
@@ -20,12 +21,41 @@ export const CustomCarousel = styled(Carousel)`
   `}
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ color?: string }>`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
   padding: 2rem 0rem;
+
+  ${({ color }) =>
+    color
+      ? `
+      border-radius: 18.75rem;
+     
+      background: linear-gradient(
+        180deg,
+        ${alpha(color, 0.06)} 0%,
+        ${alpha(color, 0.0)} 100%
+      );
+      @media (max-width: 1200px) {
+        border-radius: 12rem;
+
+      }
+
+      @media (max-width: 767px) {
+        border-radius: 8rem;
+
+      }
+
+      @media (max-width: 540px) {
+        border-radius: 5rem;
+
+      }
+    
+ 
+  `
+      : ""}
 `;
 
 export const Activity = styled.div`

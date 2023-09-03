@@ -55,7 +55,7 @@ const Partners = ({ title, data, color }: PartnersProps) => {
     },
   };
   return (
-    <Wrapper>
+    <Wrapper color={color}>
       <Title color={color}>{title}</Title>
       <List>
         {data.map(({ title, partners }) => (

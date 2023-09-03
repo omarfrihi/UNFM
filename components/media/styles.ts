@@ -1,16 +1,47 @@
 import styled from "@emotion/styled";
+import { alpha } from "@mui/material";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ color?: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3rem 5%;
   gap: 2rem;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 45, 131, 0.06) 0%,
-    rgba(0, 45, 131, 0.06) 100%
-  );
+
+  ${({ color }) =>
+    color
+      ? `
+    border-radius: 18.75rem;
+   
+    background: linear-gradient(
+      180deg,
+      ${alpha(color, 0.06)} 0%,
+      ${alpha(color, 0.0)} 100%
+    );
+    @media (max-width: 1200px) {
+      border-radius: 12rem;
+
+    }
+
+    @media (max-width: 767px) {
+      border-radius: 8rem;
+
+    }
+
+    @media (max-width: 540px) {
+      border-radius: 5rem;
+
+    }
+  
+
+`
+      : `
+    background: linear-gradient(
+      180deg,
+      rgba(0, 45, 131, 0.06) 0%,
+      rgba(0, 45, 131, 0.06) 100%
+    );
+    `}
 `;
 
 export const Title = styled.h1`
