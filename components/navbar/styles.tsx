@@ -74,6 +74,9 @@ export const Title = styled.div`
   align-items: center;
   font-weight: 700;
   font-size: 1rem;
+  ${responsive.lg`
+  font-size: 0.8rem;
+  `}
 `;
 
 export const SubItem = styled(Item)`
