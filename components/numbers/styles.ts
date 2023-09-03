@@ -56,7 +56,7 @@ export const Number = styled.span`
 
   font-size: 2.25rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 2.25rem;
   letter-spacing: 0.1875rem;
 `;
@@ -65,7 +65,7 @@ export const Text = styled.span`
   color: ${({ theme }) => theme.colors.grey[200]};
   text-align: center;
 
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
