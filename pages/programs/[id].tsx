@@ -110,4 +110,4 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
   };
 }
 
-export default Program;
+export default WithLayout(Program);
