@@ -72,6 +72,7 @@ export const Item = styled.div<{ active?: boolean; path?: string }>`
 export const Title = styled.div`
   display: flex;
   align-items: center;
+  font-weight: 500;
 `;
 
 export const SubItem = styled(Item)`

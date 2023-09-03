@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
-          href="'https://fonts.cdnfonts.com/css/gelasio'"
+          href="'https://fonts.cdnfonts.com/css/gelasio:wght@100;200;300;400;500;600;700;800'"
         />
       </Head>
       <ThemeProvider>
