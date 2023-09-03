@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { responsive } from "../../styles/mixins";
+
 export const Wrapper = styled.div<{ path?: string }>`
   display: flex;
   padding: 0rem 16%;
@@ -33,12 +34,14 @@ export const NavarbarItems = styled.div`
 export const SubMenu = styled.div`
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
-  display: none;
   position: absolute;
   background-color: ${({ theme }) => theme.colors.white[200]};
   width: fit-content;
   right: 0;
   flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 `;
 export const Item = styled.div<{ active?: boolean; path?: string }>`
   white-space: nowrap;
@@ -57,7 +60,8 @@ export const Item = styled.div<{ active?: boolean; path?: string }>`
   font-weight: 600;
   line-height: normal;
   :hover div {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
   }
 
   ${responsive.lg`
