@@ -35,6 +35,12 @@ export const ImageWrapper = styled.div`
   width:100%;
   flex:unset;
   `}
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 250px !importants;
+  }
 `;
 
 export const Title = styled.h1`
