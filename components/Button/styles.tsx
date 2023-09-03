@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const ShowMore = styled("div")`
   background-color: ${({ theme }) => theme.colors.blue[100]};
   border-radius: 6.5rem;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 1.3rem;
   border: none;
   display: flex;
   align-items: center;

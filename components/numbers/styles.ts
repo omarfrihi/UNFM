@@ -28,7 +28,7 @@ export const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: transparent;
-  transform: translateY(60px);
+  transform: translateY(48px);
   display: flex;
   justify-content: center;
   img {
