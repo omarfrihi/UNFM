@@ -14,7 +14,6 @@ export const ShowMore = styled("div")`
 `;
 
 export const ButtonText = styled.span`
-  font-family: Gilroy;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 500;

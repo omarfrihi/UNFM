@@ -63,7 +63,7 @@ export const LangWrapper = styled.div`
 export const Lang = styled.span<{ active?: boolean }>`
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[100]};
-  font-family: Gilroy;
+
   font-size: 0.9em;
   font-style: normal;
   font-weight: 700;

@@ -60,7 +60,7 @@ export const DescriptionContent = styled.div`
 export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.blue[100]};
   text-align: justify;
-  font-family: Gilroy;
+
   font-size: 1em;
   font-style: normal;
   font-weight: 600;
@@ -69,7 +69,7 @@ export const Title = styled.h1`
 export const Description = styled.span`
   color: ${({ theme }) => theme.colors.grey[200]};
   text-align: justify;
-  font-family: Gilroy;
+
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 400;
@@ -79,7 +79,7 @@ export const Description = styled.span`
 export const ActivityTag = styled.div`
   color: ${({ theme }) => theme.colors.green[200]};
   background-color: ${({ theme }) => theme.colors.white[200]};
-  font-family: Gilroy;
+
   font-size: 0.5rem;
   font-style: normal;
   font-weight: 700;

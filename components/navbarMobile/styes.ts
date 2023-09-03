@@ -10,7 +10,7 @@ export const EndIcon = styled(ArrowDropDownIcon)`
 export const Item = styled.div<{ active?: boolean }>`
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[200]};
-  font-family: Gilroy;
+
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 600;
@@ -24,7 +24,7 @@ export const Title = styled.div<{ active?: boolean }>`
 export const SubItem = styled.div<{ active?: boolean }>`
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[200]};
-  font-family: Gilroy;
+
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;

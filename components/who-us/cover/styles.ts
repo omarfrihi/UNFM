@@ -35,7 +35,7 @@ export const LoogWrapper = styled("div")`
 export const Title = styled("span")`
   color: #2e2e2e;
   text-align: center;
-  font-family: Gilroy;
+
   font-size: 1.8rem;
   font-style: normal;
   font-weight: 500;

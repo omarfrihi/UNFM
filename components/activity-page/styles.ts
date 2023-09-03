@@ -43,11 +43,11 @@ export const Search = styled(OutlinedInput)`
   width: 15rem;
   input {
     padding: 0.5rem;
-    font-family: Gilroy;
+
     font-size: 0.8rem;
     ::placeholder {
       color: rgba(17, 17, 17, 0.48);
-      font-family: Gilroy;
+
       font-size: 0.8rem;
       font-style: normal;
       font-weight: 500;
@@ -61,10 +61,10 @@ export const SelectFilter = styled(Select)`
   height: 2.3rem;
   & .MuiOutlinedInput-input {
     color: rgba(17, 17, 17);
-    font-family: Gilroy;
+
     font-size: 0.8rem;
     color: ${({ theme }) => theme.colors.blue[100]};
-    font-family: Gilroy;
+
     font-style: normal;
     font-weight: 600;
     text-transform: capitalize;

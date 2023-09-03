@@ -55,7 +55,7 @@ export const Item = styled.div<{ active?: boolean; path?: string }>`
       : theme.colors.grey[400]};
   text-decoration: ${({ active }) => (active ? "underline" : "none")};
   text-underline-offset: 4px;
-  font-family: Gilroy;
+
   font-size: 0.85rem;
   font-style: normal;
   font-weight: 600;

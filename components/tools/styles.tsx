@@ -71,7 +71,7 @@ export const ContentWrapper = styled.div`
 export const Description = styled.span`
   color: ${({ theme }) => theme.colors.white[200]};
   text-align: center;
-  font-family: Gilroy;
+
   font-size: 0.7rem;
   font-style: normal;
   font-weight: 600;

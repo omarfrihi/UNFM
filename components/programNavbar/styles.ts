@@ -26,7 +26,7 @@ export const Title = styled.span<{ active: boolean }>`
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[200]};
   text-align: center;
-  font-family: Gilroy;
+
   font-size: 0.9rem;
   font-style: normal;
   font-weight: 600;

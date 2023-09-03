@@ -54,13 +54,17 @@ flex-direction:column;
 gap:2rem;
 margin-bottom:1rem;
 flex: 1;
+h1 {
+  font-family:Gelasio;
+  color:${({ theme }) => theme.colors.blue[100]}
+}
 
 `;
 
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.grey[200]};
   text-align: justify;
-  font-family: Gilroy;
+
   font-size: 1rem;
   font-style: normal;
   font-weight: 350;
@@ -91,7 +95,6 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ButtonText = styled.span`
-  font-family: Gilroy;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 500;
