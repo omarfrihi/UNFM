@@ -101,6 +101,7 @@ export const CardsContainer = styled.div<{ direction: Direction }>`
 `;
 
 export const CardsWrapper = styled.div`
+  max-width: 1400px;
   display: flex;
   align-items: center;
   flex: 1;
