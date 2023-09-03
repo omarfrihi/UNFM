@@ -107,8 +107,8 @@ const Programs = ({ data, title }: ProgramsProps) => {
           ref={ref}
         >
           {data.map(({ id, image }) => (
-            <Link href={`/programs/${id}`}>
-              <SlideWrapper key={id}>
+            <Link href={`/programs/${id}`} key={id}>
+              <SlideWrapper>
                 <Slide>
                   <ImageContainer>
                     <Image src={image} layout="fill" objectFit="contain" />
