@@ -41,7 +41,7 @@ export const SubMenu = styled.div`
   flex-direction: column;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.3s linear;
 `;
 export const Item = styled.div<{ active?: boolean; path?: string }>`
   white-space: nowrap;
@@ -74,9 +74,9 @@ export const Title = styled.div`
 `;
 
 export const SubItem = styled(Item)`
+  overflow: hidden;
   text-decoration: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0.7rem;
+  padding: 0.7rem 0.7rem;
   color: ${({ theme, active }) =>
     active ? theme.colors.green[200] : theme.colors.grey[400]};
 
