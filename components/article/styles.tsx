@@ -59,6 +59,10 @@ flex-direction:column;
 gap:2rem;
 margin-bottom:1rem;
 flex: 1;
+h1 {
+  font-family:Gelasio;
+  color:${({ theme }) => theme.colors.blue[100]}
+}
 
 `;
 
