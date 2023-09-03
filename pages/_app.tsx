@@ -12,6 +12,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="description" content="unfm" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="'https://fonts.cdnfonts.com/css/gelasio'"
+        />
       </Head>
       <ThemeProvider>
         <Component {...pageProps} />
