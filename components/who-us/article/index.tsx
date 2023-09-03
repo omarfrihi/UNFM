@@ -22,7 +22,7 @@ export type ArticleProps = {
 const Article = ({ data, color }: ArticleProps) => (
   <Wrapper>
     {data.map(({ image, content }) => (
-      <ArticleContainer key={content} color={color}>
+      <ArticleContainer key={content} clr={color}>
         <Content>
           <ReactMarkdown>{content}</ReactMarkdown>
         </Content>
