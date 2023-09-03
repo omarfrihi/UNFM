@@ -3,25 +3,18 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 import { responsive } from "../../styles/mixins";
 
-export const Wrapper = styled.div`
-  padding: 4rem 10%;
+export const Wrapper = styled.div<{ padding: number }>`
+  padding: 4rem ${({ padding }) => padding}px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
-  ${responsive.xl`
-  padding: 4rem 5%;
-  gap: 1rem;
-
-  
-  `}
-
+  gap: 16px;
   ${responsive.lg`
 flex-direction:column;
 gap: 2rem;
 
   
-  `}
+  `};
 `;
 
 export const BottomArrows = styled.div`
@@ -41,11 +34,12 @@ export const LeftArrows = styled.div`
 `;
 
 export const Actions = styled.div`
-  padding: 0rem 3rem;
+  padding: 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  width: 290px;
 `;
 
 export const Title = styled.h1`
@@ -89,14 +83,20 @@ export const List = styled.div`
 export const Slide = styled.div`
   border-radius: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.blue[100]};
-  height: 15rem;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-`;
-export const SlideWrapper = styled.div`
-  padding: 1rem;
+  padding: 1.5rem;
 `;
 
+export const ImageContainer = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+`;
+export const SlideWrapper = styled.div`
+  padding: 0.9rem;
+`;
 export const Carousel = styled(Slider)``;

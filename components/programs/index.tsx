@@ -1,8 +1,15 @@
+import Image from "../Image";
+import { useRef } from "react";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import Arrows from "../Arrows";
+import Title from "../title";
 import {
   Actions,
   BottomArrows,
-  Button,
-  Buttons,
+  ImageContainer,
   LeftArrows,
   List,
   Slide,
@@ -10,27 +17,16 @@ import {
   UnderLine,
   Wrapper,
 } from "./styles";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import React, { useRef } from "react";
-import Image from "../Image";
-import Title from "../title";
-import Arrows from "../Arrows";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { Media } from "../../strapi/types";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const CustomCarousel = styled(Carousel)`
   & .react-multi-carousel-item {
     div {
-      width: 100%;
+      width: 240px;
     }
   }
 `;
@@ -43,25 +39,26 @@ var settings = {
   arrows: false,
 };
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 4000, min: 900 },
-    items: 3,
-  },
-  desktop2: {
-    breakpoint: { max: 900, min: 575.98 },
-    items: 2,
-  },
-  desktop3: {
-    breakpoint: { max: 575.98, min: 0 },
-    items: 1,
-  },
-};
 export type ProgramsProps = {
   data: { id: number; image: Media }[];
   title: string;
 };
 const Programs = ({ data, title }: ProgramsProps) => {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 4000, min: 900 },
+      items: Math.min(3, data.length),
+    },
+    desktop2: {
+      breakpoint: { max: 900, min: 575.98 },
+      items: Math.min(2, data.length),
+    },
+    desktop3: {
+      breakpoint: { max: 575.98, min: 0 },
+      items: 1,
+    },
+  };
+
   const ref = useRef(null);
   const handleNextSlide = () => {
     //@ts-ignore
@@ -73,8 +70,24 @@ const Programs = ({ data, title }: ProgramsProps) => {
 
     ref?.current?.previous();
   };
+  const { width } = useWindowSize();
+
+  const items = Object.values(responsive).find(
+    //@ts-ignore
+    ({ breakpoint: { max, min } }) => width <= max && width > min
+  )?.items;
+  const padding =
+    //@ts-ignore
+    (width -
+      //@ts-ignore
+      items * 270 -
+      //@ts-ignore
+
+      (width <= 1200 ? 0 : 306)) /
+    2;
+
   return (
-    <Wrapper>
+    <Wrapper padding={padding}>
       <Actions>
         <div>
           <Title>{title}</Title>
@@ -94,13 +107,15 @@ const Programs = ({ data, title }: ProgramsProps) => {
           ref={ref}
         >
           {data.map(({ id, image }) => (
-            <SlideWrapper key={id}>
-              <Link href={`/programs/${id}`}>
+            <Link href={`/programs/${id}`}>
+              <SlideWrapper key={id}>
                 <Slide>
-                  <Image src={image} placeholder="blur" height={130} />
+                  <ImageContainer>
+                    <Image src={image} layout="fill" objectFit="contain" />
+                  </ImageContainer>
                 </Slide>
-              </Link>
-            </SlideWrapper>
+              </SlideWrapper>
+            </Link>
           ))}
         </CustomCarousel>
       </List>
