@@ -90,7 +90,7 @@ export const ProgramsWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 1rem 2rem;
   gap: 1rem;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
