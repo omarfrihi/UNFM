@@ -66,7 +66,8 @@ export const List = styled.div`
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  padding: 0rem 0% 0rem 10%;
+  padding: 0rem ${({ color }) => (color ? 5 : 0)}% 0rem
+    ${({ color }) => (color ? 5 : 10)}%;
 `;
 
 export const Partner = styled.div`

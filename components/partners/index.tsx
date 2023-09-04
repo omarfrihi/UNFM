@@ -12,6 +12,7 @@ import {
   Wrapper,
 } from "./styles";
 import { Media } from "../../strapi/types";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const settings = {
   infinite: false,
@@ -26,6 +27,36 @@ export type PartnersProps = {
   data: { title: string; partners: Media[] }[];
   color?: string;
 };
+
+const Strok = ({ width }: { width: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={`${width}`}
+    height="1"
+    viewBox={`"0 0 ${width} 1"`}
+    fill="none"
+  >
+    <path
+      d="M0 0.5H1590"
+      stroke="url(#paint0_linear_1328_6476)"
+      stroke-opacity="0.6"
+    />
+    <defs>
+      <linearGradient
+        id="paint0_linear_1328_6476"
+        x1="1389.16"
+        y1="1.51516"
+        x2="0"
+        y2="1.51516"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#3F4D81" stop-opacity="0" />
+        <stop offset="0.473958" stop-color="#3F4D81" />
+        <stop offset="1" stop-color="#3F4D81" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
 const Partners = ({ title, data, color }: PartnersProps) => {
   const responsive = {
     superLargeDesktop: {
@@ -54,41 +85,64 @@ const Partners = ({ title, data, color }: PartnersProps) => {
       items: 1.4,
     },
   };
+  const { width } = useWindowSize();
   return (
     <Wrapper color={color}>
       <Title color={color}>{title}</Title>
-      <List>
+      {color && (
+        <Strok
+          width={
+            //@ts-ignore
+            `${width - width * 0.3}`
+          }
+        />
+      )}
+      <List color={color}>
         {data.map(({ title, partners }) => (
-          <Line key={title}>
-            <PartnerTitle>{title}</PartnerTitle>
-            <Carousel
-              infinite={true}
-              autoPlay={true}
-              responsive={responsive}
-              removeArrowOnDeviceType={[
-                "desktop",
-                "mobile",
-                "tablet",
-                "desktop2",
-                "superLargeDesktop",
-                "mobile2",
-              ]}
-              swipeable={true}
-              draggable={true}
-              //   {...settings}
-              //   slidesToShow={Math.min(partners.length, 7)}
-            >
-              {partners.map((src, index) => (
-                <PartnerContainer key={index}>
-                  <Partner>
-                    <Image src={src} layout="fill" objectFit="contain"></Image>
-                  </Partner>
-                </PartnerContainer>
-              ))}
-            </Carousel>
-          </Line>
+          <>
+            <Line key={title}>
+              <PartnerTitle>{title}</PartnerTitle>
+              <Carousel
+                infinite={true}
+                autoPlay={true}
+                responsive={responsive}
+                removeArrowOnDeviceType={[
+                  "desktop",
+                  "mobile",
+                  "tablet",
+                  "desktop2",
+                  "superLargeDesktop",
+                  "mobile2",
+                ]}
+                swipeable={true}
+                draggable={true}
+                //   {...settings}
+                //   slidesToShow={Math.min(partners.length, 7)}
+              >
+                {partners.map((src, index) => (
+                  <PartnerContainer key={index}>
+                    <Partner>
+                      <Image
+                        src={src}
+                        layout="fill"
+                        objectFit="contain"
+                      ></Image>
+                    </Partner>
+                  </PartnerContainer>
+                ))}
+              </Carousel>
+            </Line>
+          </>
         ))}
       </List>
+      {color && (
+        <Strok
+          width={
+            //@ts-ignore
+            `${width - width * 0.3}`
+          }
+        />
+      )}
     </Wrapper>
   );
 };
