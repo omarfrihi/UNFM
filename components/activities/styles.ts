@@ -58,11 +58,11 @@ export const Wrapper = styled.div<{ color?: string }>`
       : ""}
 `;
 
-export const Activity = styled.div`
+export const Activity = styled.div<{ list?: boolean }>`
   border-radius: 0.5rem;
   height: 22rem;
   display: flex;
-  padding: 0rem 1rem;
+  padding: 0rem ${({ list }) => (list ? "0.2" : "1")}rem;
 `;
 
 export const ActivityContent = styled.div`
@@ -91,10 +91,16 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.blue[100]};
   text-align: justify;
 
-  font-size: 1em;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: 1.2rem; /* 100% */
+  @media (max-width: 500px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 380px) {
+    font-size: 0.7rem;
+  }
 `;
 export const Description = styled.span`
   color: ${({ theme }) => theme.colors.grey[200]};
@@ -104,6 +110,9 @@ export const Description = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: 1rem; /* 119% */
+  @media (max-width: 500px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export const ActivityTag = styled.div`
@@ -143,9 +152,19 @@ export const ActivitiesWrapper = styled.div<{
     `}
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div<{ list?: boolean }>`
   height: 22rem;
   width: 220px;
+  ${({ list }) =>
+    list
+      ? `
+      @media (max-width: 1200px) {
+        width: 170px;
+
+      }
+  `
+      : ""};
+
   overflow: hidden;
   position: relative;
   border-radius: 0.5rem 0rem 0rem 0.5rem;

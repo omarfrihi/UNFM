@@ -23,6 +23,7 @@ import Image from "../Image";
 import { useWindowSize } from "@uidotdev/usehooks";
 
 export type ActivityType = {
+  list?: boolean;
   cover: Media;
   title: string;
   tag: string;
@@ -41,10 +42,11 @@ export const ActivityComponent = ({
   action,
   id,
   cover,
+  list,
 }: ActivityType) => {
   return (
-    <Activity>
-      <ImageWrapper>
+    <Activity list={list}>
+      <ImageWrapper list={list}>
         <Image src={cover} layout="fill" objectFit="cover" placeholder="blur" />
       </ImageWrapper>
       <ActivityContent>

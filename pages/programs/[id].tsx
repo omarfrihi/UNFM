@@ -42,7 +42,7 @@ const Program = ({ data }: { data: ProgramProps }) => {
   return (
     <>
       <>
-        <Cover {...program.cover}></Cover>
+        {/* <Cover {...program.cover}></Cover>
         <Navbar {...sections} />
         <div id={ENavbarSections.PRESENTATION}>
           <Article {...program.articles} />
@@ -52,7 +52,7 @@ const Program = ({ data }: { data: ProgramProps }) => {
         </div>
         <div id={ENavbarSections.NUMBERS}>
           <Numbers {...program.numbers} />
-        </div>
+        </div> */}
         <div id={ENavbarSections.ACTIVITIES}>
           <Activities {...activities} />
         </div>
@@ -62,9 +62,9 @@ const Program = ({ data }: { data: ProgramProps }) => {
         <div id={ENavbarSections.PARTNERS}>
           <Partners {...partners} />
         </div>
-        <div id={ENavbarSections.EXPERIENCES}>
+        {/* <div id={ENavbarSections.EXPERIENCES}>
           <Experiences {...experiences} />
-        </div>
+        </div> */}
       </>
     </>
   );
@@ -110,4 +110,4 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
   };
 }
 
-export default WithLayout(Program);
+export default Program;
