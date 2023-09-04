@@ -129,6 +129,7 @@ const homepageFormater = ({ attributes }: IHomepage): HomeProps => {
       data: numbersFormat(numbers.list),
     },
     goals: {
+      backgroundImage: objectifs.background_image,
       title: objectifs.title,
       data: objectifs.list.map(({ logo, content }) => ({
         content,
@@ -405,6 +406,7 @@ const programFormatter = ({
         data: numbersFormat(attributes.numbers.list),
       },
       goals: {
+        backgroundImage: attributes.objectifs.background_image,
         color: attributes.color,
         title: getSection(ENavbarSections.GOALS)?.title as string,
         data: attributes.objectifs.list.map(({ logo, content }) => ({

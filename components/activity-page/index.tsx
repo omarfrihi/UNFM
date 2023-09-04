@@ -75,7 +75,7 @@ const Activity = ({ data, filters: { selects, search } }: ActivityProps) => (
       ))}
     </Filter>
     <ActivityWrapper>
-      {[...data, ...data, ...data, ...data].map((activity) => (
+      {data.map((activity) => (
         <SingleActivity key={activity.title}>
           <ActivityComponent {...activity} list />
         </SingleActivity>

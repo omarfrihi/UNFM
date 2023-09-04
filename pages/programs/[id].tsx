@@ -48,7 +48,7 @@ const Program = ({ data }: { data: ProgramProps }) => {
           <Article {...program.articles} />
         </div>
         <div id={ENavbarSections.GOALS}>
-          <Goals {...program.goals} />
+          <Goals {...program.goals} grayMode />
         </div>
         <div id={ENavbarSections.NUMBERS}>
           <Numbers {...program.numbers} />

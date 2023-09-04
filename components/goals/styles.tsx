@@ -1,15 +1,24 @@
 import styled from "@emotion/styled";
 import { responsive } from "../../styles/mixins";
 import CircleIcon from "@mui/icons-material/Circle";
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{
+  backgroundImage: string;
+  grayMode?: boolean;
+}>`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  background-image: url("/assets/goals.png");
+  background: ${({ backgroundImage, theme, grayMode }) =>
+    `url("${backgroundImage}") ${
+      grayMode ? `, ${theme.colors.grey[500]} 50%` : ""
+    }`};
+
   background-size: cover;
   padding: 4rem 10%;
   background-repeat: no-repeat;
+  background-blend-mode: ${({ grayMode }) =>
+    grayMode ? "luminosity" : "normal"};
 `;
 
 export const Title = styled.h1`
