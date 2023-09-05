@@ -80,4 +80,5 @@ const events = [
 
 const T = dynamic(() => import("../components/test/history"), { ssr: false });
 
-export default () => <T />;
+const F = () => <T />;
+export default F;
