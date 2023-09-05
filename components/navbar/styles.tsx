@@ -25,7 +25,7 @@ export const Wrapper = styled.div<{ path?: string }>`
 export const NavarbarItems = styled.div`
   display: flex;
   align-items: center;
-  gap: 2.3rem;
+  gap: 2.15rem;
   ${responsive.lg`
   gap: 1.8rem;
   `}
