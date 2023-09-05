@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Timeline from "timelinejs-react";
 import { HistoryWrapper } from "./styles";
-
+import dayjs from "dayjs";
 const events: Slide[] = [
   {
     start_date: {
@@ -16,11 +16,7 @@ const events: Slide[] = [
       caption: "",
       link: "",
     },
-    end_date: {
-      year: 1990,
-      month: 6,
-      day: 5,
-    },
+
     unique_id: "1",
     text: {
       headline: "Premier centre d’appel et actions dans les 16 régions",
@@ -33,6 +29,7 @@ const events: Slide[] = [
       year: 1995,
       month: 8,
       day: 4,
+      display_date: "frrr",
     },
     media: {
       url: "https://picsum.photos/200/300",
@@ -41,11 +38,7 @@ const events: Slide[] = [
       caption: "",
       link: "",
     },
-    end_date: {
-      year: 1995,
-      month: 8,
-      day: 4,
-    },
+
     unique_id: "2",
     text: {
       headline: "Event2",
@@ -58,6 +51,11 @@ const events: Slide[] = [
       year: 2021,
       month: 8,
       day: 5,
+      display_date: dayjs()
+        .set("month", 8)
+        .set("date", 4)
+        .set("year", 2021)
+        .format("DD MMMM YYYY"),
     },
     media: {
       url: "https://picsum.photos/200/300",
@@ -66,42 +64,31 @@ const events: Slide[] = [
       caption: "",
       link: "",
     },
-    end_date: {
-      year: 2021,
-      month: 8,
-      day: 5,
-    },
+
     unique_id: "3",
     text: {
       headline: "Event3",
-      text: "",
+      text: "mmm",
     },
     background: {},
   },
 ];
 
 const MyComponent: React.FC = () => {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    console.log(ref);
-  }, [ref]);
   return (
-    <HistoryWrapper>
+    <HistoryWrapper id="wrapper">
       <Timeline
-        ref={ref}
         target={<div className="timeline" style={{ height: 600 }} />}
         events={events}
-        options={
-          {
-            // timenav_position: "top",
-            // hash_bookmark: true,
-            // initial_zoom: 1,
-            // scale_factor: 1,
-            // debug: true,
-            // default_bg_color: "green",
-          }
-        } // optional
+        options={{
+          // timenav_position: "top",
+          // hash_bookmark: true,
+          // initial_zoom: 1,
+          // scale_factor: 1,
+          // debug: true,
+          // default_bg_color: "green",
+          language: "fr",
+        }} // optional
       />
     </HistoryWrapper>
   );

@@ -117,4 +117,14 @@ export const HistoryWrapper = styled.div`
     max-width: unset;
     width: fit-content;
   }
+  & .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-description {
+    display: none;
+  }
+
+  &
+    .tl-slidenav-previous
+    .tl-slidenav-content-container
+    .tl-slidenav-description {
+    display: none;
+  }
 `;

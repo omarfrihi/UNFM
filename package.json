@@ -12,6 +12,7 @@
     "@strapi/strapi": "^4.12.6",
     "@uidotdev/usehooks": "^2.1.0",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.9",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
     "next": "13.4.13",
