@@ -40,7 +40,7 @@ const NavbarMobile = ({
     <>
       <Drawer open={open} onClose={() => setOpen(false)} anchor="right">
         <Wrapper>
-          {data.map(({ title, subMenu, link }) => (
+          {data.map(({ title, subMenu, link, actions }) => (
             <>
               <Item active={asPath === link} key={title}>
                 {!isEmpty(subMenu) ? (
@@ -78,6 +78,11 @@ const NavbarMobile = ({
                         {subMenu?.map(({ link, title }) => (
                           <Link href={link || "/"} key={title}>
                             <SubItem active={asPath === link}>{title}</SubItem>
+                          </Link>
+                        ))}
+                        {actions?.map(({ link, text }) => (
+                          <Link href={link || "/"} key={title}>
+                            <SubItem active={asPath === link}>{text}</SubItem>
                           </Link>
                         ))}
                       </SubItems>

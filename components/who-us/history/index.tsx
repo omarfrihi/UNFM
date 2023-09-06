@@ -33,7 +33,7 @@ const History = ({ data: { title, content, action } }: HistoryProps) => (
       alt="logo"
       width={120}
     ></Image>
-    <Button href="hsitory">{action}</Button>
+    <Button href="/history">{action}</Button>
   </Wrapper>
 );
 

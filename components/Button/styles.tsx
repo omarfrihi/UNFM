@@ -16,6 +16,6 @@ export const ShowMore = styled("div")`
 export const ButtonText = styled.span`
   font-size: 0.75rem;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: capitalize;
 `;
