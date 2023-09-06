@@ -1,22 +1,20 @@
+import { isEmpty } from "lodash";
 import RootLayout, { getLayoytStaticProps } from "../components/layout";
-import WithLayout from "../hoc";
 
 const NotFound = ({ data }: any) => {
-  return <>Page not Found</>;
+  const { layout } = data;
+  if (isEmpty(layout)) return <>Error Strapi</>;
+  return <RootLayout {...layout}>{"Page not Found"}</RootLayout>;
 };
 
-export default WithLayout(NotFound);
+export default NotFound;
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  let data = {};
-  try {
-    const layout = await getLayoytStaticProps(locale);
-    data = { layout };
-  } catch {}
+  const layout = await getLayoytStaticProps(locale);
 
   return {
     props: {
-      data,
+      data: { layout },
     },
     revalidate: true,
   };
