@@ -4,7 +4,11 @@ import { responsive } from "../../styles/mixins";
 export const HistoryWrapper = styled.div`
   background: linear-gradient(180deg, #f2f2f2 0%, rgba(255, 255, 255, 0) 100%),
     #fff;
-  padding: 0rem 4rem;
+  padding: 1rem 3rem;
+  ${responsive.xl`
+  padding: 1rem 0rem;
+
+  `}
   & .tl-slide {
     background: linear-gradient(
       180deg,
@@ -15,6 +19,10 @@ export const HistoryWrapper = styled.div`
   & .tl-media .tl-media-content-container .tl-media-content img {
     height: 370px;
     max-width: 500px;
+    ${responsive.xl`
+    height: 270px;
+    max-width: 350px;
+    `}
   }
   & .tl-timemarker .tl-timemarker-content-container {
     height: fit-content !important;
@@ -81,11 +89,15 @@ export const HistoryWrapper = styled.div`
   & .tl-timeline h3.tl-headline-date {
     color: #31dc84;
     font-family: Red Hat Display;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     text-transform: capitalize;
+    ${responsive.lg`
+    font-size: 0.9rem;
+  
+    `}
   }
   & .tl-timeline h1,
   .tl-timeline h2,
@@ -95,28 +107,43 @@ export const HistoryWrapper = styled.div`
   .tl-timeline h6 {
     color: #144056;
     font-family: Red Hat Display;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.03563rem;
     text-transform: capitalize;
     margin-bottom: 1rem;
+    ${responsive.lg`
+    font-size: 1.3rem;
+  
+    `}
   }
 
   & .tl-timeline p {
     color: #144056;
     text-align: justify;
     font-family: Red Hat Display;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    ${responsive.lg`
+    font-size: 0.7rem;
+  
+    `}
   }
   & .tl-slide .tl-slide-content-container .tl-slide-content {
     display: flex;
     justify-content: center;
-    gap: 5rem;
+    ${responsive.xl`
+    gap: 2rem;
+  
+    `}
+
+    ${responsive.md`
+flex-direction:column-reverse; 
+    `}
     align-items: center;
   }
   & .tl-slide .tl-slide-content-container .tl-slide-content .tl-media {
@@ -137,11 +164,15 @@ export const HistoryWrapper = styled.div`
   & .tl-timeline b {
     color: #144056;
     font-family: Red Hat Display;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.02625rem;
+    ${responsive.lg`
+    font-size: 1.1rem;
+  
+    `}
   }
   & .tl-timeline a {
     text-decoration: none;
@@ -161,6 +192,23 @@ export const HistoryWrapper = styled.div`
     font-style: normal;
     font-weight: 700;
     text-transform: capitalize;
+    ${responsive.lg`
+    font-size: 0.6rem;
+  
+    `}
+  }
+
+  & .tl-slide .tl-slide-scrollable-container {
+    width: 100%;
+  }
+  & .tl-slide .tl-slide-content-container .tl-slide-content {
+    width: 100% !important;
+    padding: 0rem 1rem !important;
+  }
+
+  & .tl-slide .tl-slide-content-container .tl-slide-content .tl-text {
+    max-width: 100% !important;
+    width: 100%;
   }
 `;
 

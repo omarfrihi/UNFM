@@ -13,7 +13,7 @@ const History = ({ events }: HistoryProps) => {
     <>
       <HistoryWrapper id="wrapper">
         <Timeline
-          target={<div className="timeline" style={{ height: "100vh" }} />}
+          target={<div className="timeline" style={{ height: 700 }} />}
           events={events}
           options={{
             language: "fr",
