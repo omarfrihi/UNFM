@@ -102,7 +102,6 @@ const History = ({ data }: { data: HistoryPageProps }) => {
 
   return (
     <>
-      <Popup {...popup} />
       <HistoryNoSSR {...timeline} />
     </>
   );
