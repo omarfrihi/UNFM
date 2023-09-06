@@ -136,6 +136,8 @@ export const HistoryWrapper = styled.div`
   & .tl-slide .tl-slide-content-container .tl-slide-content {
     display: flex;
     justify-content: center;
+    gap: 3rem;
+
     ${responsive.xl`
     gap: 2rem;
   
@@ -209,6 +211,12 @@ flex-direction:column-reverse;
   & .tl-slide .tl-slide-content-container .tl-slide-content .tl-text {
     max-width: 100% !important;
     width: 100%;
+    padding: 0rem 7rem 0rem 0rem;
+
+    ${responsive.md`
+    padding: 0rem 3rem;
+
+        `}
   }
 `;
 
