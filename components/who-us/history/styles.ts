@@ -39,6 +39,7 @@ export const StartIcon = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  padding: 0rem 2rem;
 `;
 
 export const Text = styled.p`
