@@ -38,6 +38,7 @@ import {
   Media,
 } from "./types";
 import { IProgramNavbar } from "./types/api/ProgramNavbar";
+import Button from "../components/Button";
 
 export const strapiApiResponseExtractor = (result: any) => result.data.data;
 
@@ -493,7 +494,6 @@ const historyPageFormatter = (
   };
   //@ts-ignore
   dayjs.locale(config[locale]);
-
   return {
     popup: {
       image: attributes.popup.image,
@@ -518,11 +518,10 @@ const historyPageFormatter = (
         unique_id: record.id.toString(),
         text: {
           headline: record.title,
-          text: record.content,
+          text: `<p>${record.content}<p> <b>"${record.quote}"</b> <div
+          style="width:100%;display:flex;justify-content:flex-end;margin-top:1rem;"
+          ><a href="/${locale}${record.link}"><button>${attributes.action_text}</button></a></div>`,
         },
-        quote: record.quote,
-        link: record.link,
-        action_text: attributes.action_text,
       })),
     },
   };

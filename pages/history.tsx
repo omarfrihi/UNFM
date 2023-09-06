@@ -5,6 +5,7 @@ import { getLayoytStaticProps } from "../components/layout";
 import { HistoryProps } from "../components/history";
 import { Media } from "../strapi/types";
 import { getHistoryPage } from "../strapi/api";
+import Popup, { PopUpHistory } from "../components/history/popup";
 const events = [
   {
     start_date: {
@@ -89,20 +90,21 @@ const events = [
 const HistoryNoSSR = dynamic(() => import("../components/history"), {
   ssr: false,
 });
-type PopUpHistory = {
-  image: Media;
-  author: string;
-  content: string;
-};
+
 export type HistoryPageProps = {
   timeline: HistoryProps;
   popup: PopUpHistory;
 };
 
 const History = ({ data }: { data: HistoryPageProps }) => {
-  const { timeline } = data;
+  const { timeline, popup } = data;
 
-  return <HistoryNoSSR {...timeline} />;
+  return (
+    <>
+      <Popup {...popup} />
+      <HistoryNoSSR {...timeline} />
+    </>
+  );
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
@@ -110,14 +112,11 @@ export async function getStaticProps({ locale }: { locale: string }) {
   let data = { layout };
   try {
     const history = await getHistoryPage(locale);
-    console.log("historyhistory", history);
     data = {
       ...data,
       ...history,
     };
-  } catch (e) {
-    console.log("historyhistoryerror", e);
-  }
+  } catch (e) {}
 
   return {
     props: {

@@ -1,9 +1,16 @@
 import styled from "@emotion/styled";
+import { responsive } from "../../styles/mixins";
 
 export const HistoryWrapper = styled.div`
+  background: linear-gradient(180deg, #f2f2f2 0%, rgba(255, 255, 255, 0) 100%),
+    #fff;
+  padding: 0rem 4rem;
   & .tl-slide {
-    background: linear-gradient(180deg, #f2f2f2 0%, rgba(255, 255, 255, 0) 100%),
-      #fff;
+    background: linear-gradient(
+      180deg,
+      #f2f2f2 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
   & .tl-media .tl-media-content-container .tl-media-content img {
     height: 370px;
@@ -127,4 +134,87 @@ export const HistoryWrapper = styled.div`
     .tl-slidenav-description {
     display: none;
   }
+  & .tl-timeline b {
+    color: #144056;
+    font-family: Red Hat Display;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.02625rem;
+  }
+  & .tl-timeline a {
+    text-decoration: none;
+  }
+  & .tl-timeline button {
+    background-color: ${({ theme }) => theme.colors.blue[100]};
+    border-radius: 6.5rem;
+    padding: 0.7rem 1.3rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: ${({ theme }) => theme.colors.white[200]};
+    cursor: pointer;
+    width: fit-content !important;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+`;
+
+export const ShowMore = styled.div`
+  position: absolute;
+  top: 378px;
+  right: 300px;
+  z-index: 8;
+`;
+
+export const PopupWrapper = styled.div`
+  display: flex;
+  min-height: 35rem;
+  ${responsive.xs`
+  flex-direction:column;
+  align-items:center;
+  padding-top:2rem;
+  `}
+`;
+export const Wrapper = styled.div`
+flex:3;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: ${({ theme }) => `url("/assets/popup.png") ;`}
+
+  background-size: cover;
+  padding: 4rem 10%;
+  ${responsive.xs`
+  padding: 2rem 10%;
+
+  `}
+  background-repeat: no-repeat;
+  background-blend-mode: luminosity;
+
+`;
+
+export const ImagerWrapper = styled.div`
+  position: relative;
+  flex: 2;
+  ${responsive.xs`
+  
+  display:none;
+  `}
+`;
+
+export const ImagerWrapperResponsive = styled.div`
+  display: none;
+
+  ${responsive.xs`
+  
+  display:block;
+  `}
 `;
