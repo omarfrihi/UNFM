@@ -44,7 +44,7 @@ export const getFormattedDocument = async (
     id ? type.replace(":id", id.toString()) : type,
     locale
   );
-  return prepareData(formaters[type](result));
+  return prepareData(formaters[type](result, locale));
 };
 
 export const getTopBar = (locale: string): Promise<TopbarProps> =>
@@ -159,3 +159,6 @@ export const getProgram = async (
     })
   );
 };
+
+export const getHistoryPage = (locale: string): Promise<TopbarProps> =>
+  getFormattedDocument(EStrapi_Single_Types.HISTORY_PAGE, locale);

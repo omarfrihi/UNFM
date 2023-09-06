@@ -5,10 +5,16 @@ import { NavbarProps } from "../components/navbar";
 import { HomeProps } from "../pages";
 import { WomenDayProps } from "../pages/8mars";
 import { ActivitiesPageProps } from "../pages/activities";
+import { HistoryPageProps } from "../pages/history";
 import { ProgramsPageProps } from "../pages/programs";
 import { ENavbarSections, ProgramProps } from "../pages/programs/[id]";
 import { WhoUsProps } from "../pages/who-us";
 import { categories } from "../utils/constants";
+import dayjs from "dayjs";
+import frenchConf from "dayjs/locale/fr";
+import arabeConf from "dayjs/locale/ar-ma";
+import englishConf from "dayjs/locale/en";
+
 import {
   ExtractNested,
   IActivitiesPage,
@@ -16,6 +22,7 @@ import {
   IActivityType,
   IAssociation,
   IFooter,
+  IHistoryPage,
   IHomepage,
   IMedia,
   IMedia1,
@@ -475,6 +482,51 @@ const programFormatter = ({
     },
   };
 };
+const historyPageFormatter = (
+  { attributes }: IHistoryPage,
+  locale: string
+): HistoryPageProps => {
+  const config = {
+    fr: frenchConf,
+    ar: arabeConf,
+    en: englishConf,
+  };
+  //@ts-ignore
+  dayjs.locale(config[locale]);
+
+  return {
+    popup: {
+      image: attributes.popup.image,
+      author: attributes.popup.author,
+      content: attributes.popup.content,
+    },
+    timeline: {
+      events: attributes.timeline_records.map((record) => ({
+        start_date: {
+          year: dayjs(record.date).year(),
+          month: dayjs(record.date).month(),
+          day: dayjs(record.date).date(),
+          display_date: dayjs(record.date, "YYYY-MM-DD", locale).format(
+            "DD MMMM YYYY"
+          ),
+        },
+        media: {
+          url: urlBuilder(record.image).src,
+          thumbnail: urlBuilder(record.thumbnail).src,
+        },
+
+        unique_id: record.id.toString(),
+        text: {
+          headline: record.title,
+          text: record.content,
+        },
+        quote: record.quote,
+        link: record.link,
+        action_text: attributes.action_text,
+      })),
+    },
+  };
+};
 
 export enum EStrapi_Single_Types {
   TOP_BAR = "topbar",
@@ -494,6 +546,7 @@ export enum EStrapi_Single_Types {
   PROGRAM_NAVBAR = "program-navbar",
   MEDIAS = "medias",
   PARTNERS = "partners",
+  HISTORY_PAGE = "history-page",
 }
 export const formaters: { [key in EStrapi_Single_Types]?: any } = {
   [EStrapi_Single_Types.TOP_BAR]: topBarFormater,
@@ -506,6 +559,7 @@ export const formaters: { [key in EStrapi_Single_Types]?: any } = {
   [EStrapi_Single_Types.ACTIVITY]: activityFormater,
   [EStrapi_Single_Types.PROGRAMS_PAGE]: programsPageFormatter,
   [EStrapi_Single_Types.PROGRAM]: programFormatter,
+  [EStrapi_Single_Types.HISTORY_PAGE]: historyPageFormatter,
 };
 
 export const urlBuilder = (media: Media) => ({

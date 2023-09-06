@@ -42,3 +42,6 @@ export * from "./api/slices/Programs";
 export * from "./api/slices/History";
 export * from "./api/slices/Testimonies";
 export * from "./api/slices/Tools";
+export * from "./api/single/HistoryPopup";
+export * from "./api/single/TimelineRecord";
+export * from "./api/HistoryPage";
