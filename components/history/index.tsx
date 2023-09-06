@@ -4,6 +4,7 @@ import { HistoryWrapper, ShowMore } from "./styles";
 import dayjs from "dayjs";
 import Button from "../Button";
 import Popup from "./popup";
+import WithLayout from "../../hoc";
 export type HistoryProps = {
   events: Slide[];
 };
@@ -12,7 +13,7 @@ const History = ({ events }: HistoryProps) => {
     <>
       <HistoryWrapper id="wrapper">
         <Timeline
-          target={<div className="timeline" style={{ height: 600 }} />}
+          target={<div className="timeline" style={{ height: "100vh" }} />}
           events={events}
           options={{
             language: "fr",
@@ -23,4 +24,4 @@ const History = ({ events }: HistoryProps) => {
   );
 };
 
-export default History;
+export default WithLayout(History);
