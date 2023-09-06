@@ -24,4 +24,4 @@ const History = ({ events }: HistoryProps) => {
   );
 };
 
-export default WithLayout(History);
+export default History;

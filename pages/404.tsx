@@ -1,19 +1,22 @@
 import RootLayout, { getLayoytStaticProps } from "../components/layout";
+import WithLayout from "../hoc";
 
 const NotFound = ({ data }: any) => {
-  const { layout } = JSON.parse(data);
-
-  return <RootLayout {...layout}>{"Page not Found"}</RootLayout>;
+  return <>Page not Found</>;
 };
 
-export default NotFound;
+export default WithLayout(NotFound);
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const layout = await getLayoytStaticProps(locale);
+  let data = {};
+  try {
+    const layout = await getLayoytStaticProps(locale);
+    data = { layout };
+  } catch {}
 
   return {
     props: {
-      data: JSON.stringify({ layout }),
+      data,
     },
     revalidate: true,
   };

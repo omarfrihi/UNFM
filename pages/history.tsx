@@ -6,6 +6,7 @@ import { HistoryProps } from "../components/history";
 import { Media } from "../strapi/types";
 import { getHistoryPage } from "../strapi/api";
 import Popup, { PopUpHistory } from "../components/history/popup";
+import WithLayout from "../hoc";
 const events = [
   {
     start_date: {
@@ -125,4 +126,4 @@ export async function getStaticProps({ locale }: { locale: string }) {
     revalidate: true,
   };
 }
-export default History;
+export default WithLayout(History);
