@@ -218,6 +218,9 @@ flex-direction:column-reverse;
 
         `}
   }
+  & .tl-storyslider {
+    z-index: 2;
+  }
 `;
 
 export const ShowMore = styled.div`
